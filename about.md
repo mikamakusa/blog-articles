@@ -7,7 +7,12 @@ title = "A propos..de moi"
 
 # Experience #
 
-**From Sept 2012** | **ArubaCloud** | **Clichy**  
+**From May 2016** | **Simia** | **Paris**
+**System Engineer**
+
+---
+
+**Sept 2012 - May 2016** | **ArubaCloud** | **Clichy**  
 **System Administrator**  
 - Technical Support and System Administration  
 - Integration of new technologies (Docker, Ansible, Windows 2012 R2, etc…) in Cloud templates  
@@ -71,16 +76,23 @@ title = "A propos..de moi"
 - **Infrastructure** : Active Directory, Firewall, Load Balancing, Clustering  
 - **Languages** : Powershell, Python  
 - **Mail System** : Exchange Server  
+- **Versionning** : Git
 
 ---
 
-# Projects
+# Coding
+
+## Powershell
 - Powershell Automatic IP Ban
 - Powershell Docker Container Orchestration
 - Powershell Easy Deploy
 - Powershell VMWare Provisionning
+## Python
 - Python Cloud Instances Deploy
 - Python Linux Easy Deploy
+- PyArubaCloud (Collaboration for ArubaCloud Library for Python)
+## Ruby
+- Fog/Arubacloud (ArubaCloud Driver for Fog gem)
 
 ---
 
