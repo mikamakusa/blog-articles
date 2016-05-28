@@ -87,10 +87,12 @@ title = "A propos..de moi"
 - Powershell Docker Container Orchestration
 - Powershell Easy Deploy
 - Powershell VMWare Provisionning
+
 ## Python
 - Python Cloud Instances Deploy
 - Python Linux Easy Deploy
 - PyArubaCloud (Collaboration for ArubaCloud Library for Python)
+
 ## Ruby
 - Fog/Arubacloud (ArubaCloud Driver for Fog gem)
 
