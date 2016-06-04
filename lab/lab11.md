@@ -17,7 +17,7 @@ Il permet :
 
 # De l'intégration continue ?
 C'est un ensemble de pratiques utilisées en génie logiciel consistant à vérifier, à chaque modification de code source, que le résultat des modifications ne produit pas de régression dans l'application développée.  
-Le concept a pour la première fois été mentionné par Grady Booch1 et se réfère généralement à la pratique de l'extreme programming.  
+Le concept a pour la première fois été mentionné par Grady Booch et se réfère généralement à la pratique de l'extreme programming.  
 Le principal but de cette pratique est de détecter les problèmes d'intégration au plus tôt lors du développement.  
 De plus, elle permet d'automatiser l'exécution des suites de tests et de voir l'évolution du développement du logiciel.
 (Merci à Wikipedia pour la définition)
@@ -118,46 +118,48 @@ Pour construire l'image **Docker** :
 
 
 ###### Le fichier gitlab-ci.yml exemple
+```yaml
+image: php56
 
-		image: php56
-
-		before_script:
-		    - service mysql start
-		    - echo "create database laravel" | mysql -u root
-		    - mysql -u root laravel < "sql/laravel.sql"
-		    - echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');" | mysql -u root
-		    - php /composer.phar install --no-progress
-		job1:
-		    script:
-		        - php artisan migrate
-		        - vendor/bin/phpunit tests
+before_script:
+    - service mysql start
+    - echo "create database laravel" | mysql -u root
+    - mysql -u root laravel < "sql/laravel.sql"
+    - echo "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root');" | mysql -u root
+    - php /composer.phar install --no-progress
+job1:
+    script:
+        - php artisan migrate
+        - vendor/bin/phpunit tests
+```
 
 
 - **En Intégrant l'installation des packages necessaires dans le fichier gitab-ci.yml** :
 
 ###### Le fichier gitlab-ci.yml exemple
+```yaml
+	before_script:  
+	  - apt-get install wget
 
-		before_script:  
-		  - apt-get install wget
+	stages:  
+	  - test  
+	  - deploy  
+	  - build
 
-		stages:  
-		  - test  
-		  - deploy  
-		  - build
-
-		deploy:2.1:
-		  image: debian:latest  
-		  script:  
-			  - apt-get install apache2 make build-essential -y  
-			  - apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql curl wget git -y  
-			  - apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl -y
-
-		deploy:2.2:  
-		  image: ubuntu:latest  
-		  script:  
+	deploy:2.1:
+	  image: debian:latest  
+	  script:  
 		  - apt-get install apache2 make build-essential -y  
 		  - apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql curl wget git -y  
 		  - apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl -y
+
+	deploy:2.2:  
+	  image: ubuntu:latest  
+	  script:  
+	  - apt-get install apache2 make build-essential -y  
+	  - apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql curl wget git -y  
+	  - apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-sqlite php5-tidy php5-xmlrpc php5-xsl -y
+```
 
 De cette manière, on peut passer plusieurs étapes intérmédiaires telles que la création du dockerfile et la construction de l'image.
 

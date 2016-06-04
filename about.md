@@ -7,8 +7,12 @@ title = "A propos..de moi"
 
 # Experience #
 
-**From May 2016** | **Simia** | **Paris**
-**System Engineer**
+**From May 2016** | **Simia** | **Paris**  
+**System Engineer**  
+**Radio France**  
+- Tools integration (Gitlab-CI, DockerTrusted Registry)  
+- Infrastructure deployment with Puppet and Terraform  
+- Technical Documentation
 
 ---
 
@@ -70,11 +74,11 @@ title = "A propos..de moi"
 
 # Skills   
 - **Operating systems** : Windows Server (2008 | 2012) - Linux (Ubuntu | CentOS)  
-- **Cloud and Vitualization** : VMware, Hyper-V, Docker, Rkt  
+- **Cloud and Vitualization** : VMware, Hyper-V, Docker  
 - **Configuration Management** : Ansible  
 - **BigData** : Hadoop, Hbase  
-- **Infrastructure** : Active Directory, Firewall, Load Balancing, Clustering  
-- **Languages** : Powershell, Python  
+- **Infrastructure** : Active Directory/OpenLDAP, Firewall, Load Balancing, Clustering  
+- **Languages** : Powershell, Python, Ruby  
 - **Mail System** : Exchange Server  
 - **Versionning** : Git
 
