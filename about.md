@@ -9,7 +9,7 @@ title = "A propos..de moi"
 
 **From May 2016** | **Simia** | **Paris**  
 **System Engineer**  
-**Radio France**  
+**Radio France** | **2 weeks**  
 - Tools integration (Gitlab-CI, DockerTrusted Registry)  
 - Infrastructure deployment with Puppet and Terraform  
 - Technical Documentation

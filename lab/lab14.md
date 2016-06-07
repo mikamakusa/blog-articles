@@ -55,20 +55,29 @@ Pour ce Lab, nous n'allons pas déployer de nombreux serveurs. Je me suis fixé 
 Pour pouvoir utiliser les ressources de son compte Digital Ocean, sans avoir à se rendre sur leur site, il nous le token. Ce token est généré sur le site de Digital Ocean.  
 On peut aussi faire appel à la méthode Oauth2 ou à la libraire **doto** en python pour générer le token automatiquement.
 
-Ensuite, on intègre ce qui suit dans le fichier de déploiement **Terraform** :  
+Ensuite, on crée un fichier **digitalocean-provider.tf** ce qui suit :  
 
 	variable "do_token" {}  
 	variable "pub_key" {}  
 	variable "pvt_key" {}  
 	variable "ssh_fingerprint" {}  
-	variable "do_token" {}   
 	variable "user_data" {}
-
-Les variables précédentes sont à renseigner avec les paramètres que vous obtiendrez.
-
 	provider "digitalocean" {  
 	    token = "${var.do_token}"  
 	}
+
+Et ensuite, on crée le fichier **terraform.tfvars** dans lequel on insère les variables :  
+
+	do_token = "<token>"
+	pub_key = "<clé_publique>"
+	pvt_key = "clé_privée"  
+	ssh_fingerprint = "<fingerprint_ssh>"
+
+Il est possible de rencontrer un message d'erreur du type : 
+
+	* digitalocean_ssh_key.default: Error creating SSH Key: POST https://api.digitalocean.com/v2/account/keys: 422 Key invalid, key should be of the format `type key [comment]`
+
+Dans ce cas, on peut créer la clé ssh dans le panneau de contrôle de Digital Ocean.
 
 ### La clé SSH
 Il est possible de se passer de clé SSH pour créer les serveurs, mais dans le cas de **DigitalOcean**, les mots de passe *root* sont transmis par mail.  
@@ -185,11 +194,16 @@ Si tout est bon, on peut véritablement se lancer avec la commande `terraform ap
 
 On devrait obtenir un résultat similaire à ce qui suit : 
 
-	digitalocean_droplet.ServerX: Creating...
-	...
-	digitalocean_droplet.ServerX: Creation complete
-	Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-	...
+	digitalocean_droplet.Server1: Still creating... (10s elapsed)
+	digitalocean_droplet.Server1: Still creating... (20s elapsed)
+	digitalocean_droplet.Server1: Still creating... (30s elapsed)
+	digitalocean_droplet.Server1: Creation complete
+	digitalocean_floating_ip.Server1: Creating...
+	  droplet_id: "" => "16892410"
+	  ip_address: "" => "<computed>"
+	  region:     "" => "ams2"
+	digitalocean_floating_ip.Server1: Still creating... (10s elapsed)
+	digitalocean_floating_ip.Server1: Creation complete
 
 Pour vérifier que tout est bien déployé : `terraform show terraform.tfstate`
 
