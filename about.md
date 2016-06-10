@@ -9,9 +9,9 @@ title = "A propos..de moi"
 
 **From May 2016** | **Simia** | **Paris**  
 **System Engineer**  
-**Radio France** | **2 weeks**  
+**Radio France**  
 - Tools integration (Gitlab-CI, DockerTrusted Registry)  
-- Infrastructure deployment with Puppet and Terraform  
+- Infrastructure deployment with Jenkins, Puppet and Terraform  
 - Technical Documentation
 
 ---
@@ -75,7 +75,9 @@ title = "A propos..de moi"
 # Skills   
 - **Operating systems** : Windows Server (2008 | 2012) - Linux (Ubuntu | CentOS)  
 - **Cloud and Vitualization** : VMware, Hyper-V, Docker  
-- **Configuration Management** : Ansible  
+- **Configuration Management** : Ansible, Puppet    
+- **Automated Deployment** : Terraform  
+- **Continuous Integration** : Gitlab-CI, Jenkins  
 - **BigData** : Hadoop, Hbase  
 - **Infrastructure** : Active Directory/OpenLDAP, Firewall, Load Balancing, Clustering  
 - **Languages** : Powershell, Python, Ruby  
