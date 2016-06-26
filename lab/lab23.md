@@ -44,13 +44,6 @@ Pour cela, j'ai créé les fichiers do.json (le template **Packer**) et docker.s
 		    "type": "file",
 		    "source": "docker.sh",
 		    "destination": "/root/docker.sh"
-	  	},
-	  	{
-	  		"type": "shell",
-	  		"inline": [
-	  			"chmod +x /root/docker.sh",
-	  			"sudo /root/./docker.sh"
-	  		]
 	  	}]
 	}
 

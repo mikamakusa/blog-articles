@@ -1,5 +1,5 @@
 +++
-date = "2016-06-20T15-29-49+02:00"
+date = "2016-06-20T15:29:49+02:00"
 draft = false
 title = "Le Labo #16 - 1ere partie | Initiation à Vagrant"
 
