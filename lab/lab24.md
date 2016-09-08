@@ -1,7 +1,7 @@
 +++
 date = "2016-07-30T15:29:49+02:00"
 draft = "false"
-title = "Le Labo #18 | Jouons avec Docker et SaltStack"
+title = "Le Labo #18 | Jouons avec Docker et SaltStack (update 08/09/2016)"
 
 +++
 
@@ -55,110 +55,81 @@ Une fois ceci effectué, je vais déjà pouvoir lancer les commandes suivantes, 
 - Sur le master, pour démarrer le service  
 `systemctl start salt-master`
 
-- Sur le minion, pour générer une clé et la communication vers le maître (le *-l debug* est optionnel et permet d'avoir un aperçu des logs)  
-`salt-minion -l debug`
-
 - Sur le master, pour visualiser les clés en attente et les accepter  
 `salt-key` et `salt-key -a * -y`
 
 
 # Les states
 La configuration des deux serveurs **Salt** étant terminée, nous allons pouvoir nous concentrer sur les **states**.  
-Je vais en créer trois : 
+Je vais en créer  : 
 
 - Python : pour les besoins de ce lab, je vais avoir besoin d'installer Python 3.5 (qui est un prérequis à docker-py).
 
 - Docker et la librairie docker-py (et les dépendances qui vont bien).
-
-- Un conteneur Apache
 
 ## Le State Python
 Voici à quoi ressemble ce state :  
 
 	epel-release:
 	  pkg.installed:
-	    - name: epel-release
+    	- name: epel-release
+
 	plugin-priorities:
 	  pkg.installed:
 	    - name: yum-plugin-priorities
+
 	scl-rh:
 	  pkg.installed:
 	    - name: centos-release-scl-rh
+
 	scl:
 	  pkg.installed:
 	    - name: centos-release-scl
+
 	scl-utils:
 	  pkg.installed:
 	    - name: scl-utils
+
 	python:
-	  pkg/installed:
+	  pkg.installed:
 	    - name: rh-python35
+
+	python-enable:
+	  cmd.run:
+	    - name: scl enable rh-python35 bash
+
+	python-pip:
+	  pkg.installed:
+	    - name: python-pip
 
 ## Le State Docker
 Voici à quoi il ressemble :
 
-	docker-python-pip:
-	  pkg.installed:
-	    -name: python-pip
-	docker-py-dependancies:
-	  pip.installed:
-	    - pkgs:
-	      - requests
-	      - six
-	      - websocket-client
-	      - backports.ssl_match_hostname
-	    - require:
-	      - pkg: python-pip
-	docker-py-install:
-	  pip.instaled:
-	    - name: docker-py
-	docker-dependancies:
-	  pkg.installed:
-	    - pkgs:
-	      - iptables
-	      - ca-certificates
-	      - lxc
 	docker:
 	  file.managed:
 	    - name: /etc/yum.repos.d/docker.repo
 	    - contents:
 	      - '[dockerrepo]'
-	      - name="Docker Repository"
-	      - baseurl=https://yum.dockerproject.org/repo/main/centos/7
+	      - name=Docker Repository
+	      - baseurl=https://yum.dockerproject.org/repo/main/centos/7/
 	      - enabled=1
 	      - gpgcheck=1
 	      - gpgkey=https://yum.dockerproject.org/gpg
 	  pkg.installed:
-	    - name: docker-engine
+	    - pkgs:
+	      - iptables
+	      - ca-certificates
+	      - lxc
+	      - docker-engine
 	  service.running:
 	    - name: docker
-	    - require:
-	      - pkg: docker-engine
 
-# Le State conteneur Apache
-Dans ce state, je vais effectuer plusieurs opérations : 
+	dockerpy-install:
+	  pip.installed:
+	    - name: docker-py
 
-- Recupérer une image Ubuntu
-- Provisionner le conteneur
-- Démarrer le conteneur
 
-Voici donc le contenu de ce State : 
-
-	ubuntu:
-	  docker.pulled:
-	    - tag: latest
-	apache-container:
-	  docker.installed:
-	    - name: apache
-	    - hostname: apache
-	    - image: ubuntu:latest
-	    - detach: True
-	    - tty: True
-	    - require_in: apache
-	apache:
-	  cmd.run: docker start apache
-
-# Le fichier d'orchestration
+## Le fichier d'orchestration
 Le fonctionnement de **Salt** diffère très peu de celui d'**Ansible** et de ses *rôles*, mais pour que le déploiement se fasse sans erreur, il faut un fichier d'orchestration appelé **top.sls** dans lequel on va ajouter les étapes du déploiement.  
 Dans le cas qui m'intéresse ici, le fichier contiendra ce qui suit : 
 
@@ -182,5 +153,16 @@ La commande de déploiement *semi automatique* est la suivante :
 Avant cette commande; je peux découper le processus de déploiement en étape (correspondante, biensûr, à celles inscrite dans le **top.sls**) et par conséquent, d'éviter de perdre trop de temps à rechercher les éventuelles erreurs.
 
 
+# Docker et Salt
+Après avoir effectué de nombreux tests de création de conteneurs à l'aide de **Salt**, je suis arrivé à la conclusion suivante :  
+**C'est tout sauf une bonne idée**
 
+En fait, créer un conteneur via **Salt** n'offre pas le même niveau de contrôle que si le conteneur était créé directement à l'aide des commandes de **Docker**, tout simplement parce que le module *docker-py* (utilisé par **Salt**) ne s'appuie pas sur la dernière version de l'API de Docker.  
+A la place, il est recommandé de suivre les étapes suivantes :  
+
+- Builder l'image : `docker build -t <tag> .`  
+- créer le conteneur : `docker build -ditP --add-host salt:<ip master> --hostname <hostname> --name <name> <image>:<tag> salt-minion &`  
+- Accepter la clé sur le **salt-master**: `salt-key -a "*" -y`
+
+# Conclusion
 Même si les erreurs sont assez parlante, les journaux de logs d'erreurs sont parfois assez indigeste...et plus encore ceux de **Salt**...tout ça pour dire que mon prochain article aura probablement un lien avec la stack **ELK**.
