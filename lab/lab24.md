@@ -1,7 +1,7 @@
 +++
 date = "2016-07-30T15:29:49+02:00"
 draft = "false"
-title = "Le Labo #18 | Jouons avec Docker et SaltStack (update 08/09/2016)"
+title = "Le Labo #18 | Jouons avec Docker et SaltStack (update 12/09/2016)"
 
 +++
 
@@ -59,7 +59,7 @@ Une fois ceci effectué, je vais déjà pouvoir lancer les commandes suivantes, 
 `salt-key` et `salt-key -a * -y`
 
 
-# Les states
+# Les states (update 08/09/2016)
 La configuration des deux serveurs **Salt** étant terminée, nous allons pouvoir nous concentrer sur les **states**.  
 Je vais en créer  : 
 
@@ -128,6 +128,18 @@ Voici à quoi il ressemble :
 	  pip.installed:
 	    - name: docker-py
 
+// **Update 12/09/2016** //
+
+### Ajout au state Docker
+Puisque le module **Docker** pour **Salt** fonctionne grâce à l'API, il faut donc ouvrir le port **Docker Remote** afin de pouvoir utiliser **Docker** à distance.
+Pour cela, il est recommandé d'ajouter ce qui suit au state relatif à l'installation de Docker : 
+
+    docker-api-open:
+      cmd.run:
+        - name: dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock &
+
+// //
+
 
 ## Le fichier d'orchestration
 Le fonctionnement de **Salt** diffère très peu de celui d'**Ansible** et de ses *rôles*, mais pour que le déploiement se fasse sans erreur, il faut un fichier d'orchestration appelé **top.sls** dans lequel on va ajouter les étapes du déploiement.  
@@ -153,16 +165,65 @@ La commande de déploiement *semi automatique* est la suivante :
 Avant cette commande; je peux découper le processus de déploiement en étape (correspondante, biensûr, à celles inscrite dans le **top.sls**) et par conséquent, d'éviter de perdre trop de temps à rechercher les éventuelles erreurs.
 
 
-# Docker et Salt
+# Docker et Salt (update 12/09/2016)
 Après avoir effectué de nombreux tests de création de conteneurs à l'aide de **Salt**, je suis arrivé à la conclusion suivante :  
-**C'est tout sauf une bonne idée**
+**C'est tout sauf une bonne idée**...surtout si on souhaite garder la main sur la création/suppression de conteneurs par la suite.
 
+### Création d'images et de conteneurs à la main
 En fait, créer un conteneur via **Salt** n'offre pas le même niveau de contrôle que si le conteneur était créé directement à l'aide des commandes de **Docker**, tout simplement parce que le module *docker-py* (utilisé par **Salt**) ne s'appuie pas sur la dernière version de l'API de Docker.  
 A la place, il est recommandé de suivre les étapes suivantes :  
 
 - Builder l'image : `docker build -t <tag> .`  
 - créer le conteneur : `docker build -ditP --add-host salt:<ip master> --hostname <hostname> --name <name> <image>:<tag> salt-minion &`  
 - Accepter la clé sur le **salt-master**: `salt-key -a "*" -y`
+
+### Création d'images et de conteneurs via Salt
+Dans cette optique, j'ai préféré créer plusieurs formules afin de découper les tâches
+
+**docker.build**
+
+	{% set name = salt['pillar.get']('name') %}
+	{% set tag = salt['pillar.get']('tag') %}
+	{% set path = salt['pillar.get']('path') %}
+
+	build-image:
+	  docker.built:
+	    - name: '{{name}}'
+	    - tag: '{{tag}}'
+	    - path: '{{path}}'
+
+**docker.pull**
+	
+	{% set tag = salt['pillar.get']('tag') %}
+
+	pull-image:
+	  docker.pulled:
+	    - tag: '{{tag}}'
+
+**docker.run**
+
+	{ % set cnt = salt['pillar.get']('cnt') %}
+	{ % set host = salt['pillar.get']('host') %}
+	{ % set img = salt['pillar.get']('img') %}
+
+	build-container:
+	  docker.installed:
+	    - container: '{{cnt}}'
+	    - hostname: '{{host}}'
+	    - image: '{{img}}'
+	    - tty: True
+	    - detach: True
+	    - mem_limit: !!null
+	    - start: True
+
+	cmd.run:
+	    - name: docker start '{{cnt}}'
+
+
+Pour chacun d'entre, la commande incluera les pillar, voir ci-dessous : 
+`salt "*" state.sls docker.build pillar="{'name':'test','tag':'latest','path':'/root/'}"`  
+`salt "*" state.sls docker.pull pillar="{'tag':'ubuntu:latest'}"`  
+`salt "*" state.sls docker.run pillar="{'cnt':'test','host':'test','img':'app:latest'}"`
 
 # Conclusion
 Même si les erreurs sont assez parlante, les journaux de logs d'erreurs sont parfois assez indigeste...et plus encore ceux de **Salt**...tout ça pour dire que mon prochain article aura probablement un lien avec la stack **ELK**.
