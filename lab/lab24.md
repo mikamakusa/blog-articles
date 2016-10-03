@@ -56,51 +56,29 @@ Une fois ceci effectué, je vais déjà pouvoir lancer les commandes suivantes, 
 `systemctl start salt-master`
 
 - Sur le master, pour visualiser les clés en attente et les accepter  
-`salt-key` et `salt-key -a * -y`
+`salt-key` et `salt-key -A -y`
 
 
 # Les states (update 08/09/2016)
 La configuration des deux serveurs **Salt** étant terminée, nous allons pouvoir nous concentrer sur les **states**.  
-Je vais en créer  : 
 
 - Python : pour les besoins de ce lab, je vais avoir besoin d'installer Python 3.5 (qui est un prérequis à docker-py).
 
-- Docker et la librairie docker-py (et les dépendances qui vont bien).
+- Docker, la librairie docker-py (et les dépendances qui vont bien) et des states pour build des images et déployer les conteneurs ui y font appel.
 
 ## Le State Python
 Voici à quoi ressemble ce state :  
 
-	epel-release:
+	python-install:
 	  pkg.installed:
-    	- name: epel-release
-
-	plugin-priorities:
-	  pkg.installed:
-	    - name: yum-plugin-priorities
-
-	scl-rh:
-	  pkg.installed:
-	    - name: centos-release-scl-rh
-
-	scl:
-	  pkg.installed:
-	    - name: centos-release-scl
-
-	scl-utils:
-	  pkg.installed:
-	    - name: scl-utils
-
-	python:
-	  pkg.installed:
-	    - name: rh-python35
-
-	python-enable:
-	  cmd.run:
-	    - name: scl enable rh-python35 bash
-
-	python-pip:
-	  pkg.installed:
-	    - name: python-pip
+	    - pkgs:
+	      - epel-release
+	      - yum-plugin-priorities
+	      - centos-release-scl-rh
+	      - centos-release-scl
+	      - scl-utils
+	      - rh-python35
+	      - python-pip
 
 ## Le State Docker
 Voici à quoi il ressemble :
@@ -128,18 +106,6 @@ Voici à quoi il ressemble :
 	  pip.installed:
 	    - name: docker-py
 
-// **Update 12/09/2016** //
-
-### Ajout au state Docker
-Puisque le module **Docker** pour **Salt** fonctionne grâce à l'API, il faut donc ouvrir le port **Docker Remote** afin de pouvoir utiliser **Docker** à distance.
-Pour cela, il est recommandé d'ajouter ce qui suit au state relatif à l'installation de Docker : 
-
-    docker-api-open:
-      cmd.run:
-        - name: dockerd -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock &
-
-// //
-
 
 ## Le fichier d'orchestration
 Le fonctionnement de **Salt** diffère très peu de celui d'**Ansible** et de ses *rôles*, mais pour que le déploiement se fasse sans erreur, il faut un fichier d'orchestration appelé **top.sls** dans lequel on va ajouter les étapes du déploiement.  
@@ -148,8 +114,7 @@ Dans le cas qui m'intéresse ici, le fichier contiendra ce qui suit :
 	base:
 	  '*':
 	    - python
-	    - docker
-	    - apache
+	    - docker*
 
 Pour lancer le déploiement, deux voies sont à notre disposition : 
 
@@ -178,27 +143,41 @@ A la place, il est recommandé de suivre les étapes suivantes :
 - Accepter la clé sur le **salt-master**: `salt-key -a "*" -y`
 
 ### Création d'images et de conteneurs via Salt
-Dans cette optique, j'ai préféré créer plusieurs formules afin de découper les tâches
 
-**docker.build**
+**Autant être clair tout de suite, j'aborde ce qui suit en vous prévenant que la création d'image fonctionne très bien...mais pas la création des conteneurs.**  
+Le déploiement des conteneurs est possible...mais ne fonctionne pas correctement.  
+Je ne peux que recommander d'utiliser le **docker-engine** pour le déploiement de conteneurs...ou l'API si vous la maîtrisez à fond.
 
-	{% set name = salt['pillar.get']('name') %}
-	{% set tag = salt['pillar.get']('tag') %}
-	{% set path = salt['pillar.get']('path') %}
-
-	build-image:
-	  docker.built:
-	    - name: '{{name}}'
-	    - tag: '{{tag}}'
-	    - path: '{{path}}'
 
 **docker.pull**
 	
-	{% set tag = salt['pillar.get']('tag') %}
+	#!py
+	def run():
+	  config = {}
+	  config['pull-image'] = {
+	  	'docker.pulled': [
+	  	  {'name': 'ubuntu'},
+	  	  {'tag': 'latest'},
+	  	  {'force': True}
+	  	]
+	  }
+	  return config
 
-	pull-image:
-	  docker.pulled:
-	    - tag: '{{tag}}'
+**docker.build**
+
+	#!py
+	def run():
+	  config = {}
+	  config['docker.build'] = {
+	  	'docker.built' [
+	  	  {'path': '/root/'},
+	  	  {'name': '<nom de l'image>'},
+	  	  {'tag': '<tag de l'image>'},
+	  	  {'nocache': True},
+	  	  {'rm': True}
+	  	]
+	  }
+	  return config
 
 **docker.run**
 
