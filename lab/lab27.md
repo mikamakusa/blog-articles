@@ -118,53 +118,53 @@ Voici ce que nous allons utiliser :
 
 - Un service
 
-	apiVersion: v1
-	kind: Service
-	metadata:
-	  name: default-subdomain
-	spec:
-	  selector:
-	    name: busybox
-	  clusterIP: None
-	  ports:
-	    - name: foo # Actually, no port is needed.
-	      port: 1234 
-	      targetPort: 1234
+	apiVersion: v1  
+	kind: Service  
+	metadata:  
+	  name: default-subdomain  
+	spec:  
+	  selector:  
+	    name: busybox  
+	  clusterIP: None  
+	  ports:  
+	    - name: foo   
+	      port: 1234   
+	      targetPort: 1234  
 
 - Un pod : Busybox1
 
-	apiVersion: v1
-	kind: Pod
-	metadata:
-	  name: busybox1
-	  labels:
-	    name: busybox
-	spec:
-	  hostname: busybox-1
-	  subdomain: default-subdomain
-	  containers:
-	  - image: busybox
-	    command:
-	      - sleep
-	      - "3600"
+	apiVersion: v1  
+	kind: Pod  
+	metadata:  
+	  name: busybox1  
+	  labels:  
+	    name: busybox  
+	spec:  
+	  hostname: busybox-1  
+	  subdomain: default-subdomain  
+	  containers:  
+	  - image: busybox  
+	    command:  
+	      - sleep  
+	      - "3600"  
 	    name: busybox
 
 - Un pod : Busybox2
 
-	apiVersion: v1
-	kind: Pod
-	metadata:
-	  name: busybox2
-	  labels:
-	    name: busybox
-	spec:
-	  hostname: busybox-2
-	  subdomain: default-subdomain
-	  containers:
-	  - image: busybox
+	apiVersion: v1  
+	kind: Pod  
+	metadata:  
+	  name: busybox2  
+	  labels:  
+	    name: busybox  
+	spec:  
+	  hostname: busybox-2  
+	  subdomain: default-subdomain  
+	  containers:  
+	  - image: busybox  
 	    command:
-	      - sleep
-	      - "3600"
+	      - sleep  
+	      - "3600"  
 	    name: busybox
 
 On peut voir les pods *up & running* dans **kubernetes** : 
