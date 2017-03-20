@@ -117,7 +117,6 @@ Et non, de chercher à comprendre comment d'autres applications démarrées à l
 Voici ce que nous allons utiliser : 
 
 - Un service
-- Deux Pods
 
 	apiVersion: v1
 	kind: Service
@@ -131,7 +130,9 @@ Voici ce que nous allons utiliser :
 	    - name: foo # Actually, no port is needed.
 	      port: 1234 
 	      targetPort: 1234
-	---
+
+- Un pod : Busybox1
+
 	apiVersion: v1
 	kind: Pod
 	metadata:
@@ -147,7 +148,9 @@ Voici ce que nous allons utiliser :
 	      - sleep
 	      - "3600"
 	    name: busybox
-	---
+
+- Un pod : Busybox2
+
 	apiVersion: v1
 	kind: Pod
 	metadata:
