@@ -1,5 +1,5 @@
 +++
-date = "2015-09-20T15:29:49+02:00"
+date = "2016-06-03T15:29:49+02:00"
 draft = false
 title = "Le Labo #12 1/2 | Docker Trusted Registry #1 - Le serveur LDAP"
 
