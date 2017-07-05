@@ -11,10 +11,10 @@ title = "A propos..de moi"
 **System Engineer**  
 **Lotsys**
 - Professional Application Dockerization for foreign customers  
-- Scripts and tools development for foreign customers (Python/Bash)
-- Lab Environment Development (Vagrant, VirtualBox, SaltStack)
-- Continuous Integration with Atlassian's Bitbucket/Bamboo
-- Technical Documentation
+- Scripts and tools development for foreign customers (Python/Bash)  
+- Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
+- Continuous Integration with Atlassian's Bitbucket/Bamboo  
+- Technical Documentation  
 - Proofs of Concepts : 
 		- Master/minion Saltstack logs recovery using the Redis/logstah/ElasticSeach/Kibana
 		- Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)
