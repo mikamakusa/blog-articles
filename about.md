@@ -15,7 +15,7 @@ title = "A propos..de moi"
 - Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
 - Continuous Integration with Atlassian's Bitbucket/Bamboo  
 - Technical Documentation  
-- PoC : Master/minion Saltstack logs recovery using Redis and logstah/ElasticSeach/Kibana  
+- PoC : Master/minion Saltstack logs recovery using Redis and logstah/ElasticSearch/Kibana  
 - PoC : Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)  
 - PoC : SaltStack Docker Images creation
 
