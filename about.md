@@ -15,9 +15,9 @@ title = "A propos..de moi"
 - Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
 - Continuous Integration with Atlassian's Bitbucket/Bamboo  
 - Technical Documentation  
-- Proofs of Concepts : 
-		- Master/minion Saltstack logs recovery using the Redis/logstah/ElasticSeach/Kibana
-		- Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)
+- Proofs of Concepts :  
+		- Master/minion Saltstack logs recovery using the Redis/logstah/ElasticSeach/Kibana  
+		- Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)  
 		- SaltStack Docker Images creation
 
 ---
