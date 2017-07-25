@@ -90,7 +90,7 @@ Nous pourrions tout à fait détailler beaucoup plus le pillar regroupant les in
 Une fois le pillar défini, passons au state.  
 C'est grace à lui que les images pourront être créées, elles seront au nombre de 4 : 
 
-- Image *Base* : Elle contiendra *Salt minion*, *java* et *Logstash*,
+- Image *Base* : Elle contiendra *java* et *Logstash*,
 - Image *Zookeeper* : avec l'image *Base* + *zookeeper*,
 - Image *Hazelcast* : tout comme la précédente + *hazelcast*,
 - Image *Tomcat* : *tomcat* + *Base*
