@@ -33,6 +33,7 @@ En effet, la majorité des commandes de base de docker est supportée (parfois e
 Maintenant que le décor est posé, passons à la création de l'image.  
 Il faut savoir que ceci ne fonctionne qu'avec la toute dernière itération de **SaltStack**, soit la *2016.11.5*, même si l'on installe la toute dernière version du plugin Docker avec une autre version de **SaltStack**, vous ne pourrez pas en bénéficier.  
 Par contre, il faudra faire attention avec cette version...il se peut que des states qui fonctionnent avec les versions plus anciennes génèrent des erreurs de déploiement (notamment pour les archives tar).
+
 ## De quoi aurons nous besoin dans notre image ?
 Dans l'image que nous allons créer à l'aide de **SaltStack**, nous aurons : 
 
@@ -47,15 +48,15 @@ Potentiellement, nous pouvons même créer 3 images différentes avec tout ce do
 Des pillars ?  
 Biensûr, après tout il est tout à fait possible de provisionner les states **Salt** avec des infos différentes selon les versions de logiciels que nous voulons intégrer dans les images...tout comme pour les dossiers d'installation de chaque soft.
 
-<code>
+```
+base:
+  base_dir: <base_dir>
+  type: tar.gz
+  user: <user>
+  group: <group>
+  options: xzf
 app:
   apps:
-    base:
-      base_dir: <base_dir>
-      type: tar.gz
-      user: <user>
-      group: <group>
-      options: xzf
     java:
       url: <url>
       archive: <archive>
@@ -81,7 +82,7 @@ app:
       archive: <archive>
       md5: <md5>
       directory: <directory>
-</code>
+```
 
 Nous pourrions tout à fait détailler beaucoup plus le pillar regroupant les infos des composants à installer, surtout si il y a besoin de certains détails...mais ce ne sera pas le cas ici. De plus, afin d'éviter tout risque de plantage, chaque section du pillar doit comporter les mêmes keywords.  
 
@@ -95,34 +96,21 @@ C'est grace à lui que les images pourront être créées, elles seront au nombr
 - Image *Tomcat* : *tomcat* + *Base*
 
 ** Image Base**
-<code>
+```
 {% set app = pillar['get']('app') %}
-{% for infos, info in app.apps.iteritems() %}
+{% set init = pillar['get']('base') %}
 
-{{ info.base.group }}_group_creation:
+{{ init.group }}_group_creation:
   group.present:
-    - name: {{ info.base.group }}
+    - name: {{ init.group }}
 
-{{ info.base.user }}_user_creation:
+{{ init.user }}_user_creation:
   user.present:
-    - name: {{ info.base.user }}
+    - name: {{ init.user }}
     - shell: /bin/bash
-    - home: /home/{{ info.base.user }}
+    - home: /home/{{ init.user }}
     - groups:
-      - {{ info.base.group }}
-
-saltstack_repo_creation:
-  file.touch:
-    - name: /etc/yum.repos.d/saltstack-repo.repo
-  file.append:
-    - name: /etc/yum.repos.d/saltstack-repo.repo
-    - text:
-      - [saltstack-repo]
-      - name: Saltstack repo for RHEL/CentOS $releasever
-      - baseurl=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest
-      - enabled=1
-      - gpgcheck=1
-      - gpgkey=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTSTACK-GPG-KEY.pub
+      - {{ init.group }}
 
 actions_on_packages:
   pkg.installed:
@@ -137,63 +125,54 @@ actions_on_packages:
   pkg.removed:
     - name: iptables.service
 
-{{ info.base.base_dir }}_creation:
+{{ init.base_dir }}_creation:
   file.directory:
-    - user: {{ info.base.user }}
-    - group: {{ info.base.group }}
+    - user: {{ init.user }}
+    - group: {{ init.group }}
     - dir_mode: 755
     - file_mode: 644
     - makedirs: True
 
 Java_installation:
   archive.extracted:
-    - name: {{ info.base.base_dir }}
-    - source: {{ info.java.url }}/{{ info.java.archive }}.{{ info.base.type }}
-    - source_hash: md5={{ info.java.md5 }}
+    - name: {{ init.base_dir }}
+    - source: {{ app.apps.java.url }}/{{ app.apps.java.archive }}.{{ app.apps.base.type }}
+    - source_hash: md5={{ app.apps.java.md5 }}
     {% if salt['grains.get']('saltversion' == '2016.11.4')%}
-    - options: {{ info.base.options }}
+    - options: {{ ininit.options }}
     {% else %}
-    - tar_options: {{ info.base.options }}
+    - tar_options: {{ ininit.options }}
     {% endif %}
   file.symlink:
-    - name: {{ info.base.base_dir}}/{{ info.java.directory }}
-    - target: {{ info.base.base_dir }}/<java_directory>
+    - name: {{ init.base_dir}}/{{ app.apps.java.directory }}
+    - target: {{ init.base_dir }}/<java_directory>
     - makedirs: True
     - force: True
-    - user: {{ info.base.user }}
-    - group: {{ info.base. group }}
+    - user: {{ init.user }}
+    - group: {{ init.group }}
 
 Logstash_installation:
   archive.extracted:
-    - name: {{ info.base.base_dir }}
-    - source: {{ info.logstash.url }}/{{ info.logstash.archive }}.{{ info.base.type }}
-    - source_hash: md5={{ info.logstash.md5 }}
+    - name: {{ init.base_dir }}
+    - source: {{ info.logstash.url }}/{{ app.apps.logstash.archive }}.{{ init.type }}
+    - source_hash: md5={{ app.apps.logstash.md5 }}
     {% if salt['grains.get']('saltversion' == '2016.11.4')%}
-    - options: {{ info.base.options }}
+    - options: {{ init.options }}
     {% else %}
-    - tar_options: {{ info.base.options }}
+    - tar_options: {{ init.options }}
     {% endif %}
   file.symlink:
-    - name: {{ info.base.base_dir}}/{{ info.logstash.directory }}
-    - target: {{ info.base.base_dir }}/<logstash_directory>
+    - name: {{ init.base_dir}}/{{ app.apps.logstash.directory }}
+    - target: {{ init.base_dir }}/<logstash_directory>
     - makedirs: True
     - force: True
-    - user: {{ info.base.user }}
-    - group: {{ info.base. group }} 
-</code>
+    - user: {{ init.user }}
+    - group: {{ init.group }} 
+```
 
 Maintenant que le state permettant de créer l'image Docker est prêt, passons à la création en elle même. Ceci est faisable selon deux methodes différentes :
 
 - La ligne de commande Salt : `salt "target" dockerng.sls_build <image_name> base=<image_base> mods=<sls_file>`
-- Un state :
-
-<code>
-base_image_creation:
-  module.run:
-    - name: dockerng.sls_build <image_name> base=<image_base> mods=<sls_file>
-</code>
-
-Ce dernier devra être appelé par le top file (et non le fichier dans lequel sont décrites les étapes de création de l'image proprement dite).
 
 ## Que fait la commande sls_build ?
 La commande sls_build (qui, je le rappelle, n'est disponible qu'à partir de la version 2016.11.4 de **SaltStack**) crée un conteneur, exécute toute les étapes du fichier spécifié au niveau du keyword *mods* et commit l'image. Ce qui fait que l'image en question n'a qu'un seul *layer* au lieu d'une cinquantaine (comme ce que l'on peut trouver, parfois, sur *docker hub*)...et potentiellement de créer des images plus propre.  
