@@ -95,7 +95,7 @@ C'est grace à lui que les images pourront être créées, elles seront au nombr
 - Image *Hazelcast* : tout comme la précédente + *hazelcast*,
 - Image *Tomcat* : *tomcat* + *Base*
 
-** Image Base**
+**Image Base**
 ```
 {% set app = pillar['get']('app') %}
 {% set init = pillar['get']('base') %}
