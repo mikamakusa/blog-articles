@@ -9,7 +9,7 @@ Dans l'univers **DevOps**, l’intégration continue (ou **CI** pour les intimes
 
 L'intérêt de cette pratique repose souvent sur la mise en place d'une brique logicielle permettant l'automatisation des tâches de compilation, les tests unitaires et fonctionnels, la validation produit ainsi que les tests de performance.  
 Ceci afin de produire un ensemble de résultats consultables par tous sur une interface utilisateur.  
-Pour réaliser cela, il faut à minima :
+Pour réaliser cela, il faut à minima :  
 - Un outil de versionning de code,  
 - Des développeurs à l'aise avec l'outil précédemment cité,  
 - Un outil de **CI** correctement configuré.
@@ -35,7 +35,7 @@ Maintenant que l'idée générale de l'article est définie, je vais pouvoir en 
 Pour tout cela, nous aurons besoin d’un serveur linux sur lequel sera installé *vim* (pour l’édition de fichiers de configuration) et *curl* (pour la récupération du binaire d’installation de *Saltstack*). Le reste sera installé par la suite à l’aide de **SaltStack**.
 Je vais procéder ainsi afin d’éviter d'avoir à monter un serveur spécial, le service **Saltstack** sera en mode **masterless** [voir ici](https://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html).  
 
-Par contre, si vous souhaitez installer **Saltstack** en mode **master/minion**, n'hésitez surtout pas à suivre la documentation officiel [ici](https://docs.saltstack.com/en/latest/topics/installation/index.html#quick-install)
+Par contre, si vous souhaitez installer **Saltstack** en mode **master/minion**, n'hésitez surtout pas à suivre la documentation officielle [ici](https://docs.saltstack.com/en/latest/topics/installation/index.html#quick-install)
 
 ## Comment configurer tout cela ?
 En fait, l'installation du service **Salt** en mode **masterless** est d'une simplicité désarmante grâce à la commande suivante :  
