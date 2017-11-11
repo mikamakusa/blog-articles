@@ -14,7 +14,7 @@ Pour réaliser cela, il faut à minima :
 - Des développeurs à l'aise avec l'outil précédemment cité,  
 - Un outil de **CI** correctement configuré.
 
-Les outils de **CI** sont nombreux, on peut citer parmi les plus connus :
+Les outils de **CI** sont nombreux, on peut citer parmi les plus connus :  
 - **Jenkins** (qui sera utilisé dans cet article)  
 - **Bamboo** (de la suite Atlassian)  
 - **TeamCity**  
@@ -26,14 +26,14 @@ Les outils de **CI** sont nombreux, on peut citer parmi les plus connus :
 L'idée générale étant la suivante :  
 - Automatiser l'installation  
 - La configuration  
-- Et la sécurisation d'un outil de **CI**
+- Et la sécurisation d'un outil de **CI**  
 Le tout à l'aide d'un outil de gestion de configuration.
 
 Maintenant que l'idée générale de l'article est définie, je vais pouvoir en expliquer le déroulement.  
 
 ## Ce dont nous aurons besoin.
 Pour tout cela, nous aurons besoin d’un serveur linux sur lequel sera installé *vim* (pour l’édition de fichiers de configuration) et *curl* (pour la récupération du binaire d’installation de *Saltstack*). Le reste sera installé par la suite à l’aide de **SaltStack**.
-Je vais procéder ainsi afin d’éviter d'avoir à monter un serveur spécial, le service **Saltstack** sera en mode **masterless**[voir ici](https://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html).  
+Je vais procéder ainsi afin d’éviter d'avoir à monter un serveur spécial, le service **Saltstack** sera en mode **masterless** [voir ici](https://docs.saltstack.com/en/latest/topics/tutorials/quickstart.html).  
 
 Par contre, si vous souhaitez installer **Saltstack** en mode **master/minion**, n'hésitez surtout pas à suivre la documentation officiel [ici](https://docs.saltstack.com/en/latest/topics/installation/index.html#quick-install)
 
@@ -53,11 +53,11 @@ file-client: local
 # Lui indiquer où exactement se trouvent les states
 file_roots:
   base:
-	- /srv/state
+    - /srv/state
 # Si vous créez des pillar (ce qui est souvent recommandé), lui indiquer aussi où ils sont
 pillar_roots:
   base:
-	- /srv/pillar
+    - /srv/pillar
 # Le log level...au cas où vous souhaiteriez vérifier que tout se passe bien (all = très bavard)
 log_level: all
 ```
@@ -68,27 +68,27 @@ Ce fichier appelé *minion* est dans le dossier **/etc/salt**, n'oubliez surtout
 ```
 - **/srv**
   - **state**
-	- top.sls
-	- **jenkins**
-  	- **config**
-    	- **template**
-      	- config.xml.jinja
-      	- init.groovy.jinja
+    - top.sls
+    - **jenkins**
+      - **config**
+        - **template**
+      	  - config.xml.jinja
+      	  - init.groovy.jinja
     	- init.sls
-  	- **install**
+      - **install**
     	- **template**
-      	- jenkins.jinja
+      	  - jenkins.jinja
     	- init.sls
   	- **securise**
-    	- **template**
-      	- jenkins.conf.jinja
+    	  - **template**
+      	  - jenkins.conf.jinja
     	- init.sls
   	- **slave**
-    	- init.sls
-  	- init.sls
+    	  - init.sls
+      - init.sls
   - **pillar**
-	- top.sls
-	- **jenkins**
+    - top.sls
+      - **jenkins**
   	- init.sls
 ```
 
@@ -143,10 +143,10 @@ jenkins:
 ```
 
 ### Les states
-Je vais créer les quatres *states* suivants :
-- install (l'installation de jenkins et des pré requis)
-- config (la configuration de jenkins incluant la création d'un premier job)
-- securise (dans lequel sera décrit l'installation de nginx/openssl et la configuration reverse-Proxy)
+Je vais créer les quatres *states* suivants :  
+- install (l'installation de jenkins et des pré requis)  
+- config (la configuration de jenkins incluant la création d'un premier job)  
+- securise (dans lequel sera décrit l'installation de nginx/openssl et la configuration reverse-Proxy)  
 - slave (la création d'un node)
 
 #### Le state Install
@@ -370,10 +370,10 @@ include:
 ```
 
 ## Ensuite ?
-Maintenant que les installations de **Jenkins**, **Nginx** et **OpenSSL** sont faites, que le **Reverse Proxy** est actif et que tout est fonctionnel.il reste quelques tâches à effectuer :
-- Créer un (ou plusieurs) utilisateurs
-- Installer les plugins dont vous aurez besoin dans l'immédiat
-- Créer un node/esclave
+Maintenant que les installations de **Jenkins**, **Nginx** et **OpenSSL** sont faites, que le **Reverse Proxy** est actif et que tout est fonctionnel.il reste quelques tâches à effectuer :  
+- Créer un (ou plusieurs) utilisateurs  
+- Installer les plugins dont vous aurez besoin dans l'immédiat  
+- Créer un node/esclave  
 - Créer un job à exécuter
 
 Puisque l'objectif de cet article est d'automatiser l'installation, la configuration et la sécurisation de **Jenkins**, nous allons donc faire appel à son API.
@@ -416,7 +416,7 @@ Voici quelques exemples d'utilisation de scripts groovy :
 	instance.save()
 ```
 
-Si vous souhaitez d'autres exemples de scripts groovy utilisable avec jenkins, je vous suggère de vous rendre [ici](https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console)
+Si vous souhaitez d'autres exemples de scripts groovy utilisable avec jenkins, je vous suggère de vous rendre  [ici](https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console)
 
 ### Les fichiers XML
 Toujours dans le cadre des interactions avec l'API de jenkins, les fichiers XML permettent d'effectuer diverses actions telles que :
@@ -476,12 +476,12 @@ Toujours dans le cadre des interactions avec l'API de jenkins, les fichiers XML 
 </project>
 ```
 
-Et pour que **Jenkins** prenne en compte les fichiers XML et les scripts groovy que vous allez créer, rien de plus simple :
-Les jobs dans le dossier <home de Jenkins>\jobs\<nom du job>
-Les nodes dans le dossier <home de Jenkins>\slaves\<nom du node>
+Et pour que **Jenkins** prenne en compte les fichiers XML et les scripts groovy que vous allez créer, rien de plus simple :  
+Les jobs dans le dossier <home de Jenkins>\jobs\<nom du job>  
+Les nodes dans le dossier <home de Jenkins>\slaves\<nom du node>  
 Les scripts groovy dans le dossier <home de jenkins>
 
-Selon le type de fichier utilisé, l'utilisation de l'API de Jenkins nécessite un redémarrage du service, nous vous suggérons tout de même de suivre les logs de Jenkins afin de vérifier que les plugins s'installent correctement.  
+Selon le type de fichier utilisé, l'utilisation de l'API de Jenkins nécessite un redémarrage du service, nous vous suggérons tout de même de suivre les logs de Jenkins afin de vérifier que les plugins s'installent correctement.    
 N'hésitez surtout pas à vous servir de la commande suivante une fois que vous avez redémarré **Jenkins** : `tail -f /var/log/jenkins`  
 Si vous apercevez (par exemple) les lignes suivantes, l'installation des plugins est en cours :  
 ```
