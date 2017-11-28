@@ -6,14 +6,25 @@ title = "A propos..de moi"
 +++
 
 # Experience #
+**Sept 2017 - Nov 2017** | **Wescale** | **Paris**  
+**System Engineer DevOps**
+In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud platform on which the web application, developped by Xebia in collaboration with BVA, will be running.  
+- Terraform scripts creation for infrastructure (resources groups, network, security and servers) creation,  
+- Saltstack scripts creation for sotfwares and configuration provisionning (jenkins, influxdb, grafana, collectd, nexus, sonarqube),  
+- Swarm and Kafka clusters creation using Microsoft Azure Web Portal,  
+- Technical Documentation and demos,  
+- Scrum method/Pizza Team 
 
-**From May 2016** | **Simia** | **Paris**  
-**System Engineer**  
+---
+
+**May 2016 - Sept 2017** | **Simia** | **Paris**  
+**System Engineer DevOps**  
 **Lotsys**
 - Professional Application Dockerization for foreign customers  
 - Scripts and tools development for foreign customers (Python/Bash)  
 - Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
 - Continuous Integration with Atlassian's Bitbucket/Bamboo  
+- Scrum method/Pizza team
 - Technical Documentation  
 - PoC : Master/minion Saltstack logs recovery using Redis and logstah/ElasticSearch/Kibana  
 - PoC : Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)  
@@ -25,7 +36,7 @@ title = "A propos..de moi"
 - Tools integration (Gitlab-CI, DockerTrusted Registry)  
 - Infrastructure deployment with Jenkins, Puppet and Terraform  
 - Technical Documentation
-
+- Scrum method
 ---
 
 **Sept 2012 - May 2016** | **ArubaCloud** | **Clichy**  
@@ -87,14 +98,17 @@ title = "A propos..de moi"
 # Skills   
 - **Operating systems** : Windows Server (2008 | 2012) - Linux (Ubuntu | CentOS)  
 - **Cloud and Vitualization** : VMware, Hyper-V, Docker  
-- **Configuration Management** : Ansible, Puppet    
+- **Configuration Management** : Saltstack, Ansible, Puppet    
 - **Automated Deployment** : Terraform  
 - **Continuous Integration** : Gitlab-CI, Jenkins  
 - **BigData** : Hadoop, Hbase  
 - **Infrastructure** : Active Directory/OpenLDAP, Firewall, Load Balancing, Clustering  
 - **Languages** : Powershell, Python, Ruby  
 - **Mail System** : Exchange Server  
-- **Versionning** : Git
+- **Versionning** : Git  
+- **Monitoring** : Check_MK, Sensu, Nagios, Shinken  
+- **Container Orchestration** : Kubernetes, Nomad  
+- **Cloud Providers** : Microsoft Azure, ArubaCloud, Amazon Web Services
 
 ---
 
@@ -109,10 +123,14 @@ title = "A propos..de moi"
 ## Python
 - Python Cloud Instances Deploy
 - Python Linux Easy Deploy
-- PyArubaCloud (Collaboration for ArubaCloud Library for Python)
+- PyArubaCloud (Collaboration for ArubaCloud Library for Python)  
+- Container orchestration with Saltstack
 
 ## Ruby
 - Fog/Arubacloud (ArubaCloud Driver for Fog gem)
+
+## Bash
+- Docker instances deploy and PostgreSQL database provisionning
 
 ---
 
@@ -128,6 +146,6 @@ title = "A propos..de moi"
 ---
 
 # Languages
-- English  
-- Spanish
-- Italian (Beginner)
+- English (Technical)  
+- Spanish (Beginner)  
+- Italian (Beginner)  
