@@ -6,7 +6,20 @@ title = "A propos..de moi"
 +++
 
 # Experience #
-**Sept 2017 - Nov 2017** | **Wescale** | **Paris**  
+**From Jan 2018 | Uniware | Neuilly-sur-Seine**  
+**Infrastructure System Engineer**  
+In charge of the industrialization of the infrastructure creation and provisionning on Openstack and Microsoft Azure Cloud Platforms on many projects for Carrefour.  
+- Terraform scripts creation (security rules, network and servers),  
+- Ansible Roles and Playbook creation,  
+- Salstack states and pillars creation,  
+- Pipelines creation on Jenkins,  
+- Consulting actions and Workshops related to Kubernetes, Ansible, Saltstack and Terraform (Code, Best Pratices),  
+- Technical documentation and demos,
+- Scrum method
+
+---
+
+**Sept 2017 - Dec 2017** | **Wescale** | **Paris**  
 **System Engineer DevOps**
 In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud platform on which the web application, developped by Xebia in collaboration with BVA, will be running.  
 - Terraform scripts creation for infrastructure (resources groups, network, security and servers) creation,  
