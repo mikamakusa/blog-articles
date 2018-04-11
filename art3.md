@@ -29,12 +29,12 @@ En gros, vous codez localement et il se charge, lui même, de déployer dans vot
 Boucle "continuous build-deploy".  
 Affichage des logs des conteneurs déployés.
 
-**skaffold run**
+**skaffold run**  
 A utiliser pour démarrer le pipeline **skaffold** occasionnelement. Tout comme **Jenkins** (sauf si l'on intègre du *try and catch*), le pipeline s'arrête à la moindre erreur.
 
 ## Comment ça fonctionne ?
 Avant d'installer **Skaffold**, nous allons avoir besoin des éléments suivants :  
-- Un cluster **Kubernetes** (Captain obvious is obvious),  
+- Un cluster **Kubernetes** (*Captain obvious is obvious*),  
 - **Docker** et un **Docker Registry**
 
 Pour installer **skaffold**, procédons ainsi :  
@@ -45,7 +45,7 @@ sudo mv skaffold /usr/local/bin
 ```
 
 ## Petit Exemple
-Commençons pas cloner le repo suivant pour récupérer les exemples: `https://github.com/GoogleCloudPlatform/skaffold`  
+Commençons par cloner le repo suivant pour récupérer les exemples: `https://github.com/GoogleCloudPlatform/skaffold`  
 Changez de dossier et démarrez **skaffold**:  
 ```
 cd examples/getting-started  
