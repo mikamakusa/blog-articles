@@ -97,7 +97,7 @@ Une fois créé, il faut le publier afin qu'il soit visible pour tous:
 curl -H "Authorization: Basic YWRtaW46YWRtaW4=" \
      -H "Content-Type:application/json;charset=UTF-8" \
      -X POST \
-     http://{MANAGEMENT_API_SERVER_DOMAIN}/management/apis/{API-ID}/plans/|plan-id|/_publish
+     http://{MANAGEMENT_API_SERVER_DOMAIN}/management/apis/{API-ID}/plans/{PLAN-ID}/_publish
 ```
 
 ##### Déployer l'API
