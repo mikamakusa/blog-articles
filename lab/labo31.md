@@ -46,6 +46,7 @@ Durant l'étude de **Strapi**, votre serviteur a rencontré de nombreux obstacle
 - le site officiel de **Strapi** recommande certaines versions de node, npm et mongo...oubliez ce que vous avez pu voir sur le site officiel. Mention spéciale à la nodejs 9.1, **Strapi** plante dès la création du projet.  
 - Vous trouverez pas mal d'aide sur le *Slack* **Strapi**, mais pas venant des développeurs ni du community manager...Ceux qui répondent le plus souvent/efficacement sont des utilisateurs lambda,  
 - Je vous recommande la version 4 de MongoDB (si vous souhaitez utiliser celle-ci), j'avoue ne pas avoir testé avec MySQL ou PostgreSQL.
+
 ---
 
 # Que faire après l'installation ?
@@ -59,12 +60,15 @@ Vous pourrez créer d'autres utilisateurs par la suite sur la page **Users**.
 Si vous avez installé une autre version que celle que je vous ai recommandé plus haut, il se peut que cette page soit totalement vide lors de votre permière connexion...et à chaque fois que vous créez un nouvel utilisateur.
 Etrangement chaque utilisateur créé sera visible en base de données.
 
+---
+
 - La gestion des permissions s'effectue via la page **Roles and Persmissions**.  
 
 ---
 **Attention**
 
 Tout comme pour la page **Users**, cette page peut afficher les items **Public**, **Authenticated** et **Administrator**, mais n'affichera rien lorsque vous cliquez sur chaque items. C'est un défaut des anciennes versions de **Strapi** sur lesquelles, évidemment, les développeurs ne communiquent pas.
+
 ---
 
 - La gestion des API s'effectue via le **Content Type Builder**...il s'agit en fait du coeur de l'application à partir duquel vous pourrez définir les relations entre chaque API, ainsi que les différents champs à ajouter à chacune d'entre elles.
@@ -73,6 +77,7 @@ Tout comme pour la page **Users**, cette page peut afficher les items **Public**
 **Attention**
 
 Les API créées à partir d'une version plus ancienne de **Strapi** **NE SONT PAS MIGRABLE** vers une version de **Strapi** plus récente...l'information n'est communiquée nulle part sur le site officiel.  
+
 ---
 
 # Finalement,
