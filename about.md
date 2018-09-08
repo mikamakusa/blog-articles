@@ -109,19 +109,17 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Skills   
-- **Operating systems** : Windows Server (2008 | 2012) - Linux (Ubuntu | CentOS)  
-- **Cloud and Vitualization** : VMware, Hyper-V, Docker  
-- **Configuration Management** : Saltstack, Ansible, Puppet    
+- **Operating systems** : Linux (Ubuntu | CentOS)  
+- **Cloud and Vitualization** : VMware, Docker  
+- **Configuration Management** : Saltstack, Ansible  
 - **Automated Deployment** : Terraform  
-- **Continuous Integration** : Gitlab-CI, Jenkins  
-- **BigData** : Hadoop, Hbase  
+- **Continuous Integration** : Jenkins  
 - **Infrastructure** : Active Directory/OpenLDAP, Firewall, Load Balancing, Clustering  
-- **Languages** : Powershell, Python, Ruby  
-- **Mail System** : Exchange Server  
+- **Languages** : Powershell, Python, Ruby   
 - **Versionning** : Git  
-- **Monitoring** : Check_MK, Sensu, Nagios, Shinken  
+- **Monitoring** : Centreon, Prometheus, Sensu
 - **Container Orchestration** : Kubernetes, Nomad  
-- **Cloud Providers** : Microsoft Azure, ArubaCloud, Amazon Web Services
+- **Cloud Providers** : Microsoft Azure, Openstack
 
 ---
 
@@ -143,7 +141,8 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - Fog/Arubacloud (ArubaCloud Driver for Fog gem)
 
 ## Bash
-- Docker instances deploy and PostgreSQL database provisionning
+- Docker instances deploy and PostgreSQL database provisionning  
+- Docker MongoDB and Strapi instance backup and restore  
 
 ---
 
