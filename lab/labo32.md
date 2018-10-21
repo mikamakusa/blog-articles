@@ -11,6 +11,7 @@ Je n'avais pas encore démontré l'utilisation des <i>dépendances implicites</i
 ## Terraform in action
 Entrons dans le vif du sujet assez rapidement car j'imagine que vous connaissez déjà assez bien la technologie.  
 Sur <b>Openstack</b> avant de pouvoir créer des serveurs, il est nécessaire de commencer par l'infrastructure, en l'occurence :  
+
 - <b>Network</b>  
 ```hcl  
 resource "openstack_networking_network_v2" "network" {
