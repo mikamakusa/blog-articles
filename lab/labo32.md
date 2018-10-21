@@ -19,42 +19,46 @@ resource "openstack_networking_network_v2" "network" {
   admin_state_up = "${lookup(var.network[count.index],"admin_state_up")}"
   region         = "${lookup(var.network[count.index],"region")? 1 : 0}"
 }
-```
+```  
+
 - <b>Subnet</b>  
 ```hcl  
-resource "openstack_networking_subnet_v2" "subnet" {
-  count		 = "${length(var.subnet)}"
-  name       = "${lookup(var.subnet[count.index],"name")}"
-  cidr       = "${lookup(var.subnet[count.index],"cidr")}"
-  network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.subnet[count.index],network_id))}"
-  ip_version = "${lookup(var.subnet[count.index],"ip_version")}"
-  region     = "${lookup(var.network[count.index],"region")? 1 : 0}"
-}
-```
-- <b>Router</b>
-```hcl  
-resource "openstack_networking_router_v2" "router" {
-  count				  = "${length(var.router)}"
-  name                = "${lookup(var.router,"name")}"
-  admin_state_up      = "${lookip(var.router,"admin_state_up")}"
-  external_network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.router[count.index],"network_id"))}"
-  region              = "${lookup(var.network,"region")? 1 : 0}"
-}
-```
-- <b>Router Interface</b>  
-```hcl  
-resource "openstack_networking_router_interface_v2" "router_interface" {
-  count     = "${ "${length(var.router)}" == "0" ? "0" : "${lenght(var.subnet)}" }"
-  router_id = "${element(openstack_networking_router_v2.routeur.*.id,lookup(var.router_interface[count.index],"routeur_id"))}"
-  subnet_id = "${element(openstack_networking_subnet_v2.subnet.*.id,lookup(var.router_interface[count.index],"subnet_id"))}"
+resource "openstack_networking_subnet_v2" "subnet" {  
+  count		 = "${length(var.subnet)}"  
+  name       = "${lookup(var.subnet[count.index],"name")}"  
+  cidr       = "${lookup(var.subnet[count.index],"cidr")}"  
+  network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.subnet[count.index],network_id))}"  
+  ip_version = "${lookup(var.subnet[count.index],"ip_version")}"  
+  region     = "${lookup(var.network[count.index],"region")? 1 : 0}"  
 }
 ```  
+
+- <b>Router</b>
+```hcl  
+resource "openstack_networking_router_v2" "router" {  
+  count				  = "${length(var.router)}"  
+  name                = "${lookup(var.router,"name")}"  
+  admin_state_up      = "${lookip(var.router,"admin_state_up")}"  
+  external_network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.router[count.index],"network_id"))}"  
+  region              = "${lookup(var.network,"region")? 1 : 0}"  
+}
+```  
+
+- <b>Router Interface</b>  
+```hcl  
+resource "openstack_networking_router_interface_v2" "router_interface" {  
+  count     = "${ "${length(var.router)}" == "0" ? "0" : "${lenght(var.subnet)}" }"  
+  router_id = "${element(openstack_networking_router_v2.routeur.*.id,lookup(var.router_interface[count.index],"routeur_id"))}"  
+  subnet_id = "${element(openstack_networking_subnet_v2.subnet.*.id,lookup(var.router_interface[count.index],"subnet_id"))}"  
+}
+```    
+
 - <b>Floating IP</b>  
 ```hcl  
-resource "openstack_networking_floatingip_v2" "floating_ip" {
-  count  = "${lenght(var.floating_ip)}"
-  pool   = "${lookup(var.floating_ip[count.index],"pool")}"
-  region = "${lookup(var.network,"region")? 1 : 0}"
+resource "openstack_networking_floatingip_v2" "floating_ip" {  
+  count  = "${lenght(var.floating_ip)}"  
+  pool   = "${lookup(var.floating_ip[count.index],"pool")}"  
+  region = "${lookup(var.network,"region")? 1 : 0}"  
 }
 ```
 
