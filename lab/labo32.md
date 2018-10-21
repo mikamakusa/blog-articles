@@ -1,5 +1,5 @@
 +++
-date = "2017-11-11T15:29:49+02:00"
+date = "2018-10-21T15:29:49+02:00"
 draft = "false"
 title = "Le Labo #26 | Deployer sur Openstack via Terraform, Jenkins et Ansible"
 
@@ -12,7 +12,7 @@ Je n'avais pas encore démontré l'utilisation des <i>dépendances implicites</i
 Entrons dans le vif du sujet assez rapidement car j'imagine que vous connaissez déjà assez bien la technologie.  
 Sur <b>Openstack</b> avant de pouvoir créer des serveurs, il est nécessaire de commencer par l'infrastructure, en l'occurence :  
 - <b>Network</b>  
-```hcl
+```hcl  
 resource "openstack_networking_network_v2" "network" {
   count			 = "${length(var.network)}"
   name           = "${lookup(var.network[count.index],"name")}"
@@ -21,7 +21,7 @@ resource "openstack_networking_network_v2" "network" {
 }
 ```
 - <b>Subnet</b>  
-```hcl
+```hcl  
 resource "openstack_networking_subnet_v2" "subnet" {
   count		 = "${length(var.subnet)}"
   name       = "${lookup(var.subnet[count.index],"name")}"
@@ -30,10 +30,9 @@ resource "openstack_networking_subnet_v2" "subnet" {
   ip_version = "${lookup(var.subnet[count.index],"ip_version")}"
   region     = "${lookup(var.network[count.index],"region")? 1 : 0}"
 }
-
 ```
 - <b>Router</b>
-```hcl
+```hcl  
 resource "openstack_networking_router_v2" "router" {
   count				  = "${length(var.router)}"
   name                = "${lookup(var.router,"name")}"
@@ -43,7 +42,7 @@ resource "openstack_networking_router_v2" "router" {
 }
 ```
 - <b>Router Interface</b>  
-```hcl
+```hcl  
 resource "openstack_networking_router_interface_v2" "router_interface" {
   count     = "${ "${length(var.router)}" == "0" ? "0" : "${lenght(var.subnet)}" }"
   router_id = "${element(openstack_networking_router_v2.routeur.*.id,lookup(var.router_interface[count.index],"routeur_id"))}"
@@ -51,7 +50,7 @@ resource "openstack_networking_router_interface_v2" "router_interface" {
 }
 ```  
 - <b>Floating IP</b>  
-```hcl
+```hcl  
 resource "openstack_networking_floatingip_v2" "floating_ip" {
   count  = "${lenght(var.floating_ip)}"
   pool   = "${lookup(var.floating_ip[count.index],"pool")}"
