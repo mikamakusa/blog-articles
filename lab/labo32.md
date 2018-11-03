@@ -30,7 +30,7 @@ resource "openstack_networking_subnet_v2" "subnet" {
   cidr       = "${lookup(var.subnet[count.index],"cidr")}"  
   network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.subnet[count.index],network_id))}"  
   ip_version = "${lookup(var.subnet[count.index],"ip_version")}"  
-  region     = "${lookup(var.network[count.index],"region")? 1 : 0}"  
+  region     = "${lookup(var.network[count.index],"region")}"  
 }
 ```  
 
@@ -41,7 +41,7 @@ resource "openstack_networking_router_v2" "router" {
   name                = "${lookup(var.router,"name")}"  
   admin_state_up      = "${lookip(var.router,"admin_state_up")}"  
   external_network_id = "${element(openstack_networking_network_v2.network.*.id,lookup(var.router[count.index],"network_id"))}"  
-  region              = "${lookup(var.network,"region")? 1 : 0}"  
+  region              = "${lookup(var.network,"region")}"  
 }
 ```  
 
@@ -59,7 +59,7 @@ resource "openstack_networking_router_interface_v2" "router_interface" {
 resource "openstack_networking_floatingip_v2" "floating_ip" {  
   count  = "${lenght(var.floating_ip)}"  
   pool   = "${lookup(var.floating_ip[count.index],"pool")}"  
-  region = "${lookup(var.network,"region")? 1 : 0}"  
+  region = "${lookup(var.network,"region")}"  
 }
 ```
 
@@ -69,21 +69,64 @@ resource "openstack_compute_secgroup_v2" "sec_group" {
   count       = "${length(var.sec_group)}"
   description = "${lookup(var.sec_group[count.index],"description")}"
   name        = "${lookup(var.sec_group[count.index],"name")}"
-  region      = "${lookup(var.network,"region")? 1 : 0}"
+  region      = "${lookup(var.network,"region")}"
 }
 resource "openstack_networking_secgroup_rule_v2" "sec_group_rule" {
   count             = "${ "${length(var.sec_group)}" == "0" ? "0" : "${length(var.sec_group_rule)}" }"
+  security_group_id = "${element(openstack_networking_secgroup_v2.sec_group.*.id,lookup(var.sec_group_rule[count.index],"sec_group_id"))}"
   direction         = "${lookup(var.sec_group_rule[count.index],"direction")}"
   ethertype         = "${lookup(var.sec_group_rule[count.index],"ethertype")}"
   protocol          = "${lookup(var.sec_group_rule[count.index],"protocol")}"
   port_range_min    = "${lookup(var.sec_group_rule[count.index],"port_range_min")}"
   port_range_max    = "${lookup(var.sec_group_rule[count.index],"port_range_max")}"
   remote_ip_prefix  = "${lookup(var.sec_group_rule[count.index],"remote_ip_prefix")}"
-  security_group_id = "${element(openstack_compute_secgroup_v2.sec_group.*.id,lookup(sec_group_rule[count.index],"sec_group_id"))}"
+  region            = "${lookup(var.sec_group_rule[count.index],"region")}"
 }
 ```
 
-Pour le reste (les serveurs), je vous laisse vous en occuper...Après tout, vous devriez avoir compris le principe des dépendances implicites et des fichiers de variables externes (les <b>.tfvars</b>). Si vraiment vous avez besoin d'aide, je suis toujours joignable via <b>twitter</b> ou <b>LinkedIn</b>.
+Pour le reste (les serveurs), je vous laisse vous en occuper...Après tout, vous devriez avoir compris le principe des dépendances implicites et des fichiers de variables externes (les <b>.tfvars</b>).  
+Mais si vous avez un peu de mal, voici le module **Server** que j'utilise :  
+```hcl
+data "openstack_networking_secgroup_v2" "os_sec_group" {
+  count = "${length(var.os_instance)}"
+  name  = "${lookup(var.os_instance[count.index],"name")}"
+}
+
+data "openstack_networking_network_v2" "os_network" {
+  count = "${length(var.network)}"
+  name  = "${lookup(var.network[count.index],"name")}"
+}
+
+resource "openstack_compute_keypair_v2" "os_keypair" {
+  count      = "${length(var.os_keypair)}"
+  name       = "${lookup(var.os_keypair[count.index],"name")}"
+  public_key = "${lookup(var.os_keypair[count.index],"key_file")}"
+}
+
+resource "openstack_compute_instance_v2" "os_instance" {
+  count       = "${length(var.os_instance)}"
+  name        = "${lookup(var.os_instance[count.index],"name")}"
+  image_name  = "${lookup(var.os_instance[count.index],"image_name")}"
+  flavor_name = "${lookup(var.os_instance[count.index],"flavor_name")}"
+  key_pair    = "${element(openstack_compute_keypair_v2.os_keypair.*.id,lookup(var.os_instance[count.index],"key_pair_id"))}"
+
+  security_groups = [
+    "${var.default_sec_group}",
+    "${element(data.openstack_networking_secgroup_v2.os_sec_group.*.id,lookup(var.os_instance[count.index],"sec_group_id"))}",
+  ]
+
+  network {
+    name        = "${data.openstack_networking_network_v2.os_network.name}"
+    fixed_ip_v4 = "${lookup(var.os_instance[count.index],"fixed_ip_v4")}"
+  }
+}
+
+resource "openstack_compute_floatingip_associate_v2" "os_floatip_assoc" {
+  count       = "${length(var.float_ip)}"
+  floating_ip = "${lookup(var.float_ip[count.index],"floating_ip")}"
+  instance_id = "${element(openstack_compute_instance_v2.os_instance.*.id,lookup(var.float_ip[count.index],"id_instance"))}"
+}
+```
 
 Travailler sur <b>Openstack</b> est relativement simple :  
 - Un réseau de base sur lequel <i>brancher</i> celui que vous allez créer (vous ne pourrez pas brancher vos serveurs dessus),  
@@ -145,14 +188,14 @@ set -x
 
 pid=0
 
-_stopStrapi() {
-  echo "Stopping strapi"
-  kill -SIGINT "$strapiPID"
-  wait "$strapiPID"
+_stop() {
+  echo "Stopping"
+  kill -SIGINT "$PID"
+  wait "$PID"
   exit 143;
 }
 
-trap 'kill ${!}; _stopStrapi' SIGTERM SIGINT
+trap 'kill ${!}; _stop' SIGTERM SIGINT
 
 cd /tmp/
 
