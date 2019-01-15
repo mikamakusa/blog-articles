@@ -56,7 +56,7 @@ Parmi les *exporters*, nous avons **node_exporter** qui est vraiment la base et 
 }
 ```
 
-Par contre, si vous utilisez aussi d'autres exporters, tels que **mongo_exporter**, **elasticsearch_exporter**, ou celui pour **nginx** (faites attention, il y en a deux), il faudra modifier les champs *name* et *port* afin qu'il correspondent au nom de l'exporter ainsi qu'au port exposé par celui-ci (9001 pour *mongo* et 9108^pour *elasticsearch*).  
+Par contre, si vous utilisez aussi d'autres exporters, tels que **mongo_exporter**, **elasticsearch_exporter**, ou celui pour **nginx** (faites attention, il y en a deux), il faudra modifier les champs *name* et *port* afin qu'il correspondent au nom de l'exporter ainsi qu'au port exposé par celui-ci (9001 pour *mongo* et 9108 pour *elasticsearch*).  
 
 Il est temps de démarrer **Consul** sur chaque serveurs.  
 
@@ -84,12 +84,12 @@ Une petite explication s'impose :
 
 Maintenant vous pouvez démarrer **Prometheus** avec la commande suivante : `/opt/prometheus/prometheus --config.file=prometheus.yml` puis rendez-vous sur l'**UI/targets** et ...tadaaaaa !!! Vous pouvez continuer en ajoutant un autre serveur et reproduisant le même processus :  
 
-- Installation  et démarrage du *node_exporter*  
+- Installation et démarrage du *node_exporter*  
 - Installation, configuration et démarrage de **Consul**  
 
 Et vous verrez un nouveau serveur apparaître dans les **targets** de l'UI de **Prometheus**.  
 
-Certes, l'interface de Prometheus n'est pas très *eye-candy*, mais vous pouvez utiliser un outils de graphing tel que **Grafana**.  
+Certes, l'interface de Prometheus n'est pas très *eye-candy*, mais vous pouvez utiliser un outil de graphing tel que **Grafana**.  
 
 ## Conclusion
 Prometheus n'est pas fait que pour les plateformes de conteneurs, c'est un fait.  
