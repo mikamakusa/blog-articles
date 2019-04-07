@@ -10,25 +10,25 @@ A l'aide d'outils tels que **Prometheus**, **AlertManager**, **Slack** et **Jenk
 
 ## Outils nécessaires
 Les outils nécessaires de ce lab sont ceux avec lesquels j'ai pu présenter par le passé, ceux que je n'avais pas encore abordé auront leur partie plus développées :  
-- Prometheus
-- Consul
-- NodeExporter
-- AlertManager
-- BlackboxExporter
-- Slack
+- Prometheus  
+- Consul  
+- NodeExporter  
+- AlertManager  
+- BlackboxExporter  
+- Slack  
 - Jenkins
 
 Dans mon [article précédent](http://ageekslab.com/lab/labo33/), j'avais déjà abordé le sujet de la configuration du Service Discovery Consul pour Prometheus.  
 Néanmoins d'autres options de Service Discovery sont possible, telles que **Azure**, **AWS** ou même **GCP** en renseignant plusieurs paramètres, tels que :  
 
 Pour Azure :  
-- tenant_id
-- subscription_id
-- client_id
+- tenant_id  
+- subscription_id  
+- client_id  
 - client_secret
 
 Pour AWS:  
-- access_key
+- access_key  
 - secret_key
 
 Pour GCP:  
@@ -42,14 +42,14 @@ On peut laisser la configuration de l'outil inchangée avant de le démarrer pui
 
 ## AlertManager  
 Le fonctionnement de l'**AlertManager** est simple et ne fait que remplir sa fonction principale, à savoir envoyer des alertes sur divers outils (mail, chat) ou bien des réactions aux alertes...ce qui est l'objet de cet article.  
-La configuration de l'**AlertManager** est en deux parties :
+La configuration de l'**AlertManager** est en deux parties :  
 - les alertes, un fichier au format *yml* dans lequel les alertes seront définies.  
 - la configuration des hooks (mail, chat, etc...) dans laquelle les réactions face aux alertes seront définies.  
 
 ### Les alertes
 Le principe de la définition des alertes est extrêmement simple : 3 keywords (**alert**, **expr**, **for**) mandatory...et des **labels** a placer pour catégoriser plus en profondeur les alertes.  
-- **alert** : nom de l'alerte
-- **expr** : requête PromQL que vous pouvez définir et afficher des résultats de requêtes.
+- **alert** : nom de l'alerte  
+- **expr** : requête PromQL que vous pouvez définir et afficher des résultats de requêtes.  
 - **for** : l'intervale de temps entre la détection de l'événement et le déclenchement de l'alerte.
 
 Comme évoqué plus haut, on peut ajouter des **labels**, comme **severity** (pour définir le degré de criticité de l'alerte).  
