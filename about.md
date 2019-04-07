@@ -8,25 +8,27 @@ title = "A propos..de moi"
 # Experience #
 **From Jan 2018 | Uniware | Neuilly-sur-Seine**  
 **Infrastructure System Engineer**  
-In charge of the industrialization of the infrastructure creation and provisionning on Openstack and Microsoft Azure Cloud Platforms for projects for Carrefour.  
+**Carrefour**
+In charge of the industrialization of the infrastructure creation and provisionning on Openstack and Microsoft Azure Cloud Platforms for Carrefour's projects.  
 - Terraform scripts creation (security rules, network and servers),  
 - Ansible Roles and Playbook creation,  
 - Salstack states and pillars creation,  
 - Pipelines creation on Jenkins,  
 - Consulting actions and Workshops related to Kubernetes, Ansible, Saltstack and Terraform (Code, Best Pratices),  
-- Technical documentation and demos,
+- Technical documentation and demos,  
 - Scrum method
 
 ---
 
 **Sept 2017 - Dec 2017** | **Wescale** | **Paris**  
 **System Engineer DevOps**  
+**BVA**
 In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud platform on which the web application, developped by Xebia in collaboration with BVA, will be running.  
 - Terraform scripts creation for infrastructure (resources groups, network, security and servers) creation,  
 - Saltstack scripts creation for sotfwares and configuration provisionning (jenkins, influxdb, grafana, collectd, nexus, sonarqube),  
 - Swarm and Kafka clusters creation using Microsoft Azure Web Portal,  
 - Technical Documentation and demos,  
-- Scrum method/Pizza Team 
+- Scrum method/Pizza Team
 
 ---
 
@@ -59,7 +61,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - Internal tools development (in Powershell)  
 - Technical documentation  
 - Datacenter hardware installation  
-- Projects management (High availability Sharepoint/SQL Server/Exchange, Powershell ArubaCloud API Provisioning) 
+- Projects management (High availability Sharepoint/SQL Server/Exchange, Powershell ArubaCloud API Provisioning)
 
 ---
 
@@ -115,9 +117,9 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - **Automated Deployment** : Terraform  
 - **Continuous Integration** : Jenkins  
 - **Infrastructure** : Active Directory/OpenLDAP, Firewall, Load Balancing, Clustering  
-- **Languages** : Powershell, Python, Ruby   
+- **Languages** : Python, Ruby, Bash   
 - **Versionning** : Git  
-- **Monitoring** : Centreon, Prometheus, Sensu
+- **Monitoring** : Prometheus, Grafana; ELK
 - **Container Orchestration** : Kubernetes, Nomad  
 - **Cloud Providers** : Microsoft Azure, Openstack
 
@@ -136,6 +138,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - Python Linux Easy Deploy
 - PyArubaCloud (Collaboration for ArubaCloud Library for Python)  
 - Container orchestration with Saltstack
+- Keycloak API Requester
 
 ## Ruby
 - Fog/Arubacloud (ArubaCloud Driver for Fog gem)
