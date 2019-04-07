@@ -34,7 +34,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 
 **May 2016 - Sept 2017** | **Simia** | **Paris**  
 **System Engineer DevOps**  
-**Lotsys**
+**Lotsys**  
 - Professional Application Dockerization for foreign customers  
 - Scripts and tools development for foreign customers (Python/Bash)  
 - Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
