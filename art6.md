@@ -5,8 +5,8 @@ title = "Tester son infrastructure avec Inspec"
 
 +++
 
-Inspec est un outil de test venant de la même équipe à l'origine de **Chef** et **Habitat** et partage au moins un point commun : c'est en Ruby.
-N'ayant jamais essayé les autres outils, je ne me lancerai sur de la comparaison entre **Chef** et **Ansible**/**Salstack** (je l'ai fais avec **Puppet**, mais parce que j'ai déjà joué avec).
+Inspec est un outil de test venant de la même équipe à l'origine de **Chef** et **Habitat** et partage au moins un point commun : c'est en Ruby.  
+N'ayant jamais essayé les autres outils, je ne me lancerai sur de la comparaison entre **Chef** et **Ansible**/**Salstack** (je l'ai fais avec **Puppet**, mais parce que j'ai déjà joué avec).  
 Pour en revenir à **Inspec**, celui-ci permet d'effectuer des tests de compliance sur des infrastructures cloud, bien qu'il permette également d'effectuer des tests sur des serveurs classique (sur des conteneurs, ça fonctionne aussi).
 
 # Cloud ou Classique ?
@@ -60,7 +60,7 @@ Certes, le nombre de fournisseur d'infrastructure Cloud est...conséquent, mais 
 - AWS  
 Avec ces trois là, je pense que l'on peut couvrir une grande partie du marché.  
 Dans l'idée, tester son infrastructure après l'avoir montée à l'aide de **Terraform** n'a absolument aucun sens ni aucun intérêt (je suis tout à fait d'accord avec vous) étant donné que **Terraform** fait tellement bien son job qu'il crée uniquement ce qu'on lui demande (même si on se trompe, il y a toujours un moyen de le vérifier et de supprimer la ressource en question).  
-Mais là ou ça devient intéressant, c'est lorsque l'on a des différences entre le contenu du fichier *tfstate* sur trouvant sur le backend du cloud provider et ce qui est toujours présent sur notre compte cloud. Evidemment, Le fichier *tfstate* étant un fichier json relativement classique, il est possible de le parser dans **Inspec**...mais pas directement depuis le backend (sinon, ce serait bien trop simple), c'est à ce moment que l'on se rend compte que deux commande **Terraform**, à priori inutile, montrent toute leur utilité :  
+Mais là ou ça devient intéressant, c'est lorsque l'on a des différences entre le contenu du fichier *tfstate* sur trouvant sur le backend du cloud provider et ce qui est toujours présent sur notre compte cloud. Evidemment, Le fichier *tfstate* étant un fichier json relativement classique, il est possible de le parser dans **Inspec**...mais pas directement depuis le backend (sinon, ce serait bien trop simple), c'est à ce moment que l'on se rend compte que deux commandes **Terraform**, à priori inutile, montrent toute leur utilité :  
 
 - terraform refresh  
 - terraform state pull  
