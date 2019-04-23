@@ -12,9 +12,7 @@ Depuis, j'ai eu le temps de me pencher un peu plus sur le sujet.
 Au sujet du **Monitoring**, je ne peux pas cacher ma préférence envers **ELK**, soit **ElasticSearch**/**Logstash**/**Kibana**...Mais en remplaçant **Logstash** par **Filebeat** et **Metricbeat**, on obtient un outil de monitoring vraiment complet permettant de gérer aussi bien les métriques que les logs sans que ce soit la galère à configurer.  
 Toujours dans la même idée, nous avons **Greylog**, qui permet d'aller plus loin au niveau de la sécurité des utilisateurs et de l'alerting (là ou **ELK** propose un pack payant pour faire la même chose), mais l'inconvénient est que les dashboards de métriques sont très compliqués à créer.
 
-Jusqu'à maintenant, je n'y avais pas pensé étant donné que je provisionnais mes serveurs (ainsi que le serveur de monitoring) à l'aide d'**Ansible**, mais je me suis dis qu'ajouter du **Service Discovery** pouvait simplifier encore plus le déploiement d'une serveur de ce type.
-
-Cet article sera en deux parties, la première va aborder **Prometheus** et le service Discovery...en attendant de pouvoir vous présenter la même chose avec **ELK**.
+Jusqu'à maintenant, je n'y avais pas pensé étant donné que je provisionnais mes serveurs (ainsi que le serveur de monitoring) à l'aide d'**Ansible**, mais je me suis dis qu'ajouter du **Service Discovery** pouvait simplifier encore plus le déploiement d'un serveur de ce type.
 
 ## Le Service Discovery
 Je ne vais pas vous faire un comparatif des différents outils de **Service Discovery** présent sur le marché, tels que :
@@ -28,7 +26,7 @@ D'autant plus que le dernier n'est pas qu'un simple outil de **Service Discovery
 
 **Etcd**, je ne le connais que de nom, j'ai travaillé plusieurs mois avec le duo **Zookeeper/Hazelcast** pour ne pas avoir envie de m'aventurer sur ce terrain...et aussi parce que je n'ai pas envie de vous perdre.  
 Il reste donc **Consul** qui est bien plus **User-Friendly** et dont l'installation/démarrage vous prendra moins de 10 minutes (montre en main).  
-Pour le télécharger, c'est par [ici]()  
+Pour le télécharger, c'est par [ici](https://www.consul.io/downloads.html)  
 Une fois téléchargé et décompacté, on exécute la commande suivante (sans oublier de créer un dossier *data* pour **Consul**) : 
 
 - sur le serveur :  
@@ -79,7 +77,7 @@ scrape_configs:
 
 Une petite explication s'impose :  
 - Nous avons créé un job de *scrapping* de métriques que l'on nomme *consul*  
-- Celui-ci va intéroger le *service discovery*  
+- Celui-ci va intérroger le *service discovery*  
 - Un premier filtre est défini : *monitor*, tout ce qui contient le tag en question dans **consul** sera affiché dans **Prometheus**  
 
 Maintenant vous pouvez démarrer **Prometheus** avec la commande suivante : `/opt/prometheus/prometheus --config.file=prometheus.yml` puis rendez-vous sur l'**UI/targets** et ...tadaaaaa !!! Vous pouvez continuer en ajoutant un autre serveur et reproduisant le même processus :  
@@ -94,6 +92,6 @@ Certes, l'interface de Prometheus n'est pas très *eye-candy*, mais vous pouvez 
 ## Conclusion
 Prometheus n'est pas fait que pour les plateformes de conteneurs, c'est un fait.  
 Pour les plateformes de conteneurs, hors **Kubernetes**, nous avons **cadvisor** (qui fera peut-être l'objet d'un prochain article).  
-Mais pour les serveurs classiques, il y a toujours des solutions dont celle que je viens de présenter...et il y en a forcément d'autres : à creuser.  
+Mais pour les serveurs classiques, il y a toujours des solutions dont celle que je viens de présenter...et il y en a forcément d'autres : Ajouter un serveur **Redis** à une stack **ELK/Filebeat/Metricbeat**, par exemple (voir un [précédent article](http://www.ageekslab.com/lab/labo23/)).  
 
-N'hésitez surtout à faire un tour du côté des exporters pour **Prometheus**...et pas seulement sur le site officiel (Celui pour Keycloak n'est pas référencé, par exemple).
+N'hésitez surtout à faire un tour du côté des exporters pour **Prometheus**...et pas seulement sur le site officiel (Celui pour **Keycloak** n'est pas référencé, par exemple).
