@@ -50,7 +50,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 **Radio France**  
 - Tools integration (Gitlab-CI, DockerTrusted Registry)  
 - Infrastructure deployment with Jenkins, Puppet and Terraform  
-- Technical Documentation
+- Technical Documentation  
 - Scrum method  
 
 ---
