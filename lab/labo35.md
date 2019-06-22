@@ -10,10 +10,10 @@ Et le fait qu'en début de semaine c'était le Google Cloud Summit n'a rien à v
 
 ## Pre-requis
 Obviously...parmi les prérequis, il y a :  
-- un compte de service + un projet sur google cloud
-- Prometheus
-- Thanos
-- 3 VMs
+- un compte de service + un projet sur google cloud  
+- Prometheus  
+- Thanos  
+- 3 VMs  
 
 Sur deux d'entre-elles seront installé **Promtheus** et **Thanos**, ce dernier ne sera démarré qu'en mode **sidecar**. Sur la dernière, nous aurons **Thanos** en mode **store** et **query**.  
 Je rappelle juste plusieurs points relatifs à **thanos**, tels que :  
