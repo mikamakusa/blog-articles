@@ -9,12 +9,10 @@ title = "A propos..de moi"
 **From Jan 2018 | Uniware | Neuilly-sur-Seine**  
 **Infrastructure System Engineer**  
 **Carrefour**  
-In charge of the industrialization of the infrastructure creation and provisionning on Openstack and Microsoft Azure Cloud Platforms for Carrefour's projects.  
-- Terraform scripts creation (security rules, network and servers),  
-- Ansible Roles and Playbook creation,  
-- Salstack states and pillars creation,  
+Working on digital transformation for **Carrefour** on many critical projects.   
+- Terraform Workshop and toolkit creation (for Openstack, Azure and Google Cloud),  
+- Ansible Workshop and toolkit creation,  
 - Pipelines creation on Jenkins,  
-- Consulting actions and Workshops related to Kubernetes, Ansible, Saltstack and Terraform (Code, Best Pratices),  
 - Technical documentation and demos,  
 - Scrum method
 
@@ -26,7 +24,6 @@ In charge of the industrialization of the infrastructure creation and provisionn
 In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud platform on which the web application, developped by Xebia in collaboration with BVA, will be running.  
 - Terraform scripts creation for infrastructure (resources groups, network, security and servers) creation,  
 - Saltstack scripts creation for sotfwares and configuration provisionning (jenkins, influxdb, grafana, collectd, nexus, sonarqube),  
-- Swarm and Kafka clusters creation using Microsoft Azure Web Portal,  
 - Technical Documentation and demos,  
 - Scrum method/Pizza Team
 
@@ -39,7 +36,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - Scripts and tools development for foreign customers (Python/Bash)  
 - Lab Environment Development (Vagrant, VirtualBox, SaltStack)  
 - Continuous Integration with Atlassian's Bitbucket/Bamboo  
-- Scrum method/Pizza team
+- Scrum method
 - Technical Documentation  
 - PoC : Master/minion Saltstack logs recovery using Redis and logstah/ElasticSearch/Kibana  
 - PoC : Professional Application Container Orchestration (Kubernetes/Nomad) and Provisioning (SaltStack)  
@@ -122,7 +119,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - **Versionning** : Git  
 - **Monitoring** : Prometheus, Grafana; ELK
 - **Container Orchestration** : Kubernetes, Nomad  
-- **Cloud Providers** : Microsoft Azure, Openstack
+- **Cloud Providers** : Microsoft Azure, Openstack, Google Cloud
 
 ---
 
