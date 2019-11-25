@@ -6,7 +6,16 @@ title = "A propos..de moi"
 +++
 
 # Experience #
-**From Jan 2018 | Uniware | Neuilly-sur-Seine**  
+***From Oct 2019 | Ippon | Paris***  
+***Cloud System Engineer***  
+***Engie Digital***  
+- Cloud Deployment Automation on Aws Platform (Terraform, Packer, Jenkins)
+- Scrum Method  
+- Technical documentation and Demos
+
+---
+
+**Jan 2018 - Oct 2019 | Uniware | Neuilly-sur-Seine**  
 **Infrastructure System Engineer**  
 **Carrefour**  
 Working on digital transformation for **Carrefour** on many critical projects.   
