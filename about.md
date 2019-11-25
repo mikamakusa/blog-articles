@@ -5,11 +5,11 @@ title = "A propos..de moi"
 
 +++
 
-# Experience #
-***From Oct 2019 | Ippon | Paris***  
-***Cloud System Engineer***  
-***Engie Digital***  
-- Cloud Deployment Automation on Aws Platform (Terraform, Packer, Jenkins)
+# Experience
+**From Oct 2019 | Ippon | Paris**  
+**Cloud System Engineer**  
+**Engie Digital**  
+- Cloud Deployment Automation on Aws Platform (Terraform, Packer, Jenkins)  
 - Scrum Method  
 - Technical documentation and Demos
 
