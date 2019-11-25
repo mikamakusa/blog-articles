@@ -129,7 +129,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 - **Versionning** : Git  
 - **Monitoring** : Prometheus, Grafana; ELK
 - **Container Orchestration** : Kubernetes, Nomad  
-- **Cloud Providers** : Microsoft Azure, Openstack, Google Cloud
+- **Cloud Providers** : Microsoft Azure, Openstack, Google Cloud, AWS
 
 ---
 
