@@ -1,5 +1,5 @@
 +++
-date = "2019-04-24T15:29:49+02:00"
+date = "2020-02-11T15:29:49+02:00"
 draft = "false"
 title = "AWS EC2 Image Builder"
 
