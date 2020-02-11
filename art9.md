@@ -50,7 +50,7 @@ Toujours pas de SSH en natif sur Windows, ce qui est bien dommage.
 
 
 Ensuite il faudra sélectionner les composants que l’on peut également créer soi-même (je reviendrai dessus) :
-![alt-text]()https://github.com/mikamakusa/blog-articles/blob/master/images/img2.png  
+![img2](/images/img2.png)  
 
 
 
@@ -66,10 +66,10 @@ Pour le moment, très peu de composants préconfigurés sont disponibles et incl
 
 
 Vu le peu de composants disponibles à l’heure actuelle, AWS nous donne la possibilité d’en créer (voir ci-dessous) :
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img3.png)  
+![img3](/images/img3.png)  
 
 Ici on peut définir le système d’exploitation pour lequel le composant sera disponible et, à l’aide de l’option KMS keys, la possibilité de chiffrer l’AMI.
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img4.png)  
+![img4](/images/img4.png)  
 
 Cette seconde partie est peut être la plus intéressante car elle reprend le principe de Gitlab-CI avec les phases de pipeline (bien que la syntaxe soit assez différente, voir l’exemple ci-dessous)
 
@@ -114,15 +114,15 @@ Lors de cette étape, nous allons définir plusieurs éléments tels que :
 
 Cette étape est très important car elle va poser les bases d’une construction d’AMI sécurisée.
 
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img5.png)
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img6.png)  
+![img5](/images/img5.png)
+![img6](/images/img6.png)  
 
 
 
 #### Troisième étape
 Lors de cette dernière étape (la quatrième n’est qu’un rappel de toutes les options sélectionnées auparavant), vous pourrez choisir les paramètres de distribution de l’AMI tels que le nom de sortie de l’AMI, les régions sur lesquelles vous souhaitez la rendre disponible ainsi que les comptes qui pourront y accéder.
 
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img7.png)
+![img7](/images/img7.png)
 
 
 
@@ -147,14 +147,14 @@ EC2 Image Builder est une excellente idée (sur le papier), il pourrait remplace
 - Là où un template Packer peut être versionné, c’est impossible de le faire avec EC2 Image Builder (même pour les scripts de build de composants et de tests). Par conséquent, impossible de lier la création d’AMI à un event github/gitlab.
 - Les logs d’erreurs ne sont pas disponible comme peuvent l’être ceux de Packer (voir ci-dessous), et le peu d’information disponible n’est pas assez explicite pour savoir comment débugger.
 
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img8.png)
+![img8](/images/img8.png)
 
 
 
 
 Dernier point sur lequel je devais revenir, le partage d’AMI entre compte n’est pas parfait. Si vous avez oublié de créer une clé KMS (Key Management Service), l’AMI ainsi créée ne sera visible que sur le compte avec lequel elle a été créée (voir ci-dessous) :
 
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img9.png)
+![img9](/images/img9.png)
 
 
 
