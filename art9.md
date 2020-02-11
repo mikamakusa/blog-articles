@@ -36,7 +36,7 @@ Voilà pour la petite présentation... Maintenant passons à la prise en main du
 #### Première étape
 La première étape consiste à sélectionner le type d’AMI a partir de laquelle votre image customisée sera construite.
 
-![alt-text](https://github.com/mikamakusa/blog-articles/blob/master/images/img1.png)
+![](images/img1.png)
 
 
 
