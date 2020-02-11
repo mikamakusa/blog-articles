@@ -36,7 +36,7 @@ Voilà pour la petite présentation... Maintenant passons à la prise en main du
 #### Première étape
 La première étape consiste à sélectionner le type d’AMI a partir de laquelle votre image customisée sera construite.
 
-![](images/img1.png)
+![img1](/images/img1.png)
 
 
 
