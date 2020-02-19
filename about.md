@@ -9,8 +9,8 @@ title = "A propos..de moi"
 **From Oct 2019 | Ippon | Paris**  
 **Cloud System Engineer**  
 **Engie Digital**  
-- Cloud Deployment Automation on Aws Platform (Terraform, Packer, Jenkins)  
-- Terraform Workshop and toolkit creation  
+- Cloud Deployment Automation on **AWS** Platform (Terraform, Packer, Jenkins)  
+- Terraform Workshop and toolkit creation/migration  
 - Scrum Method  
 - Technical documentation and Demos
 
@@ -164,7 +164,9 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Certifications
-**NetApp** 7-Mode Administration
+**2020** - **AWS** Solution Architect Associate  
+**2019** - **DASA** DevOps Expert
+**2014** - **NetApp** 7-Mode Administration
 
 ---
 
