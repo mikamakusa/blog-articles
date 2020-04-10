@@ -29,18 +29,18 @@ Cette liste est non exhaustive, je suis certain que vous pourrez en trouver de v
 J'avoue avoir combiné les deux premières solutions.
 
 ## Les labs
-Je ne peux pas affirmer qu'il y ait des labs...autre qu'[ici]('https://docs.microsoft.com/fr-fr/learn/') sur le site de Microsoft.  
+Je ne peux pas affirmer qu'il y ait des labs...autre que sur https://docs.microsoft.com/fr-fr/learn/ sur le site de Microsoft.  
 Mais vous pouvez aussi ouvrir un compte sur Azure, bénéficier de la période d'essai gratuite et créer vos labs dessus.
 
 ## Le contenu couvert
-Le contenu couvert par les cours est extrêmement vaste :
-- Design d'architecture
-- Network Security
-- Identity management (le principe de *Least Priviledges* est abordé avec les différents types de roles)
-- Cost management
-- Migration (aussi bien *On-Premise* vers *Azure* que *AWS* vers *Azure*)
-- Application Design (Couvrant aussi bien les problématiques relative à Function App ou à Kubernetes)
-- Workflows (Messaging, Notifications)
+Le contenu couvert par les cours est extrêmement vaste :  
+- Design d'architecture. 
+- Network Security. 
+- Identity management (le principe de *Least Priviledges* est abordé avec les différents types de roles). 
+- Cost management. 
+- Migration (aussi bien *On-Premise* vers *Azure* que *AWS* vers *Azure*). 
+- Application Design (Couvrant aussi bien les problématiques relative à Function App ou à Kubernetes). 
+- Workflows (Messaging, Notifications). 
 - Availability et SLA (Les fameux *Availability Sets* et *Scale Sets*)
 
 Et je suis certain que j'oublie des thématiques.
@@ -81,8 +81,10 @@ B. Azure Event Hub
 C. Azure HDInsight
 D. Azure Service Bus
 ```
-L'exemple parfait de question pour laquelle la réponse est dans la description du cas : `One of the modules of the application will be built using a messaging solution architecture`. Le service de Messaging est *Service Bus*.
-*Event Grid* sert à gérer les événements, *Event Hub* est un service d'ingestion de données et *HD Insight* est un service d'analyse.
+L'exemple parfait de question pour laquelle la réponse est dans la description du cas : `One of the modules of the application will be built using a messaging solution architecture`. Le service de Messaging est *Service Bus*.  
+- *Event Grid* sert à gérer les événements. 
+- *Event Hub* est un service d'ingestion de données. 
+- *HD Insight* est un service d'analyse.
 
 Autre exemple (AZ-301):
 ```
@@ -101,7 +103,9 @@ Dans ce cas, il faut connaître *Azure Service Fabric* et ses options de *capaci
 Vu les réponses proposées, les deux bonnes réponses sont **A** et **B**
 
 ### Réservation
-Une fois que vous vous sentez vraiment prêt : réservez vos sessions [ici pour AZ-300]('https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-300') et [là pour AZ-301]('https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-301').
+Une fois que vous vous sentez vraiment prêt : réservez vos sessions. 
+- ici pour AZ-300 : https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-300. 
+- là pour AZ-301: https://docs.microsoft.com/fr-fr/learn/certifications/exams/az-301.
 
 ## Pendant les examens
 Il faut savoir que vous avez plus de 2h : 150 minutes exactement sur chacun.  
