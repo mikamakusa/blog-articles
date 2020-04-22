@@ -164,8 +164,9 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Certifications
-**2020** - **AWS** Solution Architect Associate  
-**2019** - **DASA** DevOps Expert
+**2020** - **Azure** Solutions Architect Expert  
+**2020** - **AWS** Solutions Architect Associate  
+**2019** - **DASA** DevOps Expert  
 **2014** - **NetApp** 7-Mode Administration
 
 ---
