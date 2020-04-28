@@ -1,7 +1,7 @@
 +++
 date = "2020-04-28T15:29:49+02:00"
 draft = false
-title = "les opérateurs ternaires"
+title = "Les opérateurs ternaires"
 +++
 
 ## Intro
