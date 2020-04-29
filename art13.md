@@ -1,5 +1,5 @@
 +++
-date = "2020-04-28T22:23:00+02:00"
+date = "2020-04-29T22:23:00+02:00"
 draft = false
 title = "News from Google Cloud Platform"
 +++
