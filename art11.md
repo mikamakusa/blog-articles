@@ -56,4 +56,4 @@ Une fois prêt, rendez vous ici : https://cloud.google.com/certification/cloud-e
 L'examen est moins cher que les autres : 150 € (TTC).  
 
 ## L'examen
-Mon examen a lieu le 4 Mai, je ferais un update quelques jours plus tard (une fois les résultats reçus).
+Mon examen a lieu le 1er Juin, je ferais un update quelques jours plus tard (une fois les résultats reçus).
