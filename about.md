@@ -6,8 +6,8 @@ title = "A propos..de moi"
 +++
 
 # Experience
-**From May 2020 | Sfeir | Nantes**
-**Cloud Architect**
+**From May 2020 | Sfeir | Nantes**  
+**Cloud Architect**  
 - **Ansible** training development
 
 ---
