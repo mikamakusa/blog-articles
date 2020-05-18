@@ -6,7 +6,13 @@ title = "A propos..de moi"
 +++
 
 # Experience
-**From Oct 2019 | Ippon | Paris**  
+**From May 2020 | Sfeir | Nantes**
+**Cloud Architect**
+- **Ansible** training development
+
+---
+
+**Oct 2019 - May 2020 | Ippon | Paris**  
 **Cloud System Engineer**  
 **Engie Digital**  
 - Cloud Deployment Automation on **AWS** Platform (Terraform, Packer, Jenkins)  
@@ -164,6 +170,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Certifications
+**2020** - **Hashicorp** Terraform Associate
 **2020** - **Azure** Solutions Architect Expert  
 **2020** - **AWS** Solutions Architect Associate  
 **2019** - **DASA** DevOps Expert  
