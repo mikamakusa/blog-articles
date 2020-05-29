@@ -8,11 +8,6 @@ title = "A propos..de moi"
 # Experience
 **From May 2020 | Sfeir | Nantes**  
 **Cloud Architect**  
-- **Ansible** Trainer  
-- **Terraform** Trainer  
-- Internal Projects :  
-  - Infrastructure & CICD Developper for Internal Chatbot  
-  - Infrastructure & CICD Developper for DevFest 2020
 
 ---
 
