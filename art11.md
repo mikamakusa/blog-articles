@@ -1,5 +1,5 @@
 +++
-date = "2020-04-29T15:29:49+02:00"  
+date = "2020-05-29T15:29:49+02:00"  
 draft = false  
 title = "La certification Google Associate Cloud Engineer"  
 +++
@@ -55,5 +55,23 @@ Si vous êtes sur **CloudGuru**, profitez-en pour suivre la formation **Google K
 Une fois prêt, rendez vous ici : https://cloud.google.com/certification/cloud-engineer?hl=fr  
 L'examen est moins cher que les autres : 150 € (TTC).  
 
-## L'examen
-Mon examen a lieu le 1er Juin, je ferais un update quelques jours plus tard (une fois les résultats reçus).
+## Pendant l'examen
+Mon examen a eu lieu le 28 Juin.  
+Je vais vous avouer que, contrairement a ce que j'ai pu voir chez **whizlabs**, **cloudguru** ou sur **udemy**, certaines sont relativement compliquées.  
+J'ai vraiment eu de gros doutes, car les derniers tests que j'ai pu effectuer sur **udemy** m'ont donné des notes ne dépassant pas les 65%.  
+Le score minimum de passage n'est divulgué nulle part ce qui rajoute une dose de stress.  
+L'examen dure deux heures pour 50 questions, gérez bien votre temps car si vous bloquez trop longtemps sur certaines questions, le temps passe relativement vite.
+
+### Le final
+**Attention** : Même si c'est bien précisé qu'il faut attendre jusqu'à 10 jours pour la validation finale de Google, vous verrez sur **WebAssessor** si vous avez réussi ou non l'examen. Tout ce qu'il faut attendre de **Google** c'est : 
+- Le badge ou le diplôme validant votre réussite à l'examen,  
+- Le score que vous avez atteint.  
+
+Donc si c'est marqué **Pass**, vous pouvez sortir le champagne et effectuer votre petite danse de la victoire.
+
+## Conclusion
+Je vais forcément me répéter sur certains points, mais : 
+- Restez sérieux dans vos révisions,
+- Lisez bien attentivement toutes les questions, certaines sont tordues, d'autres peuvent sembler relativement simple...Mais n'oubliez surtout pas que c'est une certif et rien n'est jamais simple dans ces cas là,
+- Faites un tour sur la documentation officielle, tout est super bien documenté,
+- Never stop learning

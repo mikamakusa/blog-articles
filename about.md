@@ -8,7 +8,11 @@ title = "A propos..de moi"
 # Experience
 **From May 2020 | Sfeir | Nantes**  
 **Cloud Architect**  
-- **Ansible** training development
+- **Ansible** Trainer  
+- **Terraform** Trainer  
+- Internal Projects :  
+  - Infrastructure & CICD Developper for Internal Chatbot  
+  - Infrastructure & CICD Developper for DevFest 2020
 
 ---
 
@@ -170,6 +174,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Certifications
+**2020** - **Google Cloud Platform** Associate Cloud Engineer  
 **2020** - **Hashicorp** Terraform Associate  
 **2020** - **Azure** Solutions Architect Expert  
 **2020** - **AWS** Solutions Architect Associate  
