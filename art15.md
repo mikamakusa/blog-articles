@@ -16,7 +16,7 @@ J'en ai croisé beaucoup sur la plateforme **Udemy**, très bien conçu pour cer
 
 **Sur Udemy** :  
 * **Certified Kubernetes Administrator with Pratice Tests** de **KodeKloud** : Bien qu'il y en ait d'autres qui creusent probablement beaucoup plus loin dans les fonctionnalités de **Kubernetes**, celui-ci propose un lab à chaque fin de section. La difficulté est progressive et ce n'est pas seulement un petit quizz pour vérifier les connaissances engrangées durant le cours (comme l'on peut trouver sur d'autres cours).  
-* **Kubernetes On the Cloud & The CNCF CKA Certification** de **Loony Corn** : Voici un example de cours sur **Kubernetes** préparant à la certification sans même proposer de lab pour se *mettre les mains dans le cambouis*. Environ 9h de vidéos (soit moitié moins qu'avec **KodeKloud**), un quizz à chaque fin de section et quelques infos sur l'examen en lui même. En gros : Peu de contenu (même si ça aborde **Kubernetes** sur **AWS** et **Azure**...A croire que **GCP** ne le propose pas).
+* **Kubernetes On the Cloud & The CNCF CKA Certification** de **Loony Corn** : Voici un example de cours sur **Kubernetes** préparant à la certification sans même proposer de lab pour se *mettre les mains dans le cambouis*. Environ 9h de vidéos (soit moitié moins qu'avec **KodeKloud**), un quizz à chaque fin de section et quelques infos sur l'examen en lui même. En gros : Peu de contenu (même si ça aborde **Kubernetes** sur **AWS** et **Azure**...A croire que **GCP** ne le propose pas).  
 * **Learn DevOps: The Complete Kubernetes Course** de **Edward Viaene**: Cours vraiment très complet, à peu de choses près aussi long que de celui de **KodeKloud** sans les Labs (encore une fois), mais c'est une première partie parce qu'il propose également une seconde partie articulée autour d'usages plus avancés avec **spinnaker**, **CSI**, **automatisation**, utilisation de **terraform** pour déployer sur **kubernetes** (et j'oublie certainement pas mal de choses).
 
 **Sur MyMooC.com** :  
@@ -36,8 +36,8 @@ Le contenu est assez pauvre, surtout si on compare avec le cours de chez **KodeK
 
 **Sur Whizlabs** :  
 Les cours sont aussi complets que celui que j'ai suivi avec **KodeKloud** (les Labs/HandsOn en moins).
-- Certified Kubernetes Administrator
-- Certified Kubernetes Application Developper
+- Certified Kubernetes Administrator  
+- Certified Kubernetes Application Developper  
 - Learn Kubernetes with AWS and Docker
 
 **Sur Coursera** :   
@@ -72,7 +72,7 @@ Il y a bien évidemment [**Katacoda**]('https://www.katacoda.com/courses/kuberne
 
 ### D'autres Environnements types "Lab"
 Il y en a deux autres recensés sur le blog de [Pierre-Mickaël Chancrin]('https://piermick.wordpress.com/') :
-  - https://github.com/hub-kubernetes/kubernetes-CKA : propose principalement des *use-case* à tester dans un lab que vous auriez monté au préalable.
+  - https://github.com/hub-kubernetes/kubernetes-CKA : propose principalement des *use-case* à tester dans un lab que vous auriez monté au préalable.  
   - https://github.com/arush-sal/cka-practice-environment : C'est un simulateur d'examen en mode **Bring Your Own Cluster**...donc le même type que celui cité précédemment.  
 Si vous optez pour ce type d'approche, je ne peux que vous recommander d'utiliser **Vagrant** / **VirtualBox** pour monter votre propre cluster Kubernetes.
 
