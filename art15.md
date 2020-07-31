@@ -71,7 +71,7 @@ Les labs de **Kodekloud** sont assez nombreux, il y a 12 chaptitres et au moins 
 Il y a bien évidemment [**Katacoda**]('https://www.katacoda.com/courses/kubernetes') qui propose de nombreux scénarii très utile pour se familiariser avec **Kubernetes** mais, à mon avis, c'est beaucoup trop *clicodrome* pour vraiment être utile dans le but de passer une des deux certifications **Kubernetes**.
 
 ### D'autres Environnements types "Lab"
-Il y en a deux autres recensés sur le blog de [Pierre-Mickaël Chancrin]('https://piermick.wordpress.com/') :
+Il y en a deux autres recensés sur le blog de [Pierre-Mickaël Chancrin]('https://piermick.wordpress.com/') :  
   - https://github.com/hub-kubernetes/kubernetes-CKA : propose principalement des *use-case* à tester dans un lab que vous auriez monté au préalable.  
   - https://github.com/arush-sal/cka-practice-environment : C'est un simulateur d'examen en mode **Bring Your Own Cluster**...donc le même type que celui cité précédemment.  
 Si vous optez pour ce type d'approche, je ne peux que vous recommander d'utiliser **Vagrant** / **VirtualBox** pour monter votre propre cluster Kubernetes.
