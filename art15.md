@@ -108,12 +108,12 @@ Le dernier s'est arrêté à la version **1.15** de **Kubernetes** et semble don
 ## Avant les examens
 ### Renseignements
 Pas de panique, des REX sont disponibles partout sur internet :  
-- [Zenika]('https://blog.zenika.com/2018/12/18/certification-kubernetes-ils-passent-la-cka-et-vous-disent-tout/')
-- Medium : 
-  - https://medium.com/@ContinoHQ/the-ultimate-guide-to-passing-the-cka-exam-1ee8c0fd44cd
-  - https://medium.com/platformer-blog/how-i-passed-the-cka-certified-kubernetes-administrator-exam-8943aa24d71d
-  - https://medium.com/@danielmittelman1/the-comprehensive-guide-to-passing-the-certified-kubernetes-administrator-cka-exam-ba7ef2cec27f
-  - https://medium.com/faun/certified-kubernetes-administrator-cka-ultimate-guide-238710f9ba73
+- (Zenika)['https://blog.zenika.com/2018/12/18/certification-kubernetes-ils-passent-la-cka-et-vous-disent-tout/']  
+- Medium :  
+  - https://medium.com/@ContinoHQ/the-ultimate-guide-to-passing-the-cka-exam-1ee8c0fd44cd  
+  - https://medium.com/platformer-blog/how-i-passed-the-cka-certified-kubernetes-administrator-exam-8943aa24d71d  
+  - https://medium.com/@danielmittelman1/the-comprehensive-guide-to-passing-the-certified-kubernetes-administrator-cka-exam-ba7ef2cec27f  
+  - https://medium.com/faun/certified-kubernetes-administrator-cka-ultimate-guide-238710f9ba73  
 - [Pierre-Mickael Chancrin]('https://piermick.wordpress.com/') (de Ippon Technologies)
 
 Et si vous cherchez encore des informations, n'hésitez pas à soliciter vos collègues (il y en a forcément un qui l'a passé).
