@@ -53,7 +53,7 @@ Il s'agit de définir les élements de configuration de l'instance ( **CPU**, **
 
 ## Le script d'installation
 Contrairement à **GCP** et **Azure**, sur **AWS** nous avons la possibilité de configurer :  
-- Des **Launch Templates** ou,
+- Des **Launch Templates** ou,  
 - Des **Launch Configurations**.
 
 Le principe est sensiblement identique à une exception : Les *user data* (ou *cloud-init*) ne fonctionnent pas avec les **launch configurations**...bien que les deux puissent être utilisés avec les **Auto Scaling Groups**.
@@ -256,9 +256,9 @@ L'interface est accessible de cette manière : http://[MASTER_IP]:5280/admin, le
 
 # Et si on veut aller plus loin ?
 Bien que j'ai poussé un peu plus loin un cas d'utilisation classique de **ejabberd** (rare sont les cas d'utilisation classique utilisant des fonctions d'autoscaling), il est possible d'aller encore plus loin et ce sur plusieurs niveaux :  
-- Réseau
-- Sécurité
-- Configuration
+- Réseau  
+- Sécurité  
+- Configuration  
 
 En ce qui concerne le réseau, et que je n'ai pas expliqué ici, j'avais créé un **VPC** avec deux réseaux - privé et public - et je pense que vous avez déjà deviné quel type de réseau était réservé a quel type de serveur.  
 Pour tout ce qui est Sécurité, je fais bien entendu référence au fait que **ejabberd** peut se connecter à un serveur **LDAP** pour tout ce qui est gestion des utilisateurs...mais il n'y a pas que ça et tout est documenté sur le site officiel (même si c'est fait de façon assez sommaire et peu détaillé).  
