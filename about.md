@@ -169,6 +169,7 @@ In charge of infrastructure creation "from scratch" on Microsoft Azure Cloud pla
 ---
 
 # Certifications
+**2020** - Certified **Kubernetes** Administrator  
 **2020** - **Google Cloud Platform** Associate Cloud Engineer  
 **2020** - **Hashicorp** Terraform Associate  
 **2020** - **Azure** Solutions Architect Expert  
