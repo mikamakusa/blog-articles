@@ -53,13 +53,13 @@ Comme évoqué plus haut, les sink permettent d'exporter les logs vers d'autres 
 
 ### Via la console
 Plusieurs étapes :  
-![img1](/images/img10.png)<img src="image" width="40%">  
+![img1|50%](/images/img10.png)  
 *Créer le filtre puis cliquer sur Create Sink*
   
-![img2](/images/img11.png)<img src="image" width="40%">  
+![img2](/images/img11.png)  
 *Sélectionner la destination du Sink, dans le cas actuel: PubSub*
 
-![img3](/images/img12.png)<img src="image" width="40%">  
+![img3](/images/img12.png)  
 *Nommer le Sink et sélectionner/créer le topic PubSub*
 
 ### Avec Terraform
