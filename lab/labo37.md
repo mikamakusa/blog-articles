@@ -53,13 +53,13 @@ Comme évoqué plus haut, les sink permettent d'exporter les logs vers d'autres 
 
 ### Via la console
 Plusieurs étapes :  
-![img1](/images/img10.png)  
+![img1](/images/img10.png){:class="img-responsive"}  
 *Créer le filtre puis cliquer sur Create Sink*
   
-![img2](/images/img11.png)  
+![img2](/images/img11.png){:class="img-responsive"}  
 *Sélectionner la destination du Sink, dans le cas actuel: PubSub*
 
-![img3](/images/img12.png)  
+![img3](/images/img12.png){:class="img-responsive"}  
 *Nommer le Sink et sélectionner/créer le topic PubSub*
 
 ### Avec Terraform
@@ -84,16 +84,16 @@ resource "google_pubsub_subscription" "example" {
 ## Du côté de PubSub
 En fait, sur le *topic* **PubSub** il n'y a rien de plus à faire que ce qui a été déjà effectué dans Stackdriver. Il y a évidemment la possibilité de créer un trigger pour Cloud Functions…mais même cette action est faisable depuis l'interface de ce dernier.
 
-![img1](/images/img13.png)
+![img1](/images/img13.png){:class="img-responsive"}
 
 ## Du côté de Cloud Functions
 Si on ne la crée pas directement depuis **PubSub**, il n'y a aucune différence ni difficulté à la créer depuis l'interface du service. La partie qui demandera le plus de travail reste le code de la fonction en lui même, bien que vous pourrez toujours faire des tests avec hello_pubsub.  
 Pour configurer le *trigger*, suivez les étapes ci-dessous:  
 
-![](/images/img14.png)  
+![](/images/img14.png){:class="img-responsive"}  
 *Sélectionner PubSub dans TriggerType*  
 
-![](/images/img15.png)  
+![](/images/img15.png){:class="img-responsive"}  
 *Et sélectionner le topic, puis sauvegarder pour accéder à la partie Code*  
 
 ## Du côté du VPC Access Connector
@@ -111,7 +111,7 @@ gcloud beta compute networks vpc-access connectors create cache-connector \
 
 ## Du côté de Compute Engine
 Comme évoqué plus haut, Remote Desktop Services nécessite le déploiement de plusieurs briques logicielles, chacune d'elles devraient idéalement être déployées sur une seule instance.
-![img1](/images/1_5WQB4ADOlK7Rz9KQc9R_8A.png)
+![img1](/images/1_5WQB4ADOlK7Rz9KQc9R_8A.png){:class="img-responsive"}
 
 ### Techniquement…
 #### Les serveurs RDS Master et Workers
@@ -201,7 +201,7 @@ Dans ces cas là, on va combiner Ansible et Powershell pour déployer et configu
 
 # Tout fonctionne ?
 Une fois que tout est déployé, l'architecture Remote Desktop Services avec scaling automatique des SessionHost ressemble à ceci:  
-![img1](/images/1_waCo0kkb0m9cEyyk-0Yu5w.png)
+![img1](/images/1_waCo0kkb0m9cEyyk-0Yu5w.png){:class="img-responsive"}
 
 Il suffit de se connecter au Connection-Broker à l'aide de ses identifiants de connexion (provenant de l'Active Directory), de choisir la session et de s'y connecter. En fonction de la configuration des SessionsCollection, il peut y avoir une ou plusieurs sessions pour chaque utilisateur (cela dépend entre autre de la configuration d'Active Directory et des OU contenant les profils utilisateurs).
 Cependant, le but de cet article était principalement de présenter une technologie encore bien présente dans certaines entreprises sous un angle un peu différent…et non d'effectuer une plongée en apnée dans les entrailles de Windows Server. Si vous cherchez de la documentation relative à la configuration de Resources Access Protection, du serveur de Licensing ou des SessionCollection (par exemple), voici quelques liens qui vous seront très utiles:  
