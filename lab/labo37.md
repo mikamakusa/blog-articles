@@ -53,11 +53,11 @@ Comme évoqué plus haut, les sink permettent d'exporter les logs vers d'autres 
 
 ### Via la console
 Plusieurs étapes :  
-![Créer le filtre puis cliquer sur Create Sink](/images/Screenshot%202020-09-22%20at%2023.05.07.png)
+![](/images/Screenshot%202020-09-22%20at%2023.05.07.png)
   
-![Sélectionner la destination du *Sink* dans le cas actuel:PubSub](/images/Screenshot%202020-09-22%20at%2023.06.22.png)    
+![](/images/Screenshot%202020-09-22%20at%2023.06.22.png)    
 
-![Nommer le Sink et sélectionner/créer le topic PubSub](/images/Screenshot%202020-09-22%20at%2023.07.43.png)  
+![](/images/Screenshot%202020-09-22%20at%2023.07.43.png)  
 
 ### Avec Terraform
 Seulement trois ressources à créer pour cela:
