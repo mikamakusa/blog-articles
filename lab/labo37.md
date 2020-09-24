@@ -53,11 +53,14 @@ Comme évoqué plus haut, les sink permettent d'exporter les logs vers d'autres 
 
 ### Via la console
 Plusieurs étapes :  
-![img1](/images/Screenshot%202020-09-22%20at%2023.05.07.png)
+![img1](/images/img10.png)  
+*Créer le filtre puis cliquer sur Create Sink*
   
-![img2](/images/Screenshot%202020-09-22%20at%2023.06.22.png)    
+![img2](/images/img11.png)  
+*Sélectionner la destination du Sink, dans le cas actuel: PubSub*
 
-![img3](/images/Screenshot%202020-09-22%20at%2023.07.43.png)  
+![img3](/images/img12.png)  
+*Nommer le Sink et sélectionner/créer le topic PubSub*
 
 ### Avec Terraform
 Seulement trois ressources à créer pour cela:
@@ -81,15 +84,17 @@ resource "google_pubsub_subscription" "example" {
 ## Du côté de PubSub
 En fait, sur le *topic* **PubSub** il n'y a rien de plus à faire que ce qui a été déjà effectué dans Stackdriver. Il y a évidemment la possibilité de créer un trigger pour Cloud Functions…mais même cette action est faisable depuis l'interface de ce dernier.
 
-![img1](/images/Screenshot%202020-09-22%20at%2023.23.21.png)
+![img1](/images/img13.png)
 
 ## Du côté de Cloud Functions
 Si on ne la crée pas directement depuis **PubSub**, il n'y a aucune différence ni difficulté à la créer depuis l'interface du service. La partie qui demandera le plus de travail reste le code de la fonction en lui même, bien que vous pourrez toujours faire des tests avec hello_pubsub.  
 Pour configurer le *trigger*, suivez les étapes ci-dessous:  
 
-![Sélectionner PubSub dans TriggerType](/images/Screenshot%202020-09-22%20at%2023.30.09.png)  
+![](/images/img14.png)  
+*Sélectionner PubSub dans TriggerType*  
 
-![Et sélectionner le topic, puis sauvegarder pour accéder à la partie Code](/images/Screenshot%202020-09-22%20at%2023.31.05.png)  
+![](/images/img15.png)  
+*Et sélectionner le topic, puis sauvegarder pour accéder à la partie Code*  
 
 ## Du côté du VPC Access Connector
 Une fois les *Sink* **Stackdriver**, *Topic/Subscription* (en mode Push) pour **PubSub** et **Cloud Function** créés, il est temps de passer au **VPC Access Connector**. L'API du service n'étant pas activée automatiquement lorsque l'on accède au service, une simple commande permet de débloquer ce dernier:
