@@ -32,7 +32,7 @@ Comme évoqué plus haut, la documentation de **eJabberd** est très claire mêm
 A ce niveau là, rien à signaler car seul l'exécutable est nécessaire, chaque serveur de *l'autoscaling group* se connectera au master grâce à un *StartupScript* contenant toutes les commandes de l'installation au démarrage du service en passant par la configuration (certes assez basique) du service:
 
 ### Sur le Master
-```shell script
+```
 #!/bin/bash 
 sudo wget https://www.process-one.net/downloads/downloads-action.php?file=/20.07/ejabberd_20.07-0_amd64.deb -O /opt/ejabberd_20.07-0_amd64.deb 
 sudo dpkg -i /opt/ejabberd_20.07-0_amd64.deb 
@@ -44,7 +44,7 @@ sudo systemctl start ejabberd
 ```
 
 ### Sur les workers
-```shell script
+```
 #!/bin/bash 
 sudo wget https://www.process-one.net/downloads/downloads-action.php?file=/20.07/ejabberd_20.07-0_amd64.deb -O /opt/ejabberd_20.07-0_amd64.deb 
 sudo dpkg -i /opt/ejabberd_20.07-0_amd64.deb 
