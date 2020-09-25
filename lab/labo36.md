@@ -61,7 +61,8 @@ sudo /opt/ejabberd-20.07/bin/ejabberdctl --no-timeout join_cluster ejabberd@'MAS
 ```
 
 La différence majeure entre le master et les workers se situe au niveau du cookie à copier du premier vers les seconds (voir la zone en surbrillance sur le script de démarrage dédié aux workers).  
-Il reste un détail qui a son importance: comment est-ce qu'un worker peut quitter le cluster? Sur les instances EC2, il est possible de définir un *ShutdownScript* qui s'exécute dès la suppression d'une instance présente dans un *autoscaling group*.  
+Il reste un détail qui a son importance: comment est-ce qu'un worker peut quitter le cluster?  
+Sur les instances EC2, il est possible de définir un *ShutdownScript* qui s'exécute dès la suppression d'une instance présente dans un *autoscaling group*.  
 
 ## Au niveau infrastructure
 Comme pour déployer un loadbalancer, j'avais prévu de configurer le service VPC avec:  
