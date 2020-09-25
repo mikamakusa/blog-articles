@@ -86,7 +86,8 @@ Ce type de configuration requiert tout d'abord la création d'une règle sur **C
 
 ![img](/images/1_xR8FhZpDtCiutJCgdC4acw.png)
   
-Pour créer une règle, il suffit juste de suivre le guide Build event pattern, la fenêtre de *Preview* ajoutera la sélection parmi les services et les types d'événements. Dans la seconde partie du même écran (ci-dessous), se trouve le ou les *triggers* à définir…et il y a du choix entre **Kynesis**, **Lambdas**, **Notifications (SNS)**, **Messaging Queue (SQS)**, **System Manager** ou **Step Functions**. Mon choix s'est porté sur les **Lambdas** dans le but d'éviter de passer par un autre service et d'exécuter directement les commandes via SSH sur le serveur en question.
+Pour créer une règle, il suffit juste de suivre le guide **Build event pattern**, la fenêtre de *Preview* ajoutera la sélection parmi les services et les types d'événements.  
+Dans la seconde partie du même écran (ci-dessous), se trouve le ou les *triggers* à définir…et il y a du choix entre **Kynesis**, **Lambdas**, **Notifications (SNS)**, **Messaging Queue (SQS)**, **System Manager** ou **Step Functions**. Mon choix s'est porté sur les **Lambdas** dans le but d'éviter de passer par un autre service et d'exécuter directement les commandes via SSH sur le serveur en question.
 
 ![img](/images/1_mO9eFvuuSzd-vnOqoIQGzQ.png)
 
