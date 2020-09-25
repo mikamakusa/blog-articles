@@ -18,7 +18,7 @@ Après avoir effectué une petite recherche sur les middlewares relatifs à l'ex
 
 Pour cet article, j'ai choisi de me pencher sur **eJabberd** et sur son fonctionnement.  
 
-#L'idée
+# L'idée
 Après avoir lu un bonne partie de la documentation, je peux partir sur le constat suivant: **ejabberd est stable, très stable, et peut héberger près de deux millions d'utilisateurs du moment qu'il ne tourne pas sur un serveur asthmatique**. Par contre, aucune indication de ce que peut être un serveur asthmatique (c'est de moi, ça ne vient pas du tout de la documentation officielle).  
 J'imagine que tout dépend de l'activité des utilisateurs sur le serveur ainsi que des modules actifs.  
 Il y a toute une liste de *Use Cases* possibles sur le site officiel, ce qui laisse imaginer des recommandations techniques relativement élevées en fonction des cas.  
