@@ -10,8 +10,7 @@ title = "A propos..de moi"
 **Cloud Architect**  
 **Internal**:  
 - **Terraform**, **Ansible** and **Kubernetes** trainer  
-- DevOps for internal projects :  
-  - **Jarvis** - Internal Chatbot for room booking  
+- DevOps for internal projects : **Jarvis** - Internal Chatbot for room booking  
 
 **Paris-Turf**  
 - Infrastructure designer on **Google Cloud** for **Remote Desktop Service** in collaboration with Security Team  
