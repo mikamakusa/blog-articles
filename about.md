@@ -6,8 +6,18 @@ title = "A propos..de moi"
 +++
 
 # Experience
-**From May 2020 | Sfeir | Nantes**  
+**From May 2020 | Sfeir | Nantes**  
 **Cloud Architect**  
+**Internal**:  
+- **Terraform**, **Ansible** and **Kubernetes** trainer  
+- DevOps for internal projects :  
+  - **Jarvis** - Internal Chatbot for room booking  
+
+**Paris-Turf**
+- Infrastructure designer on **Google Cloud** for **Remote Desktop Service** in collaboration with Security Team  
+- **Terraform** template creation  
+- **Ansible** role creation for **Windows Server**  
+- **Cloud Function** creation 
 
 ---
 
