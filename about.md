@@ -13,7 +13,7 @@ title = "A propos..de moi"
 - DevOps for internal projects :  
   - **Jarvis** - Internal Chatbot for room booking  
 
-**Paris-Turf**
+**Paris-Turf**  
 - Infrastructure designer on **Google Cloud** for **Remote Desktop Service** in collaboration with Security Team  
 - **Terraform** template creation  
 - **Ansible** role creation for **Windows Server**  
