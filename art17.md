@@ -1,5 +1,5 @@
 +++
-date = "2020-09-27T22:23:00+02:00"
+date = "2020-09-29T22:23:00+02:00"
 draft = false
 title = "News from the Clouds"
 +++
@@ -31,8 +31,11 @@ Disponible en 7 tailles (voir ci-dessous), ce type d'instance est prévu pour fa
 | t4g.large	| 2 | 30%	| 36 | 8 GiB |
 | t4g.xlarge | 4 |40% | 96 |16 GiB |
 | t4g.2xlarge | 8 | 40% | 192 | 32 GiB |
- 
+
+
 Plus d'infos [ici](https://aws.amazon.com/fr/blogs/aws/new-t4g-instances-burstable-performance-powered-by-aws-graviton2/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29).
+
+---
 
 # Azure
 ## Azure Spring Cloud - 2 septembre 2020
@@ -47,6 +50,23 @@ En 2019 avait été annoncé en *Preview* ce nouveau service permettant aux util
 Ce service est désormais disponible pour tous.
 
 Plus d'infos [ici](https://azure.microsoft.com/fr-fr/blog/connector-for-aws-in-azure-cost-management-billing-is-now-generally-available/).
+
+## Azure Service Fabric managed clusters en preview
+Azure Service Fabric, technologie qui alimente des services critiques tels que Azure SQL Database, EventHub ainsi que Teams et rendue publique dès 2015 est une brique fondatrice des services Azure. Depuis, cette dernière a été adoptée pour gérer des workloads hautement disponible, évolutifs et flexible incluant des conteneurs (aussi bien statefull que stateless).  
+Jusqu'ici, Microsoft a reçu de nombreux retours de clients relatifs à la diminution de la complexité du déploiement et de l'infrastructure sous-jacente.  
+Après avoir entendu les critiques, Microsoft est passé à l'action en rendant plus simple le déploiement et la gestion de l'environnement tout en conservant les mêmes vertues de fiabilité, d'évolutivité et de performances reconnues par les clients.  
+
+Voici un apperçu des nouvelles fonctionnalités :  
+- **Encapsulated Resource Model** : Permet la création d'un cluster Service Fabric sans avoir à définir séparément toutes les ressources, telles que les VMs, le stockage ou les configurations réseau.  
+- **Storage backed by managed disks** : Dorénavant, vous ne serez plus limités par la taille du stockage initiale des VMs.  
+- **Fully managed cluster certificates** : Les certificats des cluster sont désormais entièrement gérés par Azure.  
+- **Single Step Cluster Operations** : Certaines opération peuvent être effectuées en une seule action, le service se charge lui-même du reste.  
+- **Enhanced Cluster Safety** : Chaque operation sera validée en amont par le service afin d'être appliquée en sécurité.  
+- **Simplified Cluster SKUs** : Deux nouveaux **SKUs** (pour Stock Keeping Unit) ont été créés pour aider à la création d'environnement de tests et de production.
+
+Plus d'infos [ici](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572)
+ 
+---
 
 # Google Cloud
 ## Cloud Run for Anthos
@@ -66,3 +86,10 @@ gVisor permet de protéger les utilisateurs à chaque découvert de vulnérabili
 
 Plus d'info [ici](https://cloud.google.com/blog/products/containers-kubernetes/how-gvisor-protects-google-cloud-services-from-cve-2020-14386).
 
+---
+# Hashicorp
+## Terraform Modules pour Consul, Vault et Nomad
+Ce sont des modules d'implémentations d'architecture de référence de **Vault**, **Consul** et **Nomad** insérable dans une configuration **Terraform** existante ou non.  
+Chaque module est composé de telle manière que vous pouvez démarrer rapidement en fournissant quelques valeurs sous forme de variables. Outre ces valeurs, spécifiques à votre environnement, le module contient des valeurs par défaut qui mettent en place l'infrastructure appropriée pour chaque produit conformément aux bonnes pratiques recommandées par **HashiCorp**.  
+
+Plus d'infos [ici](https://www.hashicorp.com/blog/announcing-new-hashicorp-terraform-modules-for-consul-nomad-and-vault)
