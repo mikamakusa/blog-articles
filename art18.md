@@ -17,6 +17,7 @@ Les nouveautés sont extrêmement nombreuses ce mois-ci chez **Azure** :
 - Business Analytics et Congitive Search proposent désormais [Knowledge Mining](https://azure.microsoft.com/fr-fr/blog/deliver-ai-powered-application-search-with-azure-cognitive-search-and-ba-insight/),  
 - [Azure Advisor Score](https://azure.microsoft.com/fr-fr/blog/optimize-your-azure-workloads-with-azure-advisor-score/) dans le but d'optimiser les charges de travail,  
 - Les [Private Endpoint](https://azure.github.io/AppService/2020/10/06/private-endpoint-app-service-ga.html) pour le service **Web App**.  
+- [Watchlist](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887), annoncé en Preview, est une fonctionnalité de **Azure Sentinel** permettant la collection de données externe en correlation avec des événements de votre environnement.  
 
 
 ## AWS
@@ -24,12 +25,14 @@ Et l'on reparle de **AWS** et de **Outposts**, cette fois-ci autour du service *
 
 Plus d'infos par [ici](https://www.zdnet.com/article/aws-makes-s3-on-outposts-available-for-use-just-like-in-the-cloud/)  
 
-Encore une nouveauté chez **AWS**, il s'agit de la release de **[Timestream](https://aws.amazon.com/fr/blogs/aws/store-and-access-time-series-data-at-any-scale-with-amazon-timestream-now-generally-available/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29)**, un service **Serveless**, scalable et rapide de *TSDB* (Time Series Database) qui facilite la gestion de bout en bout des métriques.  
+Encore une nouveauté chez **AWS**, il s'agit de la release de **[Timestream](https://aws.amazon.com/fr/blogs/aws/store-and-access-time-series-data-at-any-scale-with-amazon-timestream-now-generally-available/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29)**, un service **Serverless**, scalable et rapide de *TSDB* (Time Series Database) qui facilite la gestion de bout en bout des métriques.  
 De plus ce dernier pourra être utilisé conjointement avec **S3** pour la sauvegarde des données du *memory store*.  
 
-Le service **S3** de **AWS** améliore un peu plus l'aspect sécurité en ajoutant trois [nouvelles fonctionnalités Security and Access Controls](https://aws.amazon.com/fr/blogs/aws/amazon-s3-update-three-new-security-access-control-features/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29) 
+Le service **S3** de **AWS** améliore un peu plus l'aspect sécurité en ajoutant trois [nouvelles fonctionnalités axées sur la sécurité et les contrôles d'accès](https://aws.amazon.com/fr/blogs/aws/amazon-s3-update-three-new-security-access-control-features/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29) 
 
-**AWS** propose désormais [**Redis** en version 6 pour son service **ElastiCache**](https://aws.amazon.com/fr/blogs/aws/new-redis-6-compatibility-for-amazon-elasticache/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29).
+**AWS** propose désormais :  
+- [**Redis** en version 6 pour son service **ElastiCache**](https://aws.amazon.com/fr/blogs/aws/new-redis-6-compatibility-for-amazon-elasticache/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29).  
+- [Serverless Application Model](https://aws.amazon.com/fr/serverless/sam/?ref=https://play.google.com/store/apps/details?id=io.sundeep.android&hl=en), une framework de build d'applications Serverless.  
 
 
 ## Google Cloud Platform
@@ -52,7 +55,8 @@ Encore un pas de plus vers les mastodontes du Cloud.
 
 Du nouveau chez **Hashicorp** avec l'annonce de [11 nouveaux *Providers*](https://www.hashicorp.com/blog/announcing-11-verified-providers-for-terraform) pour **Terraform**.  
 Il s'agit de **Splunk**, **Jfrog Artifactory**, **Sematext**, **Cloudsmith**, **Onelogin**, **Amixr**, **NetApp for Google Cloud**, **PhoenixNAP**, **Rancher**, **StrongDM** et **Transloadit**.  
-
+[**Boundary**](https://www.boundaryproject.io/), le nouvel outils nous venant de chez **Hashicorp** permet tout simplement d'accéder à n'importe quel type de ressource, à l'aide de credentials stockées de manière sécurisée dans **Vault**.  
+Après **Terraform** et **Vault**, voici la nouvelle certification : [Hashicorp Consul Associate](https://www.hashicorp.com/blog/announcing-consul-cloud-engineering-certification-for-network-automation).
 
 ## Autres News / Acquisitions / Tooling
 
@@ -65,4 +69,6 @@ Le site de [PortShift](https://www.portshift.io/)
  
 [**Okteto**](https://okteto.com/) est un service PaaS à destination des développeurs dans le but de les aider à développer des applications **Cloud Native**.  
 [**Split**](https://split.io/) est également un service PaaS de **Feature Delivery** permettant, d'un côté, d'effectuer de l'ingestion de données provenant de **Google Analytics** vers des services tels que **Jira**, **Datadog** ou **New Relic**.  
-Et un nouveau challenger dans la galaxie des outils de CI/CD entre en scène : [**Dispatch**](https://d2iq.com/products/dispatch) - Il fait partie de la pateforme **Kubernetes** de **D2IQ**. Le Leitmotiv derrière ce nouvel outils est : *Cloud Native applications should be built with cloud native CI/CD* 
+Et un nouveau challenger dans la galaxie des outils de CI/CD entre en scène : [**Dispatch**](https://d2iq.com/products/dispatch) - Il fait partie de la pateforme **Kubernetes** de **D2IQ**. Le Leitmotiv derrière ce nouvel outils est : *Cloud Native applications should be built with cloud native CI/CD*  
+Nouvelle annonce de **Docker** et la compatibilité entre [**Compose** et **AWS ECS** et **Microsoft ACI**](https://www.infoq.com/news/2020/10/docker-announces-compose-ecs-aci/) (Elastic Container Service / Azure Containers Instances).  
+Le nouveau *Buzz Word* (le Chaos Testing) voit l'arrivée d'un petit nouveau : [Kraken](https://www.openshift.com/blog/introduction-to-kraken-a-chaos-tool-for-openshift/kubernetes)

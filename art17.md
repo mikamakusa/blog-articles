@@ -1,7 +1,7 @@
 +++
 date = "2020-09-29T22:23:00+02:00"
 draft = false
-title = "News from the Clouds"
+title = "News from the Clouds #1"
 +++
 
 Review des nouveautés des fournisseurs de services Cloud **Azure**, **AWS** et **Google Cloud**.
