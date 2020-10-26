@@ -12,7 +12,7 @@ Un article de [Forbes](https://www.forbes.fr/technologie/microsoft-365-les-cause
 
 Encore une nouveauté chez **Microsoft**, mais cette fois-ci, elle est à mettre au crédit de **.NET** et de **Azure**, il s'agit des **[Connection Pool Limits](https://devblogs.microsoft.com/azure-sdk/net-framework-connection-pool-limits/)** (pour **.NET**) et de la release d'un nouveau SDK pour la plateforme Cloud maison.  
 
-Les nouveautés sont extrêmement nombreuses ce mois-ci chez **Azure** : 
+Les nouveautés sont extrêmement nombreuses ce mois-ci chez **Azure** :  
 - Le service [Live Video Analytics](https://azure.microsoft.com/fr-fr/blog/azure-introduces-new-capabilities-for-live-video-analytics/) en preview,  
 - Business Analytics et Congitive Search proposent désormais [Knowledge Mining](https://azure.microsoft.com/fr-fr/blog/deliver-ai-powered-application-search-with-azure-cognitive-search-and-ba-insight/),  
 - [Azure Advisor Score](https://azure.microsoft.com/fr-fr/blog/optimize-your-azure-workloads-with-azure-advisor-score/) dans le but d'optimiser les charges de travail,  
