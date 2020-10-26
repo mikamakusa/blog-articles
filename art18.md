@@ -1,5 +1,5 @@
 +++
-date = "2020-10-08T22:23:00+02:00"
+date = "2020-10-26T22:23:00+02:00"
 draft = false
 title = "News from the Clouds #2"
 +++
@@ -33,6 +33,7 @@ Le service **S3** de **AWS** améliore un peu plus l'aspect sécurité en ajouta
 **AWS** propose désormais :  
 - [**Redis** en version 6 pour son service **ElastiCache**](https://aws.amazon.com/fr/blogs/aws/new-redis-6-compatibility-for-amazon-elasticache/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29).  
 - [Serverless Application Model](https://aws.amazon.com/fr/serverless/sam/?ref=https://play.google.com/store/apps/details?id=io.sundeep.android&hl=en), une framework de build d'applications Serverless.  
+- [SNS FIFO](http://feedproxy.google.com/~r/AmazonWebServicesBlog/~3/DtUO6Dghcd0/) introduisant la distribution des messages dans l'ordre d'arrivée.  
 
 
 ## Google Cloud Platform
@@ -56,7 +57,8 @@ Encore un pas de plus vers les mastodontes du Cloud.
 Du nouveau chez **Hashicorp** avec l'annonce de [11 nouveaux *Providers*](https://www.hashicorp.com/blog/announcing-11-verified-providers-for-terraform) pour **Terraform**.  
 Il s'agit de **Splunk**, **Jfrog Artifactory**, **Sematext**, **Cloudsmith**, **Onelogin**, **Amixr**, **NetApp for Google Cloud**, **PhoenixNAP**, **Rancher**, **StrongDM** et **Transloadit**.  
 [**Boundary**](https://www.boundaryproject.io/), le nouvel outils nous venant de chez **Hashicorp** permet tout simplement d'accéder à n'importe quel type de ressource, à l'aide de credentials stockées de manière sécurisée dans **Vault**.  
-Après **Terraform** et **Vault**, voici la nouvelle certification : [Hashicorp Consul Associate](https://www.hashicorp.com/blog/announcing-consul-cloud-engineering-certification-for-network-automation).
+[**Waypoint**](https://www.waypointproject.io/), fait partie de ces outils, celui-ci nous permet de déployer des applications à l'aide d'un workflow, [ils en ont même profité pour expliquer pourquoi ils l'ont développé](https://www.hashicorp.com/blog/why-we-built-hashicorp-boundary).  
+Après **Terraform** et **Vault**, voici la nouvelle certification : [Hashicorp Consul Associate](https://www.hashicorp.com/blog/announcing-consul-cloud-engineering-certification-for-network-automation).  
 
 ## Autres News / Acquisitions / Tooling
 
@@ -71,4 +73,5 @@ Le site de [PortShift](https://www.portshift.io/)
 [**Split**](https://split.io/) est également un service PaaS de **Feature Delivery** permettant, d'un côté, d'effectuer de l'ingestion de données provenant de **Google Analytics** vers des services tels que **Jira**, **Datadog** ou **New Relic**.  
 Et un nouveau challenger dans la galaxie des outils de CI/CD entre en scène : [**Dispatch**](https://d2iq.com/products/dispatch) - Il fait partie de la pateforme **Kubernetes** de **D2IQ**. Le Leitmotiv derrière ce nouvel outils est : *Cloud Native applications should be built with cloud native CI/CD*  
 Nouvelle annonce de **Docker** et la compatibilité entre [**Compose** et **AWS ECS** et **Microsoft ACI**](https://www.infoq.com/news/2020/10/docker-announces-compose-ecs-aci/) (Elastic Container Service / Azure Containers Instances).  
-Le nouveau *Buzz Word* (le Chaos Testing) voit l'arrivée d'un petit nouveau : [Kraken](https://www.openshift.com/blog/introduction-to-kraken-a-chaos-tool-for-openshift/kubernetes)
+Le nouveau *Buzz Word* (le Chaos Testing) voit l'arrivée d'un petit nouveau : [Kraken](https://www.openshift.com/blog/introduction-to-kraken-a-chaos-tool-for-openshift/kubernetes)  
+Un nouvel outil de monitoring d'API voit le jour : [Checkly](https://www.checklyhq.com/?ref=https://play.google.com/store/apps/details?id=io.sundeep.android&hl=en)  
