@@ -6,7 +6,7 @@ title = "November News from the Clouds"
 
 ## AWS
 Ce mois-ci, nous avons assisté à plusieurs événements :  
-Les lancements de deux nouvelles régions : 
+Les lancements de deux nouvelles régions :  
 - [Zurich](https://aws.amazon.com/fr/blogs/aws/in-the-works-new-aws-region-in-zurich-switzerland/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29),  
 - [Hyberabad](https://aws.amazon.com/fr/blogs/aws/in-the-works-aws-region-in-hyderabad-india/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29).
 
