@@ -27,7 +27,7 @@ Alors que la fonctionnalité de **Long Term Retention Backup** n'était disponib
 ## Google Cloud Platform
 [Trois nouvelles fonctionnalités](https://cloud.google.com/blog/products/networking/cloud-cdn-gets-improved-useability-features) sont disponibles en Preview pour CloudCDN, il s'agit de :  
 - **Cache Modes**,  
-- **Cache TTL**,
+- **Cache TTL**,  
 - **Custom Response Headers**
 
 Lancement d'un nouveau service : [Document AI Platform](https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-announces-document-ai-platform) une interface de traitement de document unifiée pensée et développée pour améliorer l'efficacité d'extractions de données via l'utilisation de l'intelligence artificelle et du Machine Learning.
