@@ -15,7 +15,7 @@ Et de nouveaux services :
 - [**OpsCenter**](https://aws.amazon.com/fr/blogs/aws/a-new-integration-for-cloudwatch-alarms-and-opscenter/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29) : une intégration de **CloudWatch** dans **AWS System Manager** qui nous permettra d'effectuer des aggrégations d'événements, d'alertes et d'incidents dans un seul et même dashboard.  
 - [AWS Gateway Load Balancer](https://aws.amazon.com/fr/blogs/aws/introducing-aws-gateway-load-balancer-easy-deployment-scalability-and-high-availability-for-partner-appliances/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29), un service qui facilite et économise le déploiement, la mise à l'échelle et la gestion de la disponibilité des appareils virtuels tiers tels que les pare-feu, les systèmes de détection et de prévention des intrusions et les systèmes d'inspection approfondie des paquets dans le cloud.  
 - [AWS Glue DataBrew](https://aws.amazon.com/fr/blogs/aws/announcing-aws-glue-databrew-a-visual-data-preparation-tool-that-helps-you-clean-and-normalize-data-faster/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29), un outil visuel de préparation de données développé dans le but de *normaliser et nettoyer* les données provenant de **Redshift**, **RDS**, un datastore **JDBC** ou bien des données indexées par **AWS Glue Data Catalog** (un service similaire à **Cloud Dataprep** de **Google Cloud**),  
-- [AWS Network Firewall](https://aws.amazon.com/fr/blogs/aws/aws-network-firewall-new-managed-firewall-service-in-vpc/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29), un service de firewalling dédié au VPC complémentaire aux **Network Security Group**.
+- [AWS Network Firewall](https://aws.amazon.com/fr/blogs/aws/aws-network-firewall-new-managed-firewall-service-in-vpc/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29), un service de firewalling dédié au VPC complémentaire aux **Network Security Group**.  
 - [S3 Storage Lens](https://aws.amazon.com/fr/blogs/aws/s3-storage-lens/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+AmazonWebServicesBlog+%28Amazon+Web+Services+Blog%29), un outils d'analyse et optimisation de votre espace de stockage **S3** développé grâce aux 14 ans d'expérience acquise par **AWS** dans l'exploitation du service.
 
 ## Azure
@@ -39,8 +39,8 @@ Google Cloud annonce également :
 
 ## Hashicorp
 La prochaine version de **Terraform** (la 0.14), actuellement en preview, proposera de nouvelles fonctionnalités :  
-- [un rendu de *diff* plus concis](https://www.hashicorp.com/blog/terraform-0-14-adds-a-new-concise-diff-format-to-terraform-plans) lors du *terraform plan*, 
-- les [sensitive values en output](https://www.hashicorp.com/blog/terraform-0-14-adds-the-ability-to-redact-sensitive-values-in-console-output),
+- [un rendu de *diff* plus concis](https://www.hashicorp.com/blog/terraform-0-14-adds-a-new-concise-diff-format-to-terraform-plans) lors du *terraform plan*,  
+- les [sensitive values en output](https://www.hashicorp.com/blog/terraform-0-14-adds-the-ability-to-redact-sensitive-values-in-console-output),  
 - Le [Dependency Lock file](https://www.hashicorp.com/blog/terraform-0-14-introduces-a-dependency-lock-file-for-providers), généré automatiquement au lancement d'un *init*, cette fonctionnalité s'applique principalement aux providers customisés. 
 
 Les versions [0.16](https://www.hashicorp.com/blog/announcing-hashicorp-sentinel-0-16) de **Sentinel** et [1.6](https://www.hashicorp.com/blog/vault-1-6) de **Vault** sont également annoncées.  
