@@ -8,7 +8,7 @@ Je sais que le titre de cet article est un tantinet *putaclic* et j'assume compl
 Dans mon article précédent, il s'agissait plus ou moins d'une découverte de **Vault** - bien qu'intégrer l'auto-unseal, l'observabilité et l'authentification LDAP à un cluster **Vault** ne soit pas, à proprement parler, un article de découverte...il permettait de poser quelques base sur le sujet (Notament autour de la création d'un cluster).  
 Cette fois-ci, j'ai décidé d'intégrer **Vault** à **Kubernetes**...Mais attention, il ne s'agit pas là de le déployer dans l'orchestrateur de conteneur mais plutôt en tant que ressource externe, ce qui permettra d'explorer un peu plus certains objets relatifs à **Kubernetes**, tels que :  
 - Les *ServiceAccounts*,  
-- Les *endpoints*,
+- Les *endpoints*,  
 - Les *Roles* et *ClusterRoleBinding*,  
 - Les *Annotations*,  
 - Les *Init Containers* et les *Sidecar Containers*
@@ -16,7 +16,7 @@ Cette fois-ci, j'ai décidé d'intégrer **Vault** à **Kubernetes**...Mais atte
 A savoir que les *Annotations* pourront également servir pour du monitoring.  
 Chose importante à savoir : **Rancher** propose un niveau d'abstraction au delà des *namespaces* via le principe des *projets*...Mais ce n'est pas l'objet de cet article.
 
-A l'instar de **Kubernetes** est des points qui seront abordés ici, je vais également aborder d'autres points important du côté de **Vault**, à savoir :  
+A l'instar de **Kubernetes** et des points qui seront abordés ici, je vais également aborder d'autres points important du côté de **Vault**, à savoir :  
 - Les *policies*,  
 - La configuration de l'authentification du **Kubernetes**
 
