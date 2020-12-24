@@ -56,8 +56,10 @@ J'ai commencé par la configuration générale des trois serveurs en activant le
         "log_level": "INFO",
         "acl": {
                 "enabled": true,
-                "default_policy": "allow",
-                "enable_token_persistence": true
+                "default_policy": "deny",
+                "down_policy": "extend_cache",
+                "enable_token_persistence": true,
+                "enable_token_replication": true
         }
 }
 ```
