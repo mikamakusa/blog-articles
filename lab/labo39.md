@@ -106,7 +106,7 @@ Le dashboard (pour une démo prochaine, par exemple) : `minikube dashboard` et `
 ### Le workflow
 
 Le principe est relativement simple et schematisé ci-dessous :  
-![img1](/images/kubevault.png){ width=50% }  
+![img1](/images/kubevault.png)  
 
 - 1 : Un utilisateur effectue une requête de déploiement,  
 - 2 : L'API de **Kubernetes** détecte une création de pod dans le manifeste et le place dans la queue de déploiement,  
