@@ -1,7 +1,7 @@
 +++
 date = "2021-01-01T15:29:49+02:00"  
 draft = "false"
-title = "Le Labo #34 | Consul et Vault en TLS"
+title = "Le Labo #34 | Hardening d'instances Consul et Vault et déploiement sur Kubernetes"
 +++
 
 J'avais une grande hésitation sur le titre...et puis j'ai voulu faire un peu d'humour en remplacant *PLS* par *TLS*...mais ce ne fait pas le même effet (j'en suis bien conscient).
