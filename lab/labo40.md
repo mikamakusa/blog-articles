@@ -1,5 +1,5 @@
 +++
-date = "2021-01-01T15:29:49+02:00"  
+date = "2021-01-04T15:29:49+02:00"  
 draft = "false"
 title = "Le Labo #34 | Hardening d'instances Consul et Vault et déploiement sur Kubernetes"
 +++
@@ -76,7 +76,7 @@ Parmis les recommendations de sécurité à appliquer pour **Vault**, nous retro
 
 Je vais en détailler quelques uns.  
 J'avais déjà abordé dans mes deux précédents articles sur le sujet, la recommmandation *pas de logins en clair* via l'intégration de l'auto-unseal via le service **Cryptographic Keys Management** de **Google Cloud** et l'option de configuration **seal**.  
-Cette option de configuration permet de définir une protection de données plus élevées via l'utilisation de solutions basée sur **Hardware Security Module** (HSM) proposées par les différents provider Cloud afin de chiffrer/déchiffrer toutes sortes de clés.
+Cette option de configuration permet de définir une protection de données plus élevées via l'utilisation de solutions basées sur le **Hardware Security Module** (HSM) proposées par les différents provider Cloud afin de chiffrer/déchiffrer toutes sortes de clés.
 
 #### Chiffrement TLS de bout-en-bout
 Il y a de nombreuses options dans la configuration de **Vault** qui font référence à **Consul** :  
@@ -107,19 +107,19 @@ Le backend, par exemple:
 **Vault** écoute sur des ports bien connus (8200 et 8201 notamment) à ouvrir sur votre pare-feu afin de restreindre le plus possible le trafic entrant et sortant.
 
 #### Pas de mémoire SWAP
-**Vault** chiffre les données en transit et au repos, en empêchant le système de paginer les données sensibles sur le disque via la désactivation de la mémoire SWAP, on peut ajouter un niveau de sécurisation supplémentaire car **Vault** ne sera pas tenté de vérouiller **sa mémoire** sur la mémoire physique.
+**Vault** chiffre les données en transit et au repos, en empêchant le système de paginer les données sensibles sur le disque via la désactivation de la mémoire SWAP, on peut ajouter un niveau de sécurisation supplémentaire car **Vault** ne sera pas tenté de vérouiller *sa mémoire* sur la mémoire physique.
 
 #### Processus non-Root
 Le démarrer en tant que root peut exposer inutilement **Vault** à des accès malveillant à des processus mémoire et permettre l'accès à des clés de chiffrement.
 
 #### Eviter les tokens root
 Le **master token root** ne doit être utilisé que pour la configuration initiale du système. Une fois celle-ci effectuée, il est a revoquer le plus tôt possible.  
-De plus **Hashicorp** recommande de versionner les policies et de générer au besoin des tokens *root* en fonction de ces dernières.
+De plus **Hashicorp** recommande de versionner les policies et de générer/révoquer au besoin des tokens *root* en fonction de ces dernières.
 
 #### Activer la fonction d'audit
 **Vault** supporte de nombreux *périphériques* d'audit afin de bénéficier de l'historique détaillé des opérations effectuée sur votre serveur **Vault** et donc d'obtenir un moyen d'investigation le plus efficace possible en cas d'incident imppliquant la gestion de secrets.  
 Parmis les *périphériques* disponible à ce jour, il y a **file**, **syslog** et **Socket**
-Personnellement, je recommande **file** et **syslog** car ils sont tous les deux exportable facielement vers un aggrégateur de logs (tels que la stack **ELK**), le dernier n'est à utiliser que si vous n'avez pas d'autres options et si la perte de message n'est pas handicapant pour votre utilisation.
+Personnellement, je recommande **file** et **syslog** car ils sont tous les deux exportable facielement vers un aggrégateur de logs (tels que la stack **ELK**), le dernier n'est à utiliser que si vous n'avez pas d'autres options et si la perte de message n'est pas handicapante pour votre utilisation.
 
 ## Kubernetes
 Comme évoqué au début de l'article **Consul** et **Vault** seront déployés dans **Kubernetes**, le premier en tant que **Service Mesh**, le second en tant que **Secret Manager**. Je vais évidemment faire appel à la toute puissance de **Helm** pour déployer rapidement les deux services et je vais détailler un minimum chaque *value file*.  
