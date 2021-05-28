@@ -121,5 +121,5 @@ Par exemple :
 - à 21h, réduire le nombre de machines à 1,  
 - à 7h du matin, augmenter le nombre de machines à 3 ou plus.  
 
-Le tout dans l'optique de réduire l'impact du workload sur la facturation.
+Le tout dans l'optique de réduire l'impact du workload sur la facturation.  
 ![img2](/images/full.png)
