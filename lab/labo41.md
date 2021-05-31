@@ -27,10 +27,16 @@ Pas de spécifications particulières pour le *template*, un OS Linux avec un ty
 Pour faire extremement simple, il s'agit d'un cron amélioré avec des *cibles* sur lesquelles envoyer des signaux parmi **HTTP**, **PubSub** et **AppEngine**.
 Chaque type de cible est a configurer de la manière la plus fine possible.
 Par exemple, dans le cas de **PubSub**, le **Message Body** sera inclus dans le message stocké dans le service ciblé...et utilisé en bout de chaine (par la **Cloud Function**, par exemple).
+Dans ce cas précis, le Cloud Scheduler sera programmé pour déclencher les Cloud Function uniquement lors des jours de la semaine, soit l'instruction suivante :  
+- **0 7 * * 1-5** : La Cloud Function se déclenche à 07h00 du Lundi au Vendredi (Pour augmenter le nombre d'instance),  
+- **0 21 * * 1-5** : La Cloud Function se déclenche à 21h du Lundi au Vendredi (Pour diminuer le nombre d'instance).  
+Par conséquent, le nombre d'instance actif durant le week end est identique a celui programmé entre 21h00 et 07h00.
+
 
 ## Pubsub
 Le fameux service de publication de messages de **Google Cloud**.  
 Il s'avère qu'il n'est pas possible de lier directement **Cloud Functions** et **Cloud Scheduler**, ce dernier se connecte à un *Topic* **PubSub** qui est consommé par La **Cloud Function**.
+
 
 ## Cloud Function
 La partie la plus fun de l'article et celle qui fut le plus chronophage.  
@@ -113,6 +119,42 @@ function _validatePayload(payload) {
     }
     return payload;
 }
+```
+
+N'étant pas du tout développeur **NodeJs**, il s'avère que le code ci-dessus n'est pas parfait...Je m'en suis moi même rendu compte (d'autant plus qu'il génère des erreurs bien que, au final, la Cloud Function fait ce qu'on lui demande).
+
+Partant de ce constant, j'ai pris la liberté de convertir ce script **NodeJs** en **Python** (que je maîtrise beaucoup plus) pour obtenir certes le même résultat...mais exempt d'erreurs (et qui me permettrait, à l'avenir, de faire évoluer la **Cloud Function** plus facilement).  
+Voici le script final ci-dessous :  
+```python
+from googleapiclient import discovery
+from oauth2client.client import GoogleCredentials
+import datetime, logging, base64, json
+from string import Template
+
+
+def python_resize_region_instance_group(event, context):
+    # Répération du Payload de Pubsub
+    pubsub_message = base64.b64decode(event['data']).decode('utf-8')
+    # Conversion en objet JSON pour exploitation
+    message = json.loads(pubsub_message)
+    # Connexion au service Compute Engine
+    credentials = GoogleCredentials.get_application_default()
+    service = discovery.build('compute', 'v1', credentials=credentials)
+    try:
+        current_time = datetime.datetime.utcnow()
+        log_message = Template('Cloud Function was triggered on $time')
+        logging.info(log_message.safe_substitute(time=current_time))
+        # Démarrage de l'action "resize" du Group d'Instance Régional
+        resize_action = service.regionInstanceGroupManagers().resize(project=message['project'],
+                                                     region=message['region'],
+                                                     instanceGroupManager=message['name'],
+                                                     size=message['size'])
+        response = resize_action.execute
+        return response
+    except Exception as error:
+        log_message = Template('$error').substitute(error=error)
+        logging.error(log_message)
+
 ```
 
 ## Finalement
