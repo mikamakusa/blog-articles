@@ -339,7 +339,7 @@ spec:
           - <POD_IP_ADDRESS>
 ```
 
-A bientôt pour le prochain article, cette fois-ci il traitera de toutes les problématiques relatives au **cluster hardening**, à savoir : 
+A bientôt pour le prochain article, cette fois-ci il traitera de toutes les problématiques relatives au **cluster hardening**, à savoir :  
 - Les restrictions d'accès à l'API de **Kubernetes**,  
 - L'usage des **Role Based Access Control** dans le but de minimiser l'exposition,  
 - Le *fine tuning* des **ServiceAccounts**,  
