@@ -123,6 +123,7 @@ Première difficulté rencontrée...mais pas de panique, il y a toujours un moye
 Par la suite, j’ai également eu à coder :  
 
 - La génération des values des charts Helm de chaque schéma, incluant les configmaps et les secrets,  
+
 ```python
 from pathlib import Path
 import click, jinja2, random, sys, string, json
