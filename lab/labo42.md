@@ -1,7 +1,7 @@
 +++
 date = "2022-04-21T15:29:49+02:00"
 draft = "false"
-title = "Le Labo #36 | Provisionning de bases SQL avec Liquibase et ArgoCD"
+title = "Le Labo #37 | Provisionning de bases SQL avec Liquibase et ArgoCD"
 +++
 
 Je viens de réaliser que mon tout dernier article date de Juin 2021...presque un an sans publier quoi que ce soit, ça fait long.  

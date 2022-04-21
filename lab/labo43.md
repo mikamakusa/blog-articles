@@ -1,7 +1,7 @@
 +++
 date = "2021-09-02T15:29:49+02:00"
 draft = "false"
-title = "Le Labo #37 | Un petit tour du côté du framework Operator"
+title = "Le Labo #36 | Un petit tour du côté du framework Operator"
 +++
 
 # Framework Operator et déploiement de Thanos et Prometheus sur Kubernetes
