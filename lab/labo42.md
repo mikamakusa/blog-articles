@@ -1,6 +1,6 @@
 +++
-date = "2022-04-12T15:29:49+02:00"
-draft = false
+date = "2022-04-21T15:29:49+02:00"
+draft = "false"
 title = "Le Labo #36 | Provisionning de bases SQL avec Liquibase et ArgoCD"
 +++
 
