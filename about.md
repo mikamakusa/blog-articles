@@ -6,7 +6,24 @@ title = "A propos..de moi"
 +++
 
 # Experience
-**From May 2020 | Sfeir | Nantes**  
+**From Nov 2020 | SQUAD | Nantes**  
+**DevOps Cloud Architect**  
+**GIE IRIS - Systeme U | Dec 2020 - June 2021**  
+- **Vault** : PoC, documentation and acculturation  
+- **Terraform** : Code Review and evolution  
+- **Kubernetes/Rancher** : Application deployment  
+- **Observability**  
+
+**Nickel Bank | From July 2021**  
+- **Terraform** : Code Review and evolution  
+- **Observability** : Thanos / Grafana stack / Prometheus / Logstash  
+- **SQL Delivery** : Liquibase / ArgoCD
+- **Apigee-X** : PoC with IaC deployment
+- **Technical documentation**
+
+---
+
+**May 2020 - Nov 2020 | Sfeir | Nantes**  
 **Cloud Architect**  
 **Internal**:  
 - **Terraform**, **Ansible** and **Kubernetes** trainer  
