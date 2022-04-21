@@ -97,6 +97,7 @@ def generatechangeset(base_dir):
 ```
 
 - La création du changelog par dépôt.  
+
 ```python
 def generatechangelog(base_dir):
     counter = 1
@@ -113,7 +114,6 @@ def generatechangelog(base_dir):
                 tree2.write('%s/%s/changelog.xml' % (base_dir, scs), xml_declaration=True, encoding='utf-8')
             except OSError as error:
                 continue
-
 ```
 
 J’ai également remarqué un détail dans le nom de chaque schema : certains sont en majsucle, d’autre en minuscule, quelques uns avec la première lettre en majsucule et très peu écrits de manière « hybride » (mix entre majuscule et minuscule). Or, lors de la création des dépôts dans Gitlab, nous étions confrontés à une contrainte de nommage assez particulière qui rendait impossible la création de dépôts avec un nom identique en minuscule.  
