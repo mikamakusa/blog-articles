@@ -51,6 +51,6 @@ Fort de son expérience chez Renault autour des modèles de véhicules électriq
 
 ### Les Rumps
 En gros : des Speed talks.
-Impossible d'aborder un spped talk en particulier...car en 5 min difficile d'aborder un sujet en profondeur.  
+Impossible d'aborder un speed talk en particulier...car en 5 min difficile d'aborder un sujet en profondeur.  
 Certains ont assez bien survolé leur sujet.  
 Palme d'or à l'intervention de l'ANSSI qui a duré 15 secondes...pour annoncer qu'ils recrutent.
