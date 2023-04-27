@@ -32,7 +32,7 @@ Après leur intervention, la réponse semble être positive : ce type de contrô
 
 
 ### Hammerscope : Observing dram power consumption using rowhammer
-Venu tout droit des labos d’Intel, le duo israélien Yaakov Chien et Arie Haenel nous ont présenté Hammerscope, une technique permettant de mesurer la consommation d’énergie des modules de RAM grâce à Rowhammer.
+Venu tout droit des labos d’Intel, le duo israélien Yaakov Cohen et Arie Haenel nous ont présenté Hammerscope, une technique permettant de mesurer la consommation d’énergie des modules de RAM grâce à Rowhammer.
 Pour rappel, Rowhammer est une vulnérabilité matérielle affectant une grande partie des systèmes modernes. A haut niveau et en effectuant certains schémas d’accès à la mémoire un attaquant peut y insérer des bits sans même les écrire.
 Plus d’informations sont disponible [ici](https://angelosk.github.io/Papers/2022/hammerscope.pdf)
 
