@@ -101,6 +101,7 @@ DNS.1 = localhost
 
 ```bash
 ## Génération du certificat racine
+openssl genrsa -des3 -out rootCA.key 4096
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 365 -out rootCA.pem -config san.cnf
 openssl req -new -sha256 -nodes -out server.csr -newkey rsa:4096 -keyout server.key -config san.cnf
 ## Génération du certificat
