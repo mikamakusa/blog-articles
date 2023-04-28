@@ -116,7 +116,7 @@ La configuration **Nginx** est relativement simple...mais il ne faut surtout pas
 - **ssl_certificate** et **ssl_certificate_key** ou bien **Terraform** n'ira pas chercher ce que vous lui demanderez même si vous ne vous êtes pas trompé dans la localisation,  
 - **server_name**, sinon vous risqueriez d'enchainer les erreurs dans les logs,  
 - **root** afin de préciser avec **exactitude** l'emplacement du dossier racine qui sera recherché par **Terraform** dans **required_providers**,  
-- **default_type application/json** car les fichiers recherchés par terraform son principalement du json lors de l'*init*,  
+- **default_type application/json** car les fichiers recherchés par terraform sont principalement du json lors de l'*init*,  
 - **index index.json** car **nginx**, dans toute sa gentillesse, sert par défaut **index.html** si rien d'autre n'est précisé.  
 
 ```
@@ -164,8 +164,8 @@ registry.terraform.io
 Donc on commence par créer un repository **raw(hosted)** nommé **registry.terraform.io** pour y uploader les même fichiers en précisant le champs **Directory**.
 
 Concernant la configuration de Nginx ? Très peu de modifications à effectuer :  
-- **root** (dans **server**) est a supprimer,
-- Ajouter une ligne **proxy_pass** dans **location** est y indiquer l'URL de **Nexus** : proxy_pass http://<url_nexus>:<port>/repository  
+- **root** (dans **server**) est a supprimer,  
+- Ajouter une ligne **proxy_pass** dans **location** et y indiquer l'URL de **Nexus** : proxy_pass http://<url_nexus>:<port>/repository  
 
 Et...c'est tout...
 
