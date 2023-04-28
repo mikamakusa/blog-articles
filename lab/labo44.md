@@ -105,8 +105,8 @@ openssl genrsa -des3 -out rootCA.key 4096
 openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 365 -out rootCA.pem -config san.cnf
 openssl req -new -sha256 -nodes -out server.csr -newkey rsa:4096 -keyout server.key -config san.cnf
 ## Génération du certificat
-openssl x509 -req -in server.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateseial -out server.crt -days 365 -sha256 -config san.cnf
-openssl req -x509 -new -nodes -days 365 -keyout server.key -out server.crt -config san.cnf
+openssl req -new -sha256 -nodes -out server.csr -newkey rsa:4096 -keyout server.key -config san.cnf
+openssl x509 -req -in server.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out server.crt -days 500 -sha256 -extfile san.cnf
 ## Validation du certificat
 sudo cp server.crt /usr/local/share/ca-certificates/server.crt
 sudo update-ca-certificates --fresh
