@@ -24,8 +24,8 @@ title = "A propos..de moi"
 **Naval Group | From Feb 2023**
 - **Terraform** : Module code base and Private Registry  
 - **Packer** : Os Factory and Private Registry  
-- **Packer** : Packer Environment Tool : An utility to change *on the fly* the version of Packer installed on any server
-- **Gitlab-CI** : Code review and evolution for the *Continuous Delivery an Continuous Intergration* pipelines
+- **Packer** : Packer Environment Tool : An utility to change *on the fly* the version of Packer installed on any server  
+- **Gitlab-CI** : Code review and evolution for the *Continuous Delivery an Continuous Intergration* pipelines  
 - Technical documentation
 
 ---
