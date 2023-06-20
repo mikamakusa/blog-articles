@@ -7,19 +7,26 @@ title = "A propos..de moi"
 
 # Experience
 **From Nov 2020 | SQUAD | Nantes**  
-**DevOps Cloud Architect**  
+**DevOps Cloud Architect and Consultant Manager**  
 **GIE IRIS - Systeme U | Dec 2020 - June 2021**  
 - **Vault** : PoC, documentation and acculturation  
 - **Terraform** : Code Review and evolution  
 - **Kubernetes/Rancher** : Application deployment  
 - **Observability**  
 
-**Nickel Bank | From July 2021**  
+**Nickel Bank | July 2021 | Dec 2022**  
 - **Terraform** : Code Review and evolution  
 - **Observability** : Thanos / Grafana stack / Prometheus / Logstash  
-- **SQL Delivery** : Liquibase / ArgoCD
-- **Apigee-X** : PoC with IaC deployment
+- **SQL Delivery** : Liquibase / ArgoCD  
+- **Apigee-X** : PoC with IaC deployment  
 - **Technical documentation**
+
+**Naval Group | From Feb 2023**
+- **Terraform** : Module code base and Private Registry  
+- **Packer** : Os Factory and Private Registry  
+- **Packer** : Packer Environment Tool : An utility to change *on the fly* the version of Packer installed on any server
+- **Gitlab-CI** : Code review and evolution for the *Continuous Delivery an Continuous Intergration* pipelines
+- Technical documentation
 
 ---
 
