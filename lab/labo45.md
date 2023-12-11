@@ -10,7 +10,7 @@ Chez un client, j'ai eu la possibilité de découvrir une technologie liée au d
 Il faut savoir que ce projet n'a pas été initié par la fondation **Apache** (A l'origine de **Zookeeper**, que j'avais abordé il y a plusieurs années, ou de **Kafka**) mais par la **[NSA](https://fr.wikipedia.org/wiki/National_Security_Agency)** en 2006 qui a finalement libéré le projet en 2014 dans le cadre de son programme de transfer de technologie pour le confier à la **[fondation Apache](https://www.apache.org/)**.
 
 ## Le principe de NIFI
-**Apache NIFI** est une solution d'automatisation de gestion de données, en gros : un passez plat.  
+**Apache NIFI** est une solution d'automatisation de gestion de données, en gros : un passe plat.  
 Selon les **Processors** que vous allez définir sur l'interface, il va chercher la donnée (un fichier, une requête API, le contenu d'un bucket S3, du CSV, du JSON, etc...) et va l'envoyer sur sa destination finale (RabiitMQ, Kafka, JMS, PubSub, AMQP, etc...).  
 Le nombre de **¨Processors** est assez élevé et permet d'adresser de nombreux *use case* différents, afin de stocker et traiter localement ou sur les plateformes Cloud les plus connues.  
 D'ailleurs, des *templates* sont disponibles un peu partout sur Internet, notamment [ici](https://cwiki.apache.org/confluence/display/nifi/example+dataflow+templates) (sur une page **Confluence** de la **Fondation Apache**) ou bien [ici](https://community.cloudera.com/t5/Community-Articles/A-Collection-of-NiFi-Examples/ta-p/244334) (sur la page **Community** de **Cloudera**).  
