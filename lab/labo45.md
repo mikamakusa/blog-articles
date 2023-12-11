@@ -17,8 +17,11 @@ D'ailleurs, des *templates* sont disponibles un peu partout sur Internet, notamm
 
 De nombreuses applications, ou **Flow** sont possible parmi les suivantes :  
 - Conversion d'une entrée *CSV* en document *json* : 
+![img](/images/nifi-1.png){ width=50% }  
 - Ingestion de journaux de logs via *syslogs* pour stockage dans **HBase** :   
+![img](/images/nifi-2.png){ width=50% }  
 - Appel vers un webservice HTTP:  
+![img](/images/nifi-3.png){ width=50% } 
 
 Les exemples présentés ci-dessus ne sont pas exhaustifs, ils également éditables et importables dans votre instance **Apache NIFI**.
 
