@@ -8,11 +8,15 @@ title = "A propos..de moi"
 # Experience
 **From Nov 2020 | SQUAD | Nantes**  
 **DevOps Cloud Architect and Consultant Manager**  
-**GIE IRIS - Systeme U | Dec 2020 - June 2021**  
-- **Vault** : PoC, documentation and acculturation  
-- **Terraform** : Code Review and evolution  
-- **Kubernetes/Rancher** : Application deployment  
-- **Observability**  
+**Orange | From Dec 2023**  
+- Technical architecture documentation for projects
+
+**Naval Group | Feb 2023 | July 2023**  
+- **Terraform** : Modules (VMware Vsphere, Cisco IOSXE, Netbox) code base and Private Registry  
+- **Packer** : OS-Factory and Private Registry  
+- **Packer** : Packer Environment Tool : An utility to change *on the fly* the version of Packer installed on any server  
+- **Gitlab-CI** : Code review and evolution for the *Continuous Delivery an Continuous Intergration* pipelines  
+- **Technical documentation**
 
 **Nickel Bank | July 2021 | Dec 2022**  
 - **Terraform** : Code Review and evolution  
@@ -21,12 +25,11 @@ title = "A propos..de moi"
 - **Apigee-X** : PoC with IaC deployment  
 - **Technical documentation**
 
-**Naval Group | From Feb 2023**  
-- **Terraform** : Modules (VMware Vsphere, Cisco IOSXE, Netbox) code base and Private Registry  
-- **Packer** : OS-Factory and Private Registry  
-- **Packer** : Packer Environment Tool : An utility to change *on the fly* the version of Packer installed on any server  
-- **Gitlab-CI** : Code review and evolution for the *Continuous Delivery an Continuous Intergration* pipelines  
-- **Technical documentation**
+**GIE IRIS - Systeme U | Dec 2020 - June 2021**  
+- **Vault** : PoC, documentation and acculturation  
+- **Terraform** : Code Review and evolution  
+- **Kubernetes/Rancher** : Application deployment  
+- **Observability**  
 
 ---
 
