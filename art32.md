@@ -10,7 +10,7 @@ Mais la révolution passe-t-elle par l'utilisation d'un service en ligne ou par 
 
 N'étant pas un grand fan de l'intelligence artificielle générative sans pour autant être traumatisé par les films de la saga Terminator, j'ai tout de même décidé de me pencher sur le sujet et j'ai croisé la route de **Jan**.
 
-**Jan** est un logiciel opensource, installable localement sur :
+**Jan** est un logiciel opensource, installable localement sur :  
 - [**Windows**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-win-x64-0.5.2.exe),  
 - [**Linux Debian**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-amd64-0.5.2.deb) ou [**Linux AppImage**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-x86_64-0.5.2.AppImage) et  
 - [**MacOS Intel**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-x64-0.5.2.dmg) ou [**MacOS Silicon**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-arm64-0.5.2.dmg), inclue une interface relativement simple à utiliser, un modèle d'API mais pas de LLM prédéfini. Il est possible de le connecter aux modèles les plus reconnus tels que ceux de :  
@@ -27,7 +27,7 @@ L'interface du logiciel est très épurée : quatres icônes sur la gauche, auta
 *mon avis* : A part le visionnage des journaux d'événements que j'aurais intégré directement dans l'interface, je n'ai aucune objection particulière.
 
 ### Le HUB
-Il s'agit de la fonctionnalité qui servira à télécharger les différents modèles disponibles avec des indications sur le poids du modèle et, très important, sur sa rapidité par rapport au matériel utilisé :
+Il s'agit de la fonctionnalité qui servira à télécharger les différents modèles disponibles avec des indications sur le poids du modèle et, très important, sur sa rapidité par rapport au matériel utilisé :  
 - *slow on your device*,  
 - *Not enough RAM*,  
 - *Recommended*  
