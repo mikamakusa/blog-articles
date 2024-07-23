@@ -13,7 +13,9 @@ N'étant pas un grand fan de l'intelligence artificielle générative sans pour 
 **Jan** est un logiciel opensource, installable localement sur :  
 - [**Windows**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-win-x64-0.5.2.exe),  
 - [**Linux Debian**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-amd64-0.5.2.deb) ou [**Linux AppImage**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-x86_64-0.5.2.AppImage) et  
-- [**MacOS Intel**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-x64-0.5.2.dmg) ou [**MacOS Silicon**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-arm64-0.5.2.dmg), inclue une interface relativement simple à utiliser, un modèle d'API mais pas de LLM prédéfini. Il est possible de le connecter aux modèles les plus reconnus tels que ceux de :  
+- [**MacOS Intel**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-x64-0.5.2.dmg) ou [**MacOS Silicon**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-arm64-0.5.2.dmg)  
+
+Inclue une interface relativement simple à utiliser, un modèle d'API mais pas de LLM prédéfini. Il est possible de le connecter aux modèles les plus reconnus tels que ceux de :  
 - **OpenAI**,  
 - **Mistral**,  
 - **Nvidia**  
