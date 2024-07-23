@@ -11,13 +11,13 @@ Mais la révolution passe-t-elle par l'utilisation d'un service en ligne ou par 
 N'étant pas un grand fan de l'intelligence artificielle générative sans pour autant être traumatisé par les films de la saga Terminator, j'ai tout de même décidé de me pencher sur le sujet et j'ai croisé la route de **Jan**.
 
 **Jan** est un logiciel opensource, installable localement sur :
-- [**Windows**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-win-x64-0.5.2.exe),
-- [**Linux Debian**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-amd64-0.5.2.deb) ou [**Linux AppImage**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-x86_64-0.5.2.AppImage) et
-- [**MacOS Intel**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-x64-0.5.2.dmg) ou [**MacOS Silicon**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-arm64-0.5.2.dmg), inclue une interface relativement simple à utiliser, un modèle d'API mais pas de LLM prédéfini. Il est possible de le connecter aux modèles les plus reconnus tels que ceux de :
-- **OpenAI**,
-- **Mistral**,
-- **Nvidia**
-- ou bien **Groq**.
+- [**Windows**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-win-x64-0.5.2.exe),  
+- [**Linux Debian**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-amd64-0.5.2.deb) ou [**Linux AppImage**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-linux-x86_64-0.5.2.AppImage) et  
+- [**MacOS Intel**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-x64-0.5.2.dmg) ou [**MacOS Silicon**](https://github.com/janhq/jan/releases/download/v0.5.2/jan-mac-arm64-0.5.2.dmg), inclue une interface relativement simple à utiliser, un modèle d'API mais pas de LLM prédéfini. Il est possible de le connecter aux modèles les plus reconnus tels que ceux de :  
+- **OpenAI**,  
+- **Mistral**,  
+- **Nvidia**  
+- ou bien **Groq**.  
 
 Cependant si vous privilégiez la transparence et la tracabilité des sources d'entraînement ainsi que le respect de votre vie privée, il est recommandé d'utiliser **Jan** avec votre propres données, de manière déconnectée...par contre, si votre ordinateur est un peu ancien, ne vous attendez pas à des performances digne d'une formule 1.
 
@@ -28,9 +28,9 @@ L'interface du logiciel est très épurée : quatres icônes sur la gauche, auta
 
 ### Le HUB
 Il s'agit de la fonctionnalité qui servira à télécharger les différents modèles disponibles avec des indications sur le poids du modèle et, très important, sur sa rapidité par rapport au matériel utilisé :
-- *slow on your device*,
-- *Not enough RAM*,
-- *Recommended*
+- *slow on your device*,  
+- *Not enough RAM*,  
+- *Recommended*  
 
 Il est évidemment important de sélectionner le modèle le plus adapté a sa configuration sous peine de mettre son ordinateur à genoux, de le voir rendre ses tripes et de devoir redémarrer violemment sa machine parce qu'elle ne reponds plus aux différents stimulis.  
 La connexion à Huggingface n'étant pas encore implémentée nativement, vous avez également la possibilité d'importer des modèles provenant de cette plateforme...ou bien des modèles *textuels* permettant de générer du texte ou des ligne de code dans différents langages.
