@@ -7,19 +7,19 @@ title = "Ce qui a ébranlé le monde l'IT en juillet 2024"
 
 Quatre événements ont secoué le monde de l'IT en Juillet 2024, il s'agit de :  
 - la panne mondiale provoquée par une mise à jour de Crowdstrike,  
-- l'attaque DDoS provoquant une panne chez Microsoft Azure,
-- L'exploitation d'une faille de sécurité dans les hyperviseurs VMWare ESXi,
+- l'attaque DDoS provoquant une panne chez Microsoft Azure,  
+- L'exploitation d'une faille de sécurité dans les hyperviseurs VMWare ESXi,  
 - Le Texas poursuit Meta pour utilisation de données biométriques sans consentement  
 
 
 ## Crowdstrike et la mise-à-jour qui a déclenché une apocalypse.
-Comment est-ce arrivé ?  
+### Comment est-ce arrivé ?  
 Cela serait dû a une "simple" erreur de code de Crowdstrike Falcon, celle-ci a provoqué un redémarrage en boucle de plus de huit millions de machines (ordinateurs personnels et serveur) équipé du système d'exploitation de Microsoft. Les versions n'ont pas été communiqué, mais nous savons que les versions les plus anciennes (Windows 95 ou NT) n'ont pas été touchées (1).
 
-Mais qui est Crowdstrike ?  
+### Mais qui est Crowdstrike ?  
 Peu connu du grand public avant les faits, Crowdstrike est une entreprise de cybersecurité Cloud Native implantée au Texas et fournissant des outils de réponses aux attaques via sa plateforme Crowdstrike Falcon Sensor.
 
-Quels furent les impacts ?  
+### Quels furent les impacts ?  
 On estime à plus de huit millions le nombre de machines touchées sans compter les dommages financiers non négligeables au sein de nombreux secteurs économique dont le plus touché fut celui de la santé (deux milliards de dollars), mais les secteurs bancaire, des transports et informatiques ont également subit le contrecoup de la panne.  
 Au final, les pertes financières devraient s'élever entre cinq et dix milliards de dollars, dont un peu moins de la moitié pour les seuls secteurs de la santé et bancaire.  
 Bien que le secteur de la santé serait le plus touché...le secteur accusant la perte par entreprise la plus élevée est celui des transports (143 millions de dollars contre 64). 
@@ -51,9 +51,10 @@ Sources :
 - https://arstechnica.com/security/2024/07/hackers-exploit-vmware-vulnerability-that-gives-them-hypervisor-admin/
 
 ## Meta contre l'état du Texas
-Le point de départ de cette affaire :  
+### Le point de départ de cette affaire :  
 En 2022, le procureur général du Texas, Ken Paxton, a poursuivi en justice la société Meta (Facebook, Instagram, Whatsapp, etc...) pour capture illegale de données biométriques. Le champs d'action de la plainte ne s'est limité qu'au Texas mais il est tout à fait probable que la société incriminée ait agit ainsi dans d'autres parties du monde.  
-Rappel des faits :  
+
+### Rappel des faits :  
 Le logiciel de reconnaissance faciale développé par Meta et introduit en 2011 en tant que fonctionnalité de suggestion de tags...scannait et enregistrait diverses données biométriques à partir des photos téléchargées sur Facebook (et probablement sur Instagram également). 
 Il faut savoir qu'au Texas, la loi CUBI (pour Capture or Use of Biometric Identifier), votée en 2007, interdit à toute personne, morale ou physique, de capturer les identifiants biométriques d'un individu à des fins commerciales à moins d'en informer explicitement ce dernier et d'obtenir son consentement éclairé.  
 Les identifiants biométriques comprennent le scan rétinien, l'empreinte vocale, la géométrie faciale, etc...
