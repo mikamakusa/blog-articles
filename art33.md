@@ -1,70 +1,175 @@
 +++
-date = "2024-08-12T15:29:49+02:00"
+date = "2024-10-18T15:29:49+02:00"
 draft = false
-title = "Ce qui a ébranlé le monde l'IT en juillet 2024"
+title = "La théorie du Chaos"
 
 +++
 
-Quatre événements ont secoué le monde de l'IT en Juillet 2024, il s'agit de :  
-- la panne mondiale provoquée par une mise à jour de Crowdstrike,  
-- l'attaque DDoS provoquant une panne chez Microsoft Azure,  
-- L'exploitation d'une faille de sécurité dans les hyperviseurs VMWare ESXi,  
-- Le Texas poursuit Meta pour utilisation de données biométriques sans consentement  
+Le **Chaos Engineering** est une pratique qui consiste à tester la résilience d'un système informatique en introduisant intentionnellement des défaillances ou des perturbations pour observer comment le système réagit et récupère.<br>
+L'objectif est de découvrir les faiblesses ou vulnérabilités avant leur apparitions dans des conditions réelles.<br>
+
+L'idée principale derrière le **Chaos Engineering** est que les systèmes modernes, en particulier les infrastructures distribuées ainsi que les microservices, sont complexes et sujets à des défaillances imprévues. <br>
+Il devient donc crucial de tester comment ils se comportent face à des interruptions, des pannes ou des comportements inattendus, afin de mieux comprendre leur résilience.
+
+## Revue des forces en présence
+### Gremlin
+**Gremlin** est l'un des outils les plus populaires dans le domaine du **Chaos Engineering**. <br>
+Il permet de créer des scénarios de perturbation sur différents types d’infrastructures (cloud, serveurs physiques, containers, etc.). <br>
+**Gremlin** offre des expériences de chaos à différents niveaux tels que :<br>
+- l'injection de latence réseau, <br>
+- La simulation de pannes de disque,<br> 
+- L'épuisement de ressources.<br>
+
+### Chaos Monkey
+**Chaos Monkey** fait partie de la suite **Simian Army** développée par **Netflix**. <br>
+Cet outil arrête aléatoirement des instances de services en production pour tester la résilience et l'auto-récupération des applications cloud. <br>
+L'objectif est de s'assurer que les services peuvent continuer à fonctionner même en cas de perte d'une ou plusieurs instances.
+
+### Litmus Chaos
+**LitmusChaos** est une plateforme open-source qui permet de réaliser des expériences de chaos sur des applications Kubernetes. <br>
+En fournissant un cadre en vue d'exécuter des tests de chaos sur des microservices dans un environnement Kubernetes, il offre une grande flexibilité dans le but de personnaliser les scénarios de test.
+
+### Chaos Toolkit
+**Chaos Toolkit** est un outil open-source qui permet de créer et d'exécuter des scénarios de chaos de manière programmable. <br>
+Il s'intègre relativement bien avec des environnements cloud ou containerisés et permet d’automatiser les tests afin d'évaluer la résilience d'une application.
+
+### Pumba
+**Pumba** est un outil spécialisé pour injecter du chaos dans des environnements Docker. <br>
+En simulant des pannes réseau, des arrêts ou des redémarrages de containers, ou encore en introduisant des délais de latence, il est en mesure de perturber le fonctionnement des conteneurs.
+
+### PowerfulSeal
+Cet outil est conçu pour tester la résilience des applications déployées sur des cluster **Kubernetes** en perturbant directement les pods ou les nœuds du cluster. <br>
+**PowerfulSeal** peut fonctionner en mode manuel pour tester des cas spécifiques ou en mode autonome pour injecter automatiquement des perturbations.
+
+### ToxiProxy
+**Toxiproxy** est un *proxy toxique* conçu pour simuler des défaillances réseau. <br>
+Il peut introduire des latences, limiter la bande passante ou même couper la connexion entre des services, ce qui permet de tester comment les applications réagissent à des conditions réseau dégradées.
+
+Parmi les fournisseurs de services Cloud, seuls **AWS**, **Azure** et **Oracle** proposent des services de **Chaos Engineering** via, respectivement** : <br>
+- **Fault Injection Simulator** au sein du **Resilience Hub** d'**AWS**,<br>
+- **Chaos Studio**,<br>
+- **Fault Injection**<br>
+
+Ces services permettent de tester l'injection d'erreurs au sein de services **PaaS** tels que les bases de données relationnelles, les services à base de conteneurs ou d'instances Cloud ainsi qu'au niveau du réseau (latence ou simulations de pannes).
+
+## Quels sont les principes fondamentaux ?
+
+1. **Définir un état stable** : Identifier ce que signifie le bon fonctionnement du système, souvent mesuré par des indicateurs clés de performance (KPI), comme le temps de réponse ou la disponibilité.
+2. **Créer des hypothèses** : Émettre des hypothèses sur ce qui pourrait se passer en cas de défaillance (par exemple, "si ce service tombe en panne, l'expérience utilisateur ne sera pas affectée").
+3. **Injecter des perturbations contrôlées** : Introduire de manière contrôlée des pannes (comme l'arrêt d'un serveur, la latence réseau accrue, la perte de données) pour tester les hypothèses.
+4. **Observer et analyser** : Surveiller comment le système réagit à la perturbation et comparer les résultats aux attentes. Si le système ne se comporte pas comme prévu, cela révèle une faiblesse qui peut être corrigée.
+5. **Automatisation et sécurité** : Les tests sont généralement automatisés, et l'objectif est de les exécuter de manière sécurisée en production ou dans un environnement de préproduction, sans affecter les utilisateurs finaux.
+
+## Types de cibles
+Les outils de **Chaos Engineering** visent différents types de cibles (infrastructure, services, réseau, etc.) en fonction de leur spécialisation. <br>
+Voici un aperçu des types de cibles sur lesquels il est possible d’exécuter des expériences de chaos pour chacun des outils mentionnés :<br>
+
+| **Chaos Engineering Tool** | Machines Virtuelles | Conteneurs | Services Réseau | Services Cloud | Instances Cloud | Base de données    | API                | 
+|----------------------------|---------------------| ---------- | --------------- | -------------- | -------------- |--------------------|--------------------|
+| **Gremlin**                | :white_check_mark:  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| **Chaos Monkey**           |                     |  |  |  |  :white_check_mark: |                    |                    |
+| **Litmus Chaos**           |                     | :white_check_mark: |  |  |  |                    |                    |
+| **Chaos Toolkit**          |                     |  | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |
+| **Pumba**                  |  | :white_check_mark: |  |  |  |                    |                    |
+| **PowerfulSeal**           |   | :white_check_mark: |  |  |  |                    |                    | 
+| **ToxiProxy**              |  |  | :white_check_mark: |  |  | :white_check_mark: | :white_check_mark: |
+| **AWS FIS**                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| **Azure Chaos Studio**     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| **Oracle Fault Injection** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 
 
-## Crowdstrike et la mise-à-jour qui a déclenché une apocalypse.
-### Comment est-ce arrivé ?  
-Cela serait dû a une "simple" erreur de code de Crowdstrike Falcon, celle-ci a provoqué un redémarrage en boucle de plus de huit millions de machines (ordinateurs personnels et serveur) équipé du système d'exploitation de Microsoft. Les versions n'ont pas été communiqué, mais nous savons que les versions les plus anciennes (Windows 95 ou NT) n'ont pas été touchées (1).
+En fonction des environnements et des infrastructures sur lesquels il sera appliqué : chaque outil de **Chaos Engineering** a ses cibles spécifiques. <br>
+Certains outils vont se concentrer beaucoup plus sur les containers et Kubernetes (Pumba, LitmusChaos, PowerfulSeal), tandis que d'autres permettent d'effectuer des tests sur une palette de services bien plus étendus.<br>
+Et puis, il reste une troisième catégorie : les services managés (**sur étagère** comme disent certains) dont le principal défaut reste le fait d'être limité à une plateforme Cloud.
 
-### Mais qui est Crowdstrike ?  
-Peu connu du grand public avant les faits, Crowdstrike est une entreprise de cybersecurité Cloud Native implantée au Texas et fournissant des outils de réponses aux attaques via sa plateforme Crowdstrike Falcon Sensor.
+## Les fonctionnalités specifiques de chacun
+**Gremlin** étant l'outil de **Chaos Engineering** le plus polyvalent du marché et, accessoirement, **Cloud Agnostique**, j'ai décidé de creuser un peu plus le sujet des fonctions spécifiques.<br>
 
-### Quels furent les impacts ?  
-On estime à plus de huit millions le nombre de machines touchées sans compter les dommages financiers non négligeables au sein de nombreux secteurs économique dont le plus touché fut celui de la santé (deux milliards de dollars), mais les secteurs bancaire, des transports et informatiques ont également subit le contrecoup de la panne.  
-Au final, les pertes financières devraient s'élever entre cinq et dix milliards de dollars, dont un peu moins de la moitié pour les seuls secteurs de la santé et bancaire.  
-Bien que le secteur de la santé serait le plus touché...le secteur accusant la perte par entreprise la plus élevée est celui des transports (143 millions de dollars contre 64). 
-L'impact a été tellement significatif pour les compagnies aériennes que l'effet s'est fait ressentir pendant près d'une semaine avec plus quarante mille vols annulés ou retardés, quelques soit la distance (2).   
-Ensuite en terme d'image, Crowdstrike a tenté de limiter les dégats en souhaitant dédommager leur client via une "carte cadeau" de dix dollars (3) ainsi que par l'intermédiaire du CEO, George Kutz, auprès de la Sécurité Intérieure de Etats Unis d'Amérique (4)...le tout entraînant une baisse de 32% du cours de l'action Crowdstrike et une plainte des investisseurs pour fausses déclarations à propos de leur plateforme Falcon (5) (6).
+- Les **FailureFlags**
+Il s'agit d'une fonctionnalité totalement inédite à **Gremlin** et compatible uniquement avec **AWS**.
+Utilisée pour tester la résilience des applications (aussi bien des **Lambda** que des assets déployés sur **Kubernetes** ou sur **ECS/Fargate**). Cette fonctionnalité permet aux équipes de **Chaos Engineering** d'injecter des défaillances directement dans le code des applications.<br><br>
 
-Sources :  
-- (1) : https://www.lemondeinformatique.fr/actualites/lire-comment-windows-95-a-preserve-des-entreprises-de-la-panne-crowdstrike-94355.html  
-- (2) : https://www.cio.com/article/3476789/crowdstrike-failure-what-you-need-to-know.html#:~:text=On%20July%2024%2C%20CrowdStrike%20reported,Channel%20File%20291%20content%20update  
-- (3) : https://techcrunch.com/2024/07/24/crowdstrike-offers-a-10-apology-gift-card-to-say-sorry-for-outage/?guccounter=1  
-- (4) : https://www.theregister.com/2024/07/23/crowdstrike_ceo_to_testify/  
-- (5) : https://www.lesechos.fr/tech-medias/hightech/apres-la-panne-mondiale-crowdstrike-poursuivi-en-justice-par-ses-actionnaires-2111878  
-- (6) : https://securityaffairs.com/166480/security/investors-have-sued-crowdstrike.html?utm_source=dlvr.it&utm_medium=tumblr
+- Les **Scenarios**
+Tout comme les **FailureFlag**, il s'agit d'une fonctionnalité propre à **Gremlin** grâce à laquelle il est possible de créer un workflow comprennant une ou plusieurs expériences de défaillances/pannes séquentiellement ou parallèlement, ce qui est idéal pour reproduire des situations réelles.<br><br>
 
-## Une attaque DDoS aurait provoqué une panne chez Microsoft
-En toute fin de mois de Juillet, certains services de Microsoft ont, de nouveau, subit une panne durant une petite dizaine d'heures. Nous avons appris par la suite que seuls certains services d'Azure (à savoir App Service, Application Insights, IoT Central, Log Search Alerts, Policy et le portail Azure lui-même) de même que certains services de Microsoft 365 (Admin Center, Intune, Entra, PowerBI et Power Platform) venaient d'être victime d'une attaque en déni de service.  
-Il s'avère, en fait, que ce n'est pas vraiment l'attaque en elle-même qui a causé le plus de dégats mais plutôt les systèmes de réponse à l'attaque qui ont amplifié l'impact au lieu de l'attenuer.  
+- Les **GameDays**
+Idéal pour tester les synergies entre équipes, cette fonctionnalité aide à organiser des événements afin de tester la résilience des systèmes et d'analyser les résultats pour des actions concrètes.<br><br>
 
-Source : https://www.securityweek.com/microsoft-says-azure-outage-caused-by-ddos-attack-response/
+- Les **Processus de terminaison aléatoires**
+Une fois n'est pas coutume, il s'agit d'une fonctionnalité propre à **Chaos Monkey**, la plateforme de **Netflix**, et est utilisée pour *tuer* des instances de manière aléatoire pour tester la capacité d'un système à résister à la perte de services ou de machines.<br><br>
 
+- Les **Attaques Kubernetes Spécificiques**
+Cette fois-ci, il s'agit d'une fonctionnalité propre à **LitmusChaos**. Elle permet de simuler des erreurs spécifiques à Kubernetes, comme des CrashLoopBackOff, ou des pannes de services sous forme de conteneurs.
 
-## Une faille de sécurité dans l'hyperviseur VMWare ESXi
-Vulnerabilities and Common Exposures, ou Vulnérabilités et Expositions Communes - en Français - est un dictionnaire des informations publiques relatives à la sécurité maintenu par [Mitre](https://attack.mitre.org/) et soutenu par le [Département de la Sécurité Intérieur de Etats Unis](https://www.dhs.gov/).  
-Notée CVE-2024-37085, il s'agit d'une faille de sécurité observée dans les hyperviseurs VMWare ESXi au sein d'un domaine Active Directory, et est utilisée par plusieurs opérateurs de ransomware pour effectuer des élévations de privilèges et, ainsi, chiffrer le système de fichier et par conséquent corrompre le fonctionnement général de l'hyperviseur, accéder aux machines virtuelles et extraire des données ou effectuer des mouvements latéraux.  
-En matière de cybersécurité, un mouvement latéral est une action visant à se déplacer du serveur infiltré vers une machine cible dont l'importance stratégique pourrait être plus importante.  
+## Gremlin, les FailureFlags et les Lambda
+Pour le moment limité à **AWS** et quatre langages (à savoir **Nodejs**, **Python**, **Java** et **Go**), c'est la fonctionnalité de **Gremlin** dont le ticket d'entrée est peut-être d'un niveau plus élevé que les autres.<br>
+Non seulement elle nécessite une bonne connaissance d'un langage en particulier mais également le fonctionnement des **Lambda** sur **AWS** et comment en développer.<br>
 
-Sources :  
-- https://www.microsoft.com/en-us/security/blog/2024/07/29/ransomware-operators-exploit-esxi-hypervisor-vulnerability-for-mass-encryption/  
-- https://arstechnica.com/security/2024/07/hackers-exploit-vmware-vulnerability-that-gives-them-hypervisor-admin/
+### Un exemple de code
+```python
+import os
+import logging
+import time
+from failureflags import FailureFlag, defaultBehavior
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.core import patch_all
 
-## Meta contre l'état du Texas
-### Le point de départ de cette affaire :  
-En 2022, le procureur général du Texas, Ken Paxton, a poursuivi en justice la société Meta (Facebook, Instagram, Whatsapp, etc...) pour capture illegale de données biométriques. Le champs d'action de la plainte ne s'est limité qu'au Texas mais il est tout à fait probable que la société incriminée ait agit ainsi dans d'autres parties du monde.  
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+patch_all()
 
-### Rappel des faits :  
-Le logiciel de reconnaissance faciale développé par Meta et introduit en 2011 en tant que fonctionnalité de suggestion de tags...scannait et enregistrait diverses données biométriques à partir des photos téléchargées sur Facebook (et probablement sur Instagram également). 
-Il faut savoir qu'au Texas, la loi CUBI (pour Capture or Use of Biometric Identifier), votée en 2007, interdit à toute personne, morale ou physique, de capturer les identifiants biométriques d'un individu à des fins commerciales à moins d'en informer explicitement ce dernier et d'obtenir son consentement éclairé.  
-Les identifiants biométriques comprennent le scan rétinien, l'empreinte vocale, la géométrie faciale, etc...
-Loin devant le record précédent s'élevant à 390 Millions de dollars déténu par Google contre une quarantaine d'états (fin 2022), avec cet accord dont le montant est d'1,4 Milliard de dollars, le procureur général du Texas à souhaité souligner l'importance de tenir les multinationales du secteur de l'IT responsable de toute violations des lois sur la confidentialité des données.  
+def customBehavior(ff, experiments):
+    logger.debug(experiments)
+    return defaultBehavior(ff, experiments)
 
-Sources :  
-- https://gbhackers.com/meta-paid-a-1-4-billion-settlement/  
-- https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-secures-14-billion-settlement-meta-over-its-unauthorized-capture  
+def lambda_handler(event, context):
+    start = time.time()
 
-Loi **CUBI** :  
-- https://www.texasattorneygeneral.gov/consumer-protection/file-consumer-complaint/consumer-privacy-rights/biometric-identifier-act  
-- https://statutes.capitol.texas.gov/docs/bc/htm/bc.503.htm
+    # Change 2: add a FailureFlag to your code
+    FailureFlag("http-ingress", {}, debug=True, behavior=customBehavior).invoke()
 
+    end = time.time()
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        'body': {
+            'processingTime': f"{start - end}",
+            'isActive': active,
+            'isImpacted': impacted
+        }
+    }
+```
+
+Bien que ce ne soit pas vraiment explicite, mais cet exemple de code aura besoin de plusieurs modules Python dont *setuptools* en plus de *failureflags* et d'*aws_xray_sdk*.<br>
+
+### Création de l'archive
+L'étape écriture du code est derrière nous...mais avant de la déployer, il y a quelques étapes à suivre au préalable : <br>
+- Le fichier *requirements.txt* dans lequel seront inscrit les modules python nécessaire à la **Lambda**,<br>
+- Installer en local les modules python, à l'aide de la commande `pip install -r requirements.txt -t .`,<br>
+- Télécharger le fichier *config.yaml* dans lequel on peut trouver **team_id**, **team_certificate** et **team_private_key**, sans oublier de décommenter **tags** pour y ajouter des tags personnalisés,<br>
+- Créer une archive *.zip* du contenant le code, les fichiers *config.yaml* et *requirements.txt ainsi que les modules Python.
+
+### Déployer la Lambda
+Déployer la **Lambda** sur la console **AWS** est relativement simple et peu chronophage, cependant il y a tout de même certains détails importants : <br>
+- Vous pouvez déploer la **Lamba** en chargeant l'archive *.zip* depuis le disque local ou depuis un stockage **S3**,<br>
+- Vous aurez besoin d'un **Layer** spécial **Gremlin** au format *arn:aws:lambda:\<region\>:\<version\>layer:gremlin-lambda-\<architecture\>*, par exemple : *arn:aws:lambda:us-east-2:044815399860:layer:gremlin-lambda-x86_64:13* (plus de détails [ici](https://www.gremlin.com/docs/failure-flags-lambda))
+- Vous aurez également besoin de définir les variables d'environnement : 
+  - **FAILURE_FLAGS_ENABLED** à **true** ou **1**, <br>
+  - **GREMLIN_LAMBDA_ENABLED** à **true** ou **1**,<br>
+  - **GREMLIN_CONFIG_FILE** à **/var/task/config.yaml**<br>
+
+### Exploiter les FailureFlags
+Vous pouvez invoquer la Lambda et tester différents scénarios en passant différents paramètres d'événements.
+Par exemple : 
+```bash
+# Introduire une latence de 2000 milisecondes
+aws lambda invoke --function-name myLambda --payload '{ "latency": 2000 }' output.txt
+# introduire entre 2 000 et 2 200 millisecondes de latence là où il existe une probabilité uniforme pseudo-aléatoire de tout retard entre 2 000 et 2 200.
+aws lambda invoke --function-name myLambda --payload '{"latency": {"ms": 2000,"jitter": 200}}' output.txt
+```
+
+## Conclusion
+Le but ultime du **Chaos Engineering** est de rendre les systèmes plus robustes, en s'assurant qu'ils continuent à fonctionner correctement même en cas de défaillances imprévues, et d'améliorer la confiance dans leur résilience en production.<br>
+L'offre d'outils spécialisés est vaste mais peu d'outils sortent vraiment du lot...tel que **Gremlin**, le plus polyvalent et Cloud agnostique d'entre eux et permet d'adresser de nombreux cas et usages.
