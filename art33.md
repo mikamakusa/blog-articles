@@ -45,7 +45,7 @@ Cet outil est conçu pour tester la résilience des applications déployées sur
 **Toxiproxy** est un *proxy toxique* conçu pour simuler des défaillances réseau. <br>
 Il peut introduire des latences, limiter la bande passante ou même couper la connexion entre des services, ce qui permet de tester comment les applications réagissent à des conditions réseau dégradées.
 
-Parmi les fournisseurs de services Cloud, seuls **AWS**, **Azure** et **Oracle** proposent des services de **Chaos Engineering** via, respectivement** : <br>
+Parmi les fournisseurs de services Cloud, seuls **AWS**, **Azure** et **Oracle** proposent des services de **Chaos Engineering** via, respectivement : <br>
 - **Fault Injection Simulator** au sein du **Resilience Hub** d'**AWS**,<br>
 - **Chaos Studio**,<br>
 - **Fault Injection**<br>
@@ -64,18 +64,12 @@ Ces services permettent de tester l'injection d'erreurs au sein de services **Pa
 Les outils de **Chaos Engineering** visent différents types de cibles (infrastructure, services, réseau, etc.) en fonction de leur spécialisation. <br>
 Voici un aperçu des types de cibles sur lesquels il est possible d’exécuter des expériences de chaos pour chacun des outils mentionnés :<br>
 
-| **Chaos Engineering Tool** | Machines Virtuelles | Conteneurs | Services Réseau | Services Cloud | Instances Cloud | Base de données    | API                | 
-|----------------------------|---------------------| ---------- | --------------- | -------------- | -------------- |--------------------|--------------------|
-| **Gremlin**                | :white_check_mark:  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| **Chaos Monkey**           |                     |  |  |  |  :white_check_mark: |                    |                    |
-| **Litmus Chaos**           |                     | :white_check_mark: |  |  |  |                    |                    |
-| **Chaos Toolkit**          |                     |  | :white_check_mark: | :white_check_mark: | :white_check_mark: |                    |                    |
-| **Pumba**                  |  | :white_check_mark: |  |  |  |                    |                    |
-| **PowerfulSeal**           |   | :white_check_mark: |  |  |  |                    |                    | 
-| **ToxiProxy**              |  |  | :white_check_mark: |  |  | :white_check_mark: | :white_check_mark: |
-| **AWS FIS**                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| **Azure Chaos Studio**     | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| **Oracle Fault Injection** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+- **Machines Virtuelles** (VMs) : Gremlin, AWS FIS, Azure Chaos Studio, OCI Fault Injection, Chaos Toolkit.<br>
+- **Containers** (Docker, Kubernetes) : Gremlin, LitmusChaos, Pumba, Chaos Toolkit, PowerfulSeal, AWS FIS, OCI Fault Injection.<br>
+- **Réseau** (latence, pannes) : ToxiProxy, Gremlin, Chaos Toolkit, LitmusChaos, PowerfulSeal, AWS FIS, Azure Chaos Studio, Pumba.<br>
+- **Services Cloud** : Gremlin, AWS FIS, Azure Chaos Studio, OCI Fault Injection.<br>
+- **Serverless** : AWS FIS, Azure Chaos Studio, Gremlin, Chaos Toolkit (via intégration API).<br>
+- **Bases de données/API** : ToxiProxy, Gremlin, AWS FIS, Chaos Toolkit.<br>
 
 
 En fonction des environnements et des infrastructures sur lesquels il sera appliqué : chaque outil de **Chaos Engineering** a ses cibles spécifiques. <br>
@@ -155,7 +149,7 @@ L'étape écriture du code est derrière nous...mais avant de la déployer, il y
 Déployer la **Lambda** sur la console **AWS** est relativement simple et peu chronophage, cependant il y a tout de même certains détails importants : <br>
 - Vous pouvez déploer la **Lamba** en chargeant l'archive *.zip* depuis le disque local ou depuis un stockage **S3**,<br>
 - Vous aurez besoin d'un **Layer** spécial **Gremlin** au format *arn:aws:lambda:\<region\>:\<version\>layer:gremlin-lambda-\<architecture\>*, par exemple : *arn:aws:lambda:us-east-2:044815399860:layer:gremlin-lambda-x86_64:13* (plus de détails [ici](https://www.gremlin.com/docs/failure-flags-lambda))
-- Vous aurez également besoin de définir les variables d'environnement : 
+- Vous aurez également besoin de définir les variables d'environnement : <br>
   - **FAILURE_FLAGS_ENABLED** à **true** ou **1**, <br>
   - **GREMLIN_LAMBDA_ENABLED** à **true** ou **1**,<br>
   - **GREMLIN_CONFIG_FILE** à **/var/task/config.yaml**<br>
